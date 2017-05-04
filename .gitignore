@@ -1,0 +1,8 @@
+*~
+*#
+*.hcp
+*.o
+*.out
+*.so
+irrlicht-1.8.4
+vgcore*
