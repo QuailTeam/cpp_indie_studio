@@ -5,7 +5,7 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Thu May  4 12:36:35 2017 arnaud.alies
-// Last update Thu May  4 18:13:08 2017 arnaud.alies
+// Last update Thu May  4 18:30:32 2017 arnaud.alies
 //
 
 #include "Core.hpp"
@@ -29,6 +29,7 @@ Core::Core()
 
 Core::~Core()
 {
+  delete state;
   device->drop();
 }
 

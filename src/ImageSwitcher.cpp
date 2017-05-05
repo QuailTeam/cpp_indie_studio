@@ -5,7 +5,7 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Thu May  4 16:54:24 2017 arnaud.alies
-// Last update Thu May  4 18:13:35 2017 arnaud.alies
+// Last update Fri May  5 13:52:00 2017 arnaud.alies
 //
 
 #include "ImageSwitcher.hpp"
@@ -32,6 +32,9 @@ ImageSwitcher::~ImageSwitcher()
 
 void ImageSwitcher::select(bool val)
 {
+  irr::core::dimension2d<irr::u32> dim = _texture->getSize();
+  irr::core::position2d<irr::s32> target;
+
   if (_selected == val)
     return ;
   _selected = val;
