@@ -5,7 +5,7 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Thu May  4 10:46:49 2017 arnaud.alies
-// Last update Sun May 21 15:16:42 2017 arnaud.alies
+// Last update Sun May 21 15:21:25 2017 arnaud.alies
 //
 
 #include <ctime>
@@ -22,9 +22,7 @@ Welcome::Welcome()
 Welcome::~Welcome()
 {
   if (_bombernode != nullptr)
-    {
-      _bombernode->remove();
-    }
+    _bombernode->remove();
   _staticText->remove();
 }
 

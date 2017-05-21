@@ -5,7 +5,7 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Thu May  4 10:45:13 2017 arnaud.alies
-// Last update Sun May 21 13:50:27 2017 arnaud.alies
+// Last update Sun May 21 15:46:51 2017 arnaud.alies
 //
 
 #ifndef MAINMENU_HPP_
@@ -14,13 +14,13 @@
 #include "Indie.h"
 #include "Core.hpp"
 #include "State.hpp"
-#include "ImageSwitcher.hpp"
+#include "ImageButton.hpp"
 
 class MainMenu : public State
 {
 private:
-  ImageSwitcher *_play;
-  ImageSwitcher *_setting;
+  ImageButton *_play;
+  ImageButton *_setting;
   Core *_core;
 public:
   MainMenu();

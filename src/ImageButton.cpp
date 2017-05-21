@@ -1,16 +1,16 @@
 //
-// ImageSwitcher.cpp for hue in /home/arnaud.alies/rendu/cpp_indie_studio
+// ImageButton.cpp for hue in /home/arnaud.alies/rendu/cpp_indie_studio
 // 
 // Made by arnaud.alies
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Thu May  4 16:54:24 2017 arnaud.alies
-// Last update Sun May 21 13:46:40 2017 arnaud.alies
+// Last update Sun May 21 15:45:53 2017 arnaud.alies
 //
 
-#include "ImageSwitcher.hpp"
+#include "ImageButton.hpp"
 
-ImageSwitcher::ImageSwitcher(Core *core,
+ImageButton::ImageButton(Core *core,
 			     const irr::io::path & src,
 			     const irr::io::path & isrc,
 			     irr::core::position2d<irr::s32> pos)
@@ -24,14 +24,14 @@ ImageSwitcher::ImageSwitcher(Core *core,
   this->select(false);
 }
 
-ImageSwitcher::~ImageSwitcher()
+ImageButton::~ImageButton()
 {
   _image->remove();
   _core->video->removeTexture(_texture);
   _core->video->removeTexture(_itexture);
 }
 
-void ImageSwitcher::select(bool val)
+void ImageButton::select(bool val)
 {
   irr::core::dimension2d<irr::u32> dim = _texture->getSize();
   irr::core::position2d<irr::s32> target;
