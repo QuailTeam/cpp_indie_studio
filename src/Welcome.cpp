@@ -5,7 +5,7 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Thu May  4 10:46:49 2017 arnaud.alies
-// Last update Sun May 21 13:49:06 2017 arnaud.alies
+// Last update Sun May 21 15:16:42 2017 arnaud.alies
 //
 
 #include <ctime>
@@ -21,6 +21,10 @@ Welcome::Welcome()
 
 Welcome::~Welcome()
 {
+  if (_bombernode != nullptr)
+    {
+      _bombernode->remove();
+    }
   _staticText->remove();
 }
 
@@ -37,6 +41,15 @@ State *Welcome::update()
 void Welcome::begin(Core* core)
 {
   _core = core;
+  _bombernode = nullptr;
+  _bombermesh = core->scene->getMesh("irrlicht-1.8.4/media/sydney.md2");
+  if (_bombermesh)
+    {
+      _bombernode = core->scene->addAnimatedMeshSceneNode(_bombermesh);
+      if (_bombernode)
+	_bombernode->setMaterialTexture(0, core->video->getTexture("irrlicht-1.8.4/media/sydney.bmp"));
+      core->scene->addCameraSceneNode(0, irr::core::vector3df(0,30,-40), irr::core::vector3df(0,5,0));
+    }
   _staticText = _core->gui->addStaticText(L"Hello World!",
 					  irr::core::rect<irr::s32>(10,10,260,22),
 					  true);
