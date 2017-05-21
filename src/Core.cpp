@@ -5,7 +5,7 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Thu May  4 12:36:35 2017 arnaud.alies
-// Last update Thu May  4 18:30:32 2017 arnaud.alies
+// Last update Sun May 21 13:46:24 2017 arnaud.alies
 //
 
 #include "Core.hpp"
@@ -44,7 +44,7 @@ void Core::run()
       scene->drawAll();
       buff = state->update();
       video->endScene();
-      if (buff != NULL)
+      if (buff != nullptr)
 	{
 	  delete state;
 	  buff->begin(this);

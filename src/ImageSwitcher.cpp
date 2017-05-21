@@ -5,7 +5,7 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Thu May  4 16:54:24 2017 arnaud.alies
-// Last update Sun May 21 13:23:27 2017 arnaud.alies
+// Last update Sun May 21 13:46:40 2017 arnaud.alies
 //
 
 #include "ImageSwitcher.hpp"
@@ -20,7 +20,7 @@ ImageSwitcher::ImageSwitcher(Core *core,
   _pos = pos;
   _texture = _core->video->getTexture(src);
   _itexture = _core->video->getTexture(isrc);
-  _image = NULL;
+  _image = nullptr;
   this->select(false);
 }
 
@@ -37,9 +37,9 @@ void ImageSwitcher::select(bool val)
   irr::core::position2d<irr::s32> target;
   irr::core::position2d<irr::s32> real_pos;
 
-  if (_selected == val && _image != NULL)
+  if (_selected == val && _image != nullptr)
     return ;
-  if (_image != NULL)
+  if (_image != nullptr)
     _image->remove();
   real_pos.X = _pos.X - (dim.Width / 2);
   real_pos.Y = _pos.Y - (dim.Width / 2);

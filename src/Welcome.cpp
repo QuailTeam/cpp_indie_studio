@@ -5,37 +5,38 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Thu May  4 10:46:49 2017 arnaud.alies
-// Last update Fri May 19 17:01:52 2017 arnaud.alies
+// Last update Sun May 21 13:49:06 2017 arnaud.alies
 //
 
+#include <ctime>
 #include <iostream>
 #include "Welcome.hpp"
+#include "MainMenu.hpp"
 
 Welcome::Welcome()
 {
-  _core = NULL;
+  _stime = static_cast<long int>(std::time(nullptr));
+  _core = nullptr;
 }
 
 Welcome::~Welcome()
 {
   _staticText->remove();
-  delete _play;
 }
 
 State *Welcome::update()
 {
-  _play->select(_core->receiver->keyState(K_SPACE));
-  return (NULL);
+  int ctime = static_cast<long int>(std::time(nullptr));
+  State *res = nullptr;
+  
+  if (ctime > _stime + DURATION)
+    res = new MainMenu();
+  return (res);
 }
 
 void Welcome::begin(Core* core)
 {
   _core = core;
-
-  _play = new ImageSwitcher(core,
-			    "./res/play.png",
-			    "./res/iplay.png",
-			    irr::core::position2d<irr::s32>(WIDTH / 2, HEIGHT / 2));
   _staticText = _core->gui->addStaticText(L"Hello World!",
 					  irr::core::rect<irr::s32>(10,10,260,22),
 					  true);

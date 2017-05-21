@@ -8,6 +8,7 @@ Sources =	$(SRC)main.cpp \
 		$(SRC)ImageSwitcher.cpp \
 		$(SRC)MyEventReceiver.cpp \
 		$(SRC)Welcome.cpp \
+		$(SRC)MainMenu.cpp \
 
 IRRLITCHT = ./irrlicht-1.8.4/
 
