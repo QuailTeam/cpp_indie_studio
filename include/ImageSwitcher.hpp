@@ -5,7 +5,7 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Thu May  4 16:23:11 2017 arnaud.alies
-// Last update Thu May  4 18:14:08 2017 arnaud.alies
+// Last update Sun May 21 13:18:15 2017 arnaud.alies
 //
 
 #ifndef IMAGE_SWITCHER_HPP_
