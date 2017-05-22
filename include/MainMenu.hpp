@@ -5,7 +5,7 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Thu May  4 10:45:13 2017 arnaud.alies
-// Last update Mon May 22 16:37:59 2017 arnaud.alies
+// Last update Mon May 22 17:08:05 2017 arnaud.alies
 //
 
 #ifndef MAINMENU_HPP_
@@ -21,6 +21,7 @@ class MainMenu : public State
 private:
   List *_list;
   Core *_core;
+  bool _swapped;
 public:
   MainMenu();
   virtual ~MainMenu();

@@ -5,7 +5,7 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Thu May  4 10:46:49 2017 arnaud.alies
-// Last update Mon May 22 16:38:47 2017 arnaud.alies
+// Last update Mon May 22 17:12:28 2017 arnaud.alies
 //
 
 #include <iostream>
@@ -13,6 +13,7 @@
 
 MainMenu::MainMenu() :
   _core(nullptr),
+  _swapped(false),
   _list(nullptr)
 {
   
@@ -25,6 +26,20 @@ MainMenu::~MainMenu()
 
 State *MainMenu::update()
 {
+  if (_core->receiver->keyState(K_LEFT))
+    {
+      if (!_swapped)
+	_list->next();
+      _swapped = true;
+    }
+  else if (_core->receiver->keyState(K_RIGHT))
+    {
+      if (!_swapped)
+	_list->prev();
+      _swapped = true;
+    }
+  else
+    _swapped = false;
   return (nullptr);
 }
 
