@@ -5,21 +5,22 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Thu May  4 16:54:24 2017 arnaud.alies
-// Last update Mon May 22 13:22:39 2017 arnaud.alies
+// Last update Mon May 22 14:30:02 2017 arnaud.alies
 //
 
 #include "Image.hpp"
 
+
 Image::Image(Core *core,
-	     const irr::io::path & src,
-	     irr::core::position2d<irr::s32> pos)
+	     irr::video::ITexture* texture,
+	     irr::core::position2d<irr::s32> pos) :
+  _texture(texture),
+  _core(core),
+  _image(nullptr)
 {
   irr::core::dimension2d<irr::u32> dim;
   irr::core::position2d<irr::s32> real_pos;
 
-  _core = core;
-  _texture = _core->video->getTexture(src);
-  _image = nullptr;
   if (_texture == nullptr)
     return ;
   dim = _texture->getSize();
@@ -28,8 +29,16 @@ Image::Image(Core *core,
   _image = _core->gui->addImage(_texture, real_pos);
 }
 
+Image::Image(Core *core,
+	     const irr::io::path & src,
+	     irr::core::position2d<irr::s32> pos)
+{
+  Image(core, core->video->getTexture(src), pos);
+}
+
 Image::~Image()
 {
-  _image->remove();
-  _core->video->removeTexture(_texture);
+  if (_image != nullptr)
+    _image->remove();
+  //_core->video->removeTexture(_texture);
 }

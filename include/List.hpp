@@ -5,7 +5,7 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Mon May 22 11:36:24 2017 arnaud.alies
-// Last update Mon May 22 12:03:15 2017 arnaud.alies
+// Last update Mon May 22 14:25:35 2017 arnaud.alies
 //
 
 #ifndef LIST_HPP_
@@ -14,19 +14,25 @@
 #include <vector>
 #include <string>
 #include "Indie.h"
-#include "Code.h"
+#include "Image.hpp"
+#include "Core.hpp"
 
 class List
 {
 private:
+  Core* _core;
   irr::core::position2d<irr::s32> _pos;
   irr::core::position2d<irr::s32> _inc;
-  std::vector<Image*> _vec;
+  std::vector<Image*> _images;
+  std::vector<irr::video::ITexture*> _textures;
+  std::vector<irr::video::ITexture*> _itextures;
 public:
-  List(irr::core::position2d<irr::s32> pos,
+  List(Core* core,
+       irr::core::position2d<irr::s32> pos,
        irr::core::position2d<irr::s32> inc);
   virtual ~List();
-  void	addButton(std::string, std::string);
+  bool addButton(std::string, std::string);
+  void render();
 };
 
 #endif

@@ -5,7 +5,7 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Thu May  4 16:23:11 2017 arnaud.alies
-// Last update Mon May 22 12:22:56 2017 arnaud.alies
+// Last update Mon May 22 14:25:59 2017 arnaud.alies
 //
 
 #ifndef IMAGE_HPP_
@@ -22,8 +22,11 @@ protected:
   irr::video::ITexture *_texture;
   irr::gui::IGUIImage *_image;
 public:
-  Image(Core *,
+  Image(Core*,
 	const irr::io::path &,
+	irr::core::position2d<irr::s32>);
+  Image(Core*,
+	irr::video::ITexture*,
 	irr::core::position2d<irr::s32>);
   virtual ~Image();
 };
