@@ -5,7 +5,7 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Thu May  4 10:45:13 2017 arnaud.alies
-// Last update Mon May 22 14:50:23 2017 arnaud.alies
+// Last update Mon May 22 16:37:59 2017 arnaud.alies
 //
 
 #ifndef MAINMENU_HPP_
@@ -14,14 +14,12 @@
 #include "Indie.h"
 #include "Core.hpp"
 #include "State.hpp"
-#include "Image.hpp"
 #include "List.hpp"
 
 class MainMenu : public State
 {
 private:
-  Image *_play;
-  Image *_setting;
+  List *_list;
   Core *_core;
 public:
   MainMenu();
