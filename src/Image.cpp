@@ -5,7 +5,7 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Thu May  4 16:54:24 2017 arnaud.alies
-// Last update Mon May 22 14:30:02 2017 arnaud.alies
+// Last update Mon May 22 16:33:42 2017 arnaud.alies
 //
 
 #include "Image.hpp"
@@ -29,16 +29,8 @@ Image::Image(Core *core,
   _image = _core->gui->addImage(_texture, real_pos);
 }
 
-Image::Image(Core *core,
-	     const irr::io::path & src,
-	     irr::core::position2d<irr::s32> pos)
-{
-  Image(core, core->video->getTexture(src), pos);
-}
-
 Image::~Image()
 {
   if (_image != nullptr)
     _image->remove();
-  //_core->video->removeTexture(_texture);
 }

@@ -5,7 +5,7 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Mon May 22 11:36:24 2017 arnaud.alies
-// Last update Mon May 22 14:25:35 2017 arnaud.alies
+// Last update Mon May 22 16:29:08 2017 arnaud.alies
 //
 
 #ifndef LIST_HPP_
@@ -26,13 +26,15 @@ private:
   std::vector<Image*> _images;
   std::vector<irr::video::ITexture*> _textures;
   std::vector<irr::video::ITexture*> _itextures;
+  void render();
+  void clear();
 public:
   List(Core* core,
        irr::core::position2d<irr::s32> pos,
        irr::core::position2d<irr::s32> inc);
   virtual ~List();
   bool addButton(std::string, std::string);
-  void render();
+  void update();
 };
 
 #endif
