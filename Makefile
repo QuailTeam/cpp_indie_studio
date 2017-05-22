@@ -5,7 +5,7 @@ SRC = ./src/
 
 Sources =	$(SRC)main.cpp \
 		$(SRC)Core.cpp \
-		$(SRC)ImageButton.cpp \
+		$(SRC)Image.cpp \
 		$(SRC)MyEventReceiver.cpp \
 		$(SRC)Welcome.cpp \
 		$(SRC)MainMenu.cpp \

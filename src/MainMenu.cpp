@@ -5,7 +5,7 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Thu May  4 10:46:49 2017 arnaud.alies
-// Last update Sun May 21 15:44:26 2017 arnaud.alies
+// Last update Mon May 22 13:24:38 2017 arnaud.alies
 //
 
 #include <iostream>
@@ -23,7 +23,6 @@ MainMenu::~MainMenu()
 
 State *MainMenu::update()
 {
-  _play->select(_core->receiver->keyState(K_SPACE));
   return (nullptr);
 }
 
@@ -33,12 +32,10 @@ void	MainMenu::begin(Core* core)
   irr::core::position2d<irr::s32> setting_pos(WIDTH / 2 + 50, HEIGHT / 2);
   _core = core;
 
-  _play = new ImageButton(core,
-			  "./res/play.png",
-			  "./res/iplay.png",
-			  play_pos);
-  _setting = new ImageButton(core,
-			     "./res/setting.png",
-			     "./res/isetting.png",
-			     setting_pos);
+  _play = new Image(core,
+		    "./res/play.png",
+		    play_pos);
+  _setting = new Image(core,
+		       "./res/setting.png",
+		       setting_pos);
 }
