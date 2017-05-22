@@ -5,7 +5,7 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Thu May  4 10:46:49 2017 arnaud.alies
-// Last update Mon May 22 17:29:27 2017 arnaud.alies
+// Last update Mon May 22 17:34:08 2017 arnaud.alies
 //
 
 #include <iostream>
@@ -50,7 +50,7 @@ void	MainMenu::begin(Core* core)
   _core = core;
   _list = new List(core,
 		   irr::core::position2d<irr::s32>(WIDTH / 2, HEIGHT / 1.2),
-		   irr::core::position2d<irr::s32>(50, 0));
+		   irr::core::position2d<irr::s32>(60, 0));
   _list->addButton("./res/play.png", "./res/iplay.png");
   _list->addButton("./res/setting.png", "./res/isetting.png");
   _list->update();
