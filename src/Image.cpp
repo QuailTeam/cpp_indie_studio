@@ -5,11 +5,11 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Thu May  4 16:54:24 2017 arnaud.alies
-// Last update Mon May 22 16:33:42 2017 arnaud.alies
+// Last update Tue May 23 17:57:24 2017 arnaud.alies
 //
 
+#include <stdexcept>
 #include "Image.hpp"
-
 
 Image::Image(Core *core,
 	     irr::video::ITexture* texture,
@@ -22,15 +22,17 @@ Image::Image(Core *core,
   irr::core::position2d<irr::s32> real_pos;
 
   if (_texture == nullptr)
-    return ;
+    throw std::runtime_error("Invalid texture");
+
   dim = _texture->getSize();
   real_pos.X = pos.X - (dim.Width / 2);
   real_pos.Y = pos.Y - (dim.Width / 2);
   _image = _core->gui->addImage(_texture, real_pos);
+  if (_image == nullptr)
+    throw std::runtime_error("Error loading texture");
 }
 
 Image::~Image()
 {
-  if (_image != nullptr)
-    _image->remove();
+  _image->remove();
 }
