@@ -12,8 +12,6 @@ d 1.000000
 illum 2
 map_Bump -bm 0.050000 Normal.png
 map_Kd  Albedo.png
-map_Ks  Metal.png
-map_Ns  Rough.png
 
 newmtl Metal
 Ns 96.078431
@@ -26,5 +24,3 @@ d 1.000000
 illum 2
 map_Bump -bm 0.050000 Normal.png
 map_Kd  Albedo.png
-map_Ks  Metal.png
-map_Ns  Rough.png
