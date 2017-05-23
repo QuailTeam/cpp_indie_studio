@@ -5,10 +5,11 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Thu May  4 10:46:49 2017 arnaud.alies
-// Last update Mon May 22 17:34:08 2017 arnaud.alies
+// Last update Tue May 23 14:12:07 2017 arnaud.alies
 //
 
 #include <iostream>
+#include "Bomberman.hpp"
 #include "MainMenu.hpp"
 
 MainMenu::MainMenu() :
@@ -42,6 +43,12 @@ State *MainMenu::update()
     }
   else
     _swapped = false;
+  //
+  if (_core->receiver->keyState(K_SPACE))
+    {
+      if (_list->selected() == 0)
+	return (new Bomberman());
+    }
   return (nullptr);
 }
 

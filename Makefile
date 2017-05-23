@@ -10,6 +10,7 @@ Sources =	$(SRC)main.cpp \
 		$(SRC)MyEventReceiver.cpp \
 		$(SRC)Welcome.cpp \
 		$(SRC)MainMenu.cpp \
+		$(SRC)Map.cpp \
 		$(SRC)Bomberman.cpp \
 
 IRRLITCHT = ./irrlicht-1.8.4/
