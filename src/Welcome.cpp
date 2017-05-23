@@ -5,7 +5,7 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Thu May  4 10:46:49 2017 arnaud.alies
-// Last update Sun May 21 15:21:25 2017 arnaud.alies
+// Last update Tue May 23 17:48:56 2017 arnaud.alies
 //
 
 #include <ctime>
@@ -21,8 +21,7 @@ Welcome::Welcome()
 
 Welcome::~Welcome()
 {
-  if (_bombernode != nullptr)
-    _bombernode->remove();
+  delete _bomb;
   _staticText->remove();
 }
 
@@ -30,7 +29,10 @@ State *Welcome::update()
 {
   int ctime = static_cast<long int>(std::time(nullptr));
   State *res = nullptr;
-  
+  irr::core::vector3df rot;
+
+  rot = _bomb->node->getRotation();
+  _bomb->node->setRotation(rot + irr::core::vector3df(1,1,0));
   if (ctime > _stime + DURATION)
     res = new MainMenu();
   return (res);
@@ -39,15 +41,9 @@ State *Welcome::update()
 void Welcome::begin(Core* core)
 {
   _core = core;
-  _bombernode = nullptr;
-  _bombermesh = core->scene->getMesh("irrlicht-1.8.4/media/sydney.md2");
-  if (_bombermesh)
-    {
-      _bombernode = core->scene->addAnimatedMeshSceneNode(_bombermesh);
-      if (_bombernode)
-	_bombernode->setMaterialTexture(0, core->video->getTexture("irrlicht-1.8.4/media/sydney.bmp"));
-      core->scene->addCameraSceneNode(0, irr::core::vector3df(0,30,-40), irr::core::vector3df(0,5,0));
-    }
+  
+  _core->scene->addCameraSceneNode(0, irr::core::vector3df(0,30,-40), irr::core::vector3df(0,5,0));
+  _bomb = new Mesh(_core, "./res/bomb/Bomb.obj", irr::core::vector3df(50,50,50));
   _staticText = _core->gui->addStaticText(L"Hello World!",
 					  irr::core::rect<irr::s32>(10,10,260,22),
 					  true);

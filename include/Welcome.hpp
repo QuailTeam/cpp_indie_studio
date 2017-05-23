@@ -5,7 +5,7 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Thu May  4 10:45:13 2017 arnaud.alies
-// Last update Tue May 23 14:08:07 2017 arnaud.alies
+// Last update Tue May 23 17:49:11 2017 arnaud.alies
 //
 
 #ifndef WELCOME_HPP_
@@ -14,13 +14,15 @@
 #include "Indie.h"
 #include "Core.hpp"
 #include "State.hpp"
+#include "Mesh.hpp"
 
-#define DURATION (1)
+#define DURATION (2)
 
 class Welcome : public State
 {
 private:
-  Core *_core;
+  Core* _core;
+  Mesh* _bomb;
   irr::gui::IGUIStaticText *_staticText;
   irr::scene::IAnimatedMesh* _bombermesh;
   irr::scene::IAnimatedMeshSceneNode* _bombernode;
