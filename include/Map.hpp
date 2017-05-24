@@ -5,13 +5,17 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Tue May 23 13:13:43 2017 arnaud.alies
-// Last update Tue May 23 14:06:25 2017 arnaud.alies
+// Last update Wed May 24 18:14:35 2017 arnaud.alies
 //
 
 #ifndef MAP_HPP_
 #define MAP_HPP_
 
 #include <vector>
+#include "Core.hpp"
+#include "Mesh.hpp"
+
+#define UNIT (100)
 
 enum EMap
   {
@@ -23,16 +27,20 @@ enum EMap
 class Map
 {
 private:
+  Core* _core;
   int _width;
   int _height;
   std::vector<EMap> _map;
+  std::vector<Mesh*> _meshes;
+  void clear();
 public:
-  Map(int width, int height);
+  Map(Core* core, int width, int height);
   virtual ~Map();
   int getWidth() const;
   int getHeight() const;
   EMap get(int x, int y) const;
   void print() const;
+  void update();
 };
 
 #endif

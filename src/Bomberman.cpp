@@ -5,7 +5,7 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Thu May  4 10:46:49 2017 arnaud.alies
-// Last update Tue May 23 14:14:14 2017 arnaud.alies
+// Last update Wed May 24 18:34:46 2017 arnaud.alies
 //
 
 #include <ctime>
@@ -23,14 +23,14 @@ Bomberman::~Bomberman()
 
 State *Bomberman::update()
 {
+  _map->update();
   return (nullptr);
 }
 
 void Bomberman::begin(Core* core)
 {
   _core = core;
+  _map = new Map(core, 12,12);
 
-  Map map(10,15);
-
-  map.print();
+  _map->print();
 }
