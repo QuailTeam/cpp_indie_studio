@@ -5,12 +5,13 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Thu May  4 12:29:18 2017 arnaud.alies
-// Last update Thu May  4 17:52:55 2017 arnaud.alies
+// Last update Wed May 24 13:22:07 2017 arnaud.alies
 //
 
 #ifndef CORE_HPP_
 #define CORE_HPP_
 
+#include <ICameraSceneNode.h>
 #include "Indie.h"
 #include "State.hpp"
 #include "MyEventReceiver.hpp"
@@ -20,11 +21,13 @@ class Core
 protected:
   State *state;
 public:
+  
   MyEventReceiver *receiver;
   irr::IrrlichtDevice* device;
   irr::video::IVideoDriver* video;
   irr::scene::ISceneManager* scene;
   irr::gui::IGUIEnvironment* gui;
+  irr::scene::ICameraSceneNode* cam;
 public:
   Core();
   virtual ~Core();

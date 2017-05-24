@@ -5,7 +5,7 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Thu May  4 12:36:35 2017 arnaud.alies
-// Last update Sun May 21 13:46:24 2017 arnaud.alies
+// Last update Wed May 24 13:23:02 2017 arnaud.alies
 //
 
 #include "Core.hpp"
@@ -22,7 +22,7 @@ Core::Core()
   video = device->getVideoDriver();
   scene = device->getSceneManager();
   gui = device->getGUIEnvironment();
-
+  cam = scene->addCameraSceneNode();
   state = new Welcome();
   state->begin(this);
 }
