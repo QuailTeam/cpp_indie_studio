@@ -5,7 +5,7 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Thu May  4 10:46:49 2017 arnaud.alies
-// Last update Wed May 24 14:16:49 2017 arnaud.alies
+// Last update Wed May 24 14:20:22 2017 arnaud.alies
 //
 
 #include <iostream>
@@ -54,6 +54,6 @@ void	MainMenu::begin(Core* core)
   _list->addButton("./res/setting.png", "./res/isetting.png");
   _list->update();
   _img = new Image(core,
-		   core->video->getTexture((char*)"./res/bomberman.png"),
+		   core->video->getTexture((char*)"./res/benladen.png"),
 		   irr::core::position2d<irr::s32>(WIDTH / 2, HEIGHT / 4));
 }
