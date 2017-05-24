@@ -5,7 +5,7 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Thu May  4 14:09:48 2017 arnaud.alies
-// Last update Thu May  4 15:46:06 2017 arnaud.alies
+// Last update Wed May 24 14:09:11 2017 arnaud.alies
 //
 
 #ifndef MY_EVENT_RECEIVER
@@ -15,7 +15,8 @@
 
 enum E_INPUT
   {
-    K_UP = 0,
+    K_UNK = 0,
+    K_UP,
     K_DOWN,
     K_LEFT,
     K_RIGHT,
@@ -28,11 +29,13 @@ class MyEventReceiver : public irr::IEventReceiver
 {
 private:
   bool _keyMap[K_MAX];
+  E_INPUT _lastKey;
 public:
   MyEventReceiver();
   virtual ~MyEventReceiver();
   virtual bool OnEvent(const irr::SEvent& event);
   virtual bool keyState(E_INPUT keyCode) const;
+  virtual E_INPUT lastKey();
 };
 
 

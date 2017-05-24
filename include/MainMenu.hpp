@@ -5,7 +5,7 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Thu May  4 10:45:13 2017 arnaud.alies
-// Last update Mon May 22 17:28:27 2017 arnaud.alies
+// Last update Wed May 24 14:16:56 2017 arnaud.alies
 //
 
 #ifndef MAINMENU_HPP_
@@ -23,7 +23,6 @@ private:
   List *_list;
   Image *_img;
   Core *_core;
-  bool _swapped;
 public:
   MainMenu();
   virtual ~MainMenu();

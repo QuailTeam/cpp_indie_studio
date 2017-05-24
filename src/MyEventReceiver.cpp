@@ -5,7 +5,7 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Thu May  4 14:11:36 2017 arnaud.alies
-// Last update Thu May  4 15:46:13 2017 arnaud.alies
+// Last update Wed May 24 14:14:06 2017 arnaud.alies
 //
 
 #include <iostream>
@@ -14,6 +14,7 @@
 
 MyEventReceiver::MyEventReceiver()
 {
+  _lastKey = K_UNK;
   for (irr::u32 i = 0; i < K_MAX; i += 1)
     {
       _keyMap[i] = false;
@@ -39,6 +40,8 @@ bool MyEventReceiver::OnEvent(const irr::SEvent& event)
   if (event.EventType == irr::EET_KEY_INPUT_EVENT)
     {
       input = map[event.KeyInput.Key];
+      if (event.KeyInput.PressedDown)
+	_lastKey = input;
       if (input < K_MAX)
 	{
 	  _keyMap[input] = event.KeyInput.PressedDown;
@@ -50,4 +53,13 @@ bool MyEventReceiver::OnEvent(const irr::SEvent& event)
 bool MyEventReceiver::keyState(E_INPUT keyCode) const
 {
   return _keyMap[keyCode];
+}
+
+E_INPUT MyEventReceiver::lastKey()
+{
+  E_INPUT res;
+
+  res = _lastKey;
+  _lastKey = K_UNK;
+  return (res);
 }
