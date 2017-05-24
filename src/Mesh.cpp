@@ -5,13 +5,16 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Tue May 23 17:24:51 2017 arnaud.alies
-// Last update Tue May 23 17:55:27 2017 arnaud.alies
+// Last update Wed May 24 10:46:36 2017 arnaud.alies
 //
 
 #include <stdexcept>
 #include "Mesh.hpp"
 
-Mesh::Mesh(Core* core, std::string path, irr::core::vector3df scale) :
+Mesh::Mesh(Core* core,
+	   std::string path,
+	   irr::core::vector3df scale,
+	   std::string texture_path) :
   _core(core)
 {
   mesh = _core->scene->getMesh(path.c_str());
@@ -20,6 +23,8 @@ Mesh::Mesh(Core* core, std::string path, irr::core::vector3df scale) :
   node = _core->scene->addAnimatedMeshSceneNode(mesh);
   if (node == nullptr)
     throw std::runtime_error("Error loading : " + path);
+  if (texture_path != "")
+    node->setMaterialTexture(0, _core->video->getTexture(texture_path.c_str()));
   node->setMaterialFlag(irr::video::EMF_LIGHTING,false);
   node->setScale(scale);
 }

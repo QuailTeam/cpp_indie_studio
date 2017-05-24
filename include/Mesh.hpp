@@ -5,7 +5,7 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Tue May 23 17:11:32 2017 arnaud.alies
-// Last update Tue May 23 17:38:54 2017 arnaud.alies
+// Last update Wed May 24 10:45:34 2017 arnaud.alies
 //
 
 #ifndef MESH_HPP_
@@ -21,7 +21,10 @@ protected:
 public:
   irr::scene::IAnimatedMesh* mesh;
   irr::scene::ISceneNode* node;
-  Mesh(Core* core, std::string path, irr::core::vector3df scale = irr::core::vector3df(1,1,1));
+  Mesh(Core* core,
+       std::string path,
+       irr::core::vector3df scale = irr::core::vector3df(1,1,1),
+       std::string texture_path= "");
   virtual ~Mesh();
 };
 
