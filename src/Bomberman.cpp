@@ -5,7 +5,7 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Thu May  4 10:46:49 2017 arnaud.alies
-// Last update Wed May 24 18:34:46 2017 arnaud.alies
+// Last update Thu May 25 14:54:10 2017 arnaud.alies
 //
 
 #include <ctime>
@@ -30,7 +30,11 @@ State *Bomberman::update()
 void Bomberman::begin(Core* core)
 {
   _core = core;
-  _map = new Map(core, 12,12);
+  _map = new Map(core, 13, 13);
 
-  _map->print();
+  //_map->print();
+  int width = _map->getWidth() * UNIT;
+  int height = _map->getHeight() * UNIT;
+  _core->cam->setPosition(irr::core::vector3df(width / 2, width, height / 2));
+  _core->cam->setTarget(irr::core::vector3df(width / 2, 0, height / 2));
 }

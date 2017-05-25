@@ -5,7 +5,7 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Tue May 23 13:46:12 2017 arnaud.alies
-// Last update Wed May 24 18:33:55 2017 arnaud.alies
+// Last update Thu May 25 14:51:39 2017 arnaud.alies
 //
 
 #include <iostream>
@@ -51,10 +51,16 @@ void Map::update()
 	    buff->node->setPosition(irr::core::vector3df(x * UNIT, 0, y * UNIT));
 	    _meshes.push_back(buff);
 	  }
+	else if (this->get(x, y) == M_EMPTY)
+          {
+            Mesh *buff = new Mesh(_core,
+                                  "./res/floor/Sci-Fi-Floor-1-OBJ.obj",
+                                  irr::core::vector3df(52,52,52),
+				  "./res/floor/floor.png");
+            buff->node->setPosition(irr::core::vector3df(x * UNIT, 0, y * UNIT));
+            _meshes.push_back(buff);
+          }
       }
-  _core->cam->setPosition(irr::core::vector3df(_width * UNIT, _width * UNIT, _width * UNIT));
-  _core->cam->setTarget(irr::core::vector3df(_width / 2 * UNIT ,0 ,_height / 2 * UNIT));
-
 }
 
 Map::~Map()
