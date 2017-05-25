@@ -5,7 +5,7 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Tue May 23 13:13:43 2017 arnaud.alies
-// Last update Wed May 24 18:14:35 2017 arnaud.alies
+// Last update Thu May 25 15:27:45 2017 arnaud.alies
 //
 
 #ifndef MAP_HPP_
@@ -30,9 +30,14 @@ private:
   Core* _core;
   int _width;
   int _height;
+  //std::vector<EMap> _loadedMap;
   std::vector<EMap> _map;
   std::vector<Mesh*> _meshes;
   void clear();
+protected:
+  void initMap();
+  Mesh* newWall(int x, int y);
+  Mesh* newFloor(int x, int y);
 public:
   Map(Core* core, int width, int height);
   virtual ~Map();

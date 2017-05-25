@@ -5,25 +5,49 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Tue May 23 13:46:12 2017 arnaud.alies
-// Last update Thu May 25 14:51:39 2017 arnaud.alies
+// Last update Thu May 25 15:27:03 2017 arnaud.alies
 //
 
 #include <iostream>
 #include "Map.hpp"
+
+void Map::initMap()
+{
+  for (int y = 0; y < _height; y += 1)
+    for (int x = 0; x < _width; x += 1)
+      {
+        if (x % 2 && y % 2)
+          _map.push_back(M_WALL);
+        else
+          _map.push_back(M_EMPTY);
+      }
+}
+
+Mesh* Map::newWall(int x, int y)
+{
+  Mesh *buff = new Mesh(_core,
+			"./res/crate/crate1.obj",
+			irr::core::vector3df(1,1,1),
+			"./res/crate/T_crate1_D.png");
+  buff->node->setPosition(irr::core::vector3df(x * UNIT, 0, y * UNIT));
+}
+
+Mesh* Map::newFloor(int x, int y)
+{
+  Mesh *buff = new Mesh(_core,
+			"./res/floor/Sci-Fi-Floor-1-OBJ.obj",
+			irr::core::vector3df(52,52,52),
+			"./res/floor/floor.png");
+  buff->node->setPosition(irr::core::vector3df(x * UNIT, 0, y * UNIT));
+  return (buff);
+}
 
 Map::Map(Core* core, int width, int height) :
   _core(core),
   _width(width),
   _height(height)
 {
-  for (int y = 0; y < _height; y += 1)
-    for (int x = 0; x < _width; x += 1)
-      {
-	if (x % 2 && y % 2)
-	  _map.push_back(M_WALL);
-	else
-	  _map.push_back(M_EMPTY);
-      }
+  this->initMap();
   this->update();
 }
 
@@ -44,23 +68,14 @@ void Map::update()
       {
 	if (this->get(x, y) == M_WALL)
 	  {
-	    Mesh *buff = new Mesh(_core,
-				  "./res/crate/crate1.obj",
-				  irr::core::vector3df(1,1,1),
-				  "./res/crate/T_crate1_D.png");
-	    buff->node->setPosition(irr::core::vector3df(x * UNIT, 0, y * UNIT));
-	    _meshes.push_back(buff);
-	  }
+	    _meshes.push_back(this->newWall(x, y));
+	 }
 	else if (this->get(x, y) == M_EMPTY)
           {
-            Mesh *buff = new Mesh(_core,
-                                  "./res/floor/Sci-Fi-Floor-1-OBJ.obj",
-                                  irr::core::vector3df(52,52,52),
-				  "./res/floor/floor.png");
-            buff->node->setPosition(irr::core::vector3df(x * UNIT, 0, y * UNIT));
-            _meshes.push_back(buff);
+	    _meshes.push_back(this->newFloor(x, y));
           }
       }
+  //_loadedMap = _map;
 }
 
 Map::~Map()
