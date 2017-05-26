@@ -5,7 +5,7 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Tue May 23 13:13:43 2017 arnaud.alies
-// Last update Thu May 25 15:27:45 2017 arnaud.alies
+// Last update Thu May 25 15:28:45 2017 arnaud.alies
 //
 
 #ifndef MAP_HPP_
@@ -20,8 +20,7 @@
 enum EMap
   {
     M_EMPTY = 0,
-    M_WALL,
-    M_PROP
+    M_WALL
   };
 
 class Map
