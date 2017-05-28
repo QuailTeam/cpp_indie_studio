@@ -5,7 +5,7 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Tue May 23 13:46:12 2017 arnaud.alies
-// Last update Sun May 28 15:30:11 2017 arnaud.alies
+// Last update Sun May 28 19:00:20 2017 arnaud.alies
 //
 
 #include <iostream>
@@ -80,7 +80,6 @@ void Map::update()
 	    _static_meshes.push_back(this->newFloor(x, y));
           }
       }
-  //_loadedMap = _map;
 }
 
 Map::~Map()
