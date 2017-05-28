@@ -5,7 +5,7 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Sun May 28 17:29:25 2017 arnaud.alies
-// Last update Sun May 28 18:35:21 2017 arnaud.alies
+// Last update Sun May 28 20:49:44 2017 arnaud.alies
 //
 
 #include "Bomb.hpp"
@@ -19,7 +19,7 @@ void Bomb::init(Core* core, Map *map)
   AEntity::init(core, map);
   _mesh = new Mesh(_core,
                    "./res/bomb/Bomb.obj",
-                   irr::core::vector3df(5,5,5),
+                   irr::core::vector3df(320, 320, 320),
                    "./res/bomb/Albedo.png");
 }
 
@@ -33,7 +33,6 @@ void Bomb::update()
   irr::core::vector3df rot;
   
   rot = _mesh->node->getRotation();
-  
   _mesh->node->setRotation(rot + irr::core::vector3df(1,0,0));
 }
 

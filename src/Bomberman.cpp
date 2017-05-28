@@ -5,7 +5,7 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Thu May  4 10:46:49 2017 arnaud.alies
-// Last update Sun May 28 19:02:04 2017 arnaud.alies
+// Last update Sun May 28 20:48:46 2017 arnaud.alies
 //
 
 #include <ctime>
@@ -43,5 +43,5 @@ void Bomberman::begin(Core* core)
 
   Bomb* bomb = new Bomb();
   bomb->init(_core, _map);
-  bomb->setPos(irr::core::vector3df(0,50,0));
+  bomb->setPos(irr::core::vector3df(3*UNIT,0,3*UNIT));
 }
