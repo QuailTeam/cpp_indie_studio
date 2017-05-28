@@ -5,7 +5,7 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Thu May  4 12:29:18 2017 arnaud.alies
-// Last update Wed May 24 13:22:07 2017 arnaud.alies
+// Last update Sun May 28 15:51:23 2017 arnaud.alies
 //
 
 #ifndef CORE_HPP_
@@ -19,10 +19,9 @@
 class Core
 {
 protected:
-  State *state;
+  State* state;
 public:
-  
-  MyEventReceiver *receiver;
+  MyEventReceiver* receiver;
   irr::IrrlichtDevice* device;
   irr::video::IVideoDriver* video;
   irr::scene::ISceneManager* scene;

@@ -5,7 +5,7 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Tue May 23 13:13:43 2017 arnaud.alies
-// Last update Thu May 25 15:28:45 2017 arnaud.alies
+// Last update Sun May 28 15:29:38 2017 arnaud.alies
 //
 
 #ifndef MAP_HPP_
@@ -20,7 +20,7 @@
 enum EMap
   {
     M_EMPTY = 0,
-    M_WALL
+    M_WALL,
   };
 
 class Map
@@ -31,7 +31,7 @@ private:
   int _height;
   //std::vector<EMap> _loadedMap;
   std::vector<EMap> _map;
-  std::vector<Mesh*> _meshes;
+  std::vector<Mesh*> _static_meshes;
   void clear();
 protected:
   void initMap();

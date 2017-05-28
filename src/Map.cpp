@@ -5,7 +5,7 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Tue May 23 13:46:12 2017 arnaud.alies
-// Last update Fri May 26 10:36:05 2017 arnaud.alies
+// Last update Sun May 28 15:30:11 2017 arnaud.alies
 //
 
 #include <iostream>
@@ -58,10 +58,10 @@ Map::Map(Core* core, int width, int height) :
 
 void Map::clear()
 {
-  while (_meshes.size() > 0)
+  while (_static_meshes.size() > 0)
     {
-      delete _meshes.at(_meshes.size() - 1);
-      _meshes.pop_back();
+      delete _static_meshes.at(_static_meshes.size() - 1);
+      _static_meshes.pop_back();
     }
 }
 
@@ -73,11 +73,11 @@ void Map::update()
       {
 	if (this->get(x, y) == M_WALL)
 	  {
-	    _meshes.push_back(this->newWall(x, y));
+	    _static_meshes.push_back(this->newWall(x, y));
 	 }
 	else if (this->get(x, y) == M_EMPTY)
           {
-	    _meshes.push_back(this->newFloor(x, y));
+	    _static_meshes.push_back(this->newFloor(x, y));
           }
       }
   //_loadedMap = _map;

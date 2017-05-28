@@ -13,6 +13,8 @@ Sources =	$(SRC)main.cpp \
 		$(SRC)Map.cpp \
 		$(SRC)Bomberman.cpp \
 		$(SRC)Mesh.cpp \
+		$(SRC)AEntity.cpp \
+		$(SRC)Bomb.cpp \
 
 IRRLITCHT = ./irrlicht-1.8.4/
 
