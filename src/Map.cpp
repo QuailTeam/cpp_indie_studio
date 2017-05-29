@@ -5,11 +5,16 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Tue May 23 13:46:12 2017 arnaud.alies
-// Last update Sun May 28 19:00:20 2017 arnaud.alies
+// Last update Mon May 29 20:24:38 2017 arnaud.alies
 //
 
 #include <iostream>
 #include "Map.hpp"
+
+irr::core::vector3df Map::getAbs(int x, int y)
+{
+  return (irr::core::vector3df(x * UNIT, 0, y * UNIT));
+}
 
 void Map::initMap()
 {
@@ -34,7 +39,7 @@ Mesh* Map::newWall(int x, int y)
 			"./res/crate/crate1.obj",
 			irr::core::vector3df(1,1,1),
 			"./res/crate/T_crate1_D.png");
-  buff->node->setPosition(irr::core::vector3df(x * UNIT, 0, y * UNIT));
+  buff->node->setPosition(Map::getAbs(x, y));
 }
 
 Mesh* Map::newFloor(int x, int y)
@@ -43,7 +48,7 @@ Mesh* Map::newFloor(int x, int y)
 			"./res/floor/Sci-Fi-Floor-1-OBJ.obj",
 			irr::core::vector3df(52,52,52),
 			"./res/floor/floor.png");
-  buff->node->setPosition(irr::core::vector3df(x * UNIT, 0, y * UNIT));
+  buff->node->setPosition(Map::getAbs(x, y));
   return (buff);
 }
 

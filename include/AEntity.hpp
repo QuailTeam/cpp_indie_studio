@@ -5,7 +5,7 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Fri May 26 10:41:20 2017 arnaud.alies
-// Last update Sun May 28 18:34:22 2017 arnaud.alies
+// Last update Mon May 29 20:29:39 2017 arnaud.alies
 //
 
 #ifndef AENTITY_HPP_
@@ -27,7 +27,7 @@ public:
   //pure virtual:
   virtual void setPos(irr::core::vector3df target) = 0;
   virtual irr::core::vector3df getPos() const = 0;
-  virtual void update() = 0;
+  virtual bool update() = 0;
 };
 
 #endif

@@ -5,17 +5,16 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Thu May  4 10:46:49 2017 arnaud.alies
-// Last update Wed May 24 17:55:55 2017 arnaud.alies
+// Last update Mon May 29 20:34:31 2017 arnaud.alies
 //
 
-#include <ctime>
 #include <iostream>
 #include "Welcome.hpp"
 #include "MainMenu.hpp"
 
 Welcome::Welcome()
 {
-  _stime = static_cast<long int>(std::time(nullptr));
+  _stime = Core::getTime();
   _core = nullptr;
 }
 
@@ -27,7 +26,7 @@ Welcome::~Welcome()
 
 State *Welcome::update()
 {
-  int ctime = static_cast<long int>(std::time(nullptr));
+  int ctime = Core::getTime();
   State *res = nullptr;
   irr::core::vector3df rot;
 

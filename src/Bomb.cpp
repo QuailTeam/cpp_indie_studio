@@ -5,13 +5,14 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Sun May 28 17:29:25 2017 arnaud.alies
-// Last update Sun May 28 20:49:44 2017 arnaud.alies
+// Last update Mon May 29 20:40:33 2017 arnaud.alies
 //
 
 #include "Bomb.hpp"
 
 Bomb::Bomb()
 {
+  _time = Core::getTime();
 }
 
 void Bomb::init(Core* core, Map *map)
@@ -28,17 +29,21 @@ Bomb::~Bomb()
   delete _mesh;
 }
 
-void Bomb::update()
+bool Bomb::update()
 {
+  int ctime = Core::getTime();
   irr::core::vector3df rot;
   
   rot = _mesh->node->getRotation();
-  _mesh->node->setRotation(rot + irr::core::vector3df(1,0,0));
+  _mesh->node->setRotation(rot + irr::core::vector3df(0,1,0));
+  if (_time + TIMER < ctime)
+    return (true);
+  return (false);
 }
 
 void Bomb::setPos(irr::core::vector3df target)
 {
-  return (_mesh->node->setPosition(target));
+  _mesh->node->setPosition(target + irr::core::vector3df(0,50,0));
 }
 
 irr::core::vector3df Bomb::getPos() const

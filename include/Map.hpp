@@ -5,7 +5,7 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Tue May 23 13:13:43 2017 arnaud.alies
-// Last update Sun May 28 15:29:38 2017 arnaud.alies
+// Last update Mon May 29 20:16:58 2017 arnaud.alies
 //
 
 #ifndef MAP_HPP_
@@ -40,6 +40,7 @@ protected:
 public:
   Map(Core* core, int width, int height);
   virtual ~Map();
+  static irr::core::vector3df getAbs(int x, int y);
   int getWidth() const;
   int getHeight() const;
   EMap get(int x, int y) const;

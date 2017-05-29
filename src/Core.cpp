@@ -5,11 +5,17 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Thu May  4 12:36:35 2017 arnaud.alies
-// Last update Wed May 24 18:24:14 2017 arnaud.alies
+// Last update Mon May 29 20:34:02 2017 arnaud.alies
 //
 
+#include <ctime>
 #include "Core.hpp"
 #include "Welcome.hpp"
+
+int Core::getTime()
+{
+  return (static_cast<long int>(std::time(nullptr)));
+}
 
 Core::Core()
 {

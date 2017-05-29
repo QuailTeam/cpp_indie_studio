@@ -5,7 +5,7 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Thu May  4 12:29:18 2017 arnaud.alies
-// Last update Sun May 28 15:51:23 2017 arnaud.alies
+// Last update Mon May 29 20:33:29 2017 arnaud.alies
 //
 
 #ifndef CORE_HPP_
@@ -31,6 +31,7 @@ public:
   Core();
   virtual ~Core();
   void run();
+  static int getTime();
 };
 
 #endif
