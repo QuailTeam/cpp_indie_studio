@@ -5,7 +5,7 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Sun May 28 16:09:08 2017 arnaud.alies
-// Last update Mon May 29 20:53:02 2017 arnaud.alies
+// Last update Mon May 29 21:54:33 2017 arnaud.alies
 //
 
 #ifndef BOMB_HPP_
@@ -14,7 +14,7 @@
 #include "AEntity.hpp"
 #include "Mesh.hpp"
 
-#define TIMER (3)
+#define TIMER (3000)
 
 class Bomb : public AEntity
 {

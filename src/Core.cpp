@@ -5,9 +5,10 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Thu May  4 12:36:35 2017 arnaud.alies
-// Last update Mon May 29 20:34:02 2017 arnaud.alies
+// Last update Mon May 29 21:54:06 2017 arnaud.alies
 //
 
+#include <chrono>
 #include <ctime>
 #include "Core.hpp"
 #include "Welcome.hpp"
@@ -15,6 +16,14 @@
 int Core::getTime()
 {
   return (static_cast<long int>(std::time(nullptr)));
+}
+
+int Core::getTimeMs()
+{
+  std::chrono::milliseconds ms =
+    std::chrono::duration_cast<std::chrono::milliseconds>
+    (std::chrono::system_clock::now().time_since_epoch());
+  return (ms.count());
 }
 
 Core::Core()
