@@ -5,7 +5,7 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Mon May 29 10:56:34 2017 arnaud.alies
-// Last update Tue May 30 14:36:38 2017 arnaud.alies
+// Last update Tue May 30 15:09:25 2017 arnaud.alies
 //
 
 #ifndef ENTITYMANAGER_HPP_
@@ -30,6 +30,8 @@ public:
   void update();
   template<class T>
   T* addEntity(irr::core::vector3df pos);
+  template<class T>
+  T* addEntityMap(int x, int y);
   void deleteEntity(AEntity*); /* Warning not safe to use inside entities */
   void queueDeleteEntity(AEntity*); /* safe to use inside entities */
 };
@@ -44,6 +46,12 @@ T* EntityManager::addEntity(irr::core::vector3df pos)
   ent->setPos(pos);
   _entities.push_back(ent);
   return (ent);
+}
+
+template<class T>
+T* EntityManager::addEntityMap(int x, int y)
+{
+  return (this->addEntity<T>(Map::getAbs(x, y)));
 }
 
 #endif
