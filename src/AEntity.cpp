@@ -5,7 +5,7 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Sun May 28 18:20:34 2017 arnaud.alies
-// Last update Mon May 29 20:26:32 2017 arnaud.alies
+// Last update Mon May 29 22:22:17 2017 arnaud.alies
 //
 
 #include "AEntity.hpp"
@@ -17,7 +17,7 @@ AEntity::AEntity() :
   
 }
 
-void AEntity::init(Core* core, Map *map)
+void AEntity::init(Core* core, Map* map)
 {
   _core = core;
   _map = map;
