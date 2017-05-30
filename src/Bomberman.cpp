@@ -5,7 +5,7 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Thu May  4 10:46:49 2017 arnaud.alies
-// Last update Mon May 29 20:54:42 2017 arnaud.alies
+// Last update Tue May 30 10:18:54 2017 arnaud.alies
 //
 
 #include <ctime>
@@ -15,28 +15,18 @@
 Bomberman::Bomberman() :
   _core(nullptr)
 {
+  _entity_manager = new	EntityManager(_core, _map);
 }
 
 Bomberman::~Bomberman()
 {
+  delete _entity_manager;
 }
 
 State *Bomberman::update()
 {
   //_map->update();
-  AEntity *ent;
-  auto i = std::begin(_entities);
-  while (i != std::end(_entities))
-    {
-      ent = *i;
-      if (ent->update())
-	{
-	  i = _entities.erase(i);
-	  delete ent;
-	}
-      else
-	++i;
-    }
+  _entity_manager->update();
   return (nullptr);
 }
 
@@ -52,20 +42,5 @@ void Bomberman::begin(Core* core)
 
   _core->cam->setPosition(irr::core::vector3df(width / 2, width, height / 2));
   _core->cam->setTarget(irr::core::vector3df(width / 2, 0, height / 2));
-  this->addEntity<Bomb>(irr::core::vector3df(3 * UNIT, 0, 3 * UNIT));
-}
-
-/*
-** Entity management
-*/
-
-template<class T>
-void Bomberman::addEntity(irr::core::vector3df pos)
-{
-  AEntity *ent;
-
-  ent = new T();
-  ent->init(_core, _map);
-  ent->setPos(pos);
-  _entities.push_back(ent);
+  _entity_manager->addEntity<Bomb>(irr::core::vector3df(3 * UNIT, 0, 3 * UNIT));
 }

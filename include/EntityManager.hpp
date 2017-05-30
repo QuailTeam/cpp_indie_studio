@@ -5,21 +5,29 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Mon May 29 10:56:34 2017 arnaud.alies
-// Last update Mon May 29 10:59:40 2017 arnaud.alies
+// Last update Tue May 30 10:10:25 2017 arnaud.alies
 //
 
-#ifndef GAME_MANAGER_HPP_
-#define GAME_MANAGER_HPP_
+#ifndef ENTITYMANAGER_HPP_
+#define ENTITYMANAGER_HPP_
 
 #include <vector>
+#include "Map.hpp"
+#include "Core.hpp"
 #include "AEntity.hpp"
 
-class GameManager
+class EntityManager
 {
+protected:
+  Map* _map;
+  Core* _core;
+  std::vector<AEntity*> _entities;
 public:
-  GameManager(Core* core);
-  virtual ~GameManager();
-
+  EntityManager(Core* core, Map* map);
+  virtual ~EntityManager();
+  void update();
+  template<class T>
+  void addEntity(irr::core::vector3df pos);
 };
 
 #endif
