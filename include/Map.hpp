@@ -5,7 +5,7 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Tue May 23 13:13:43 2017 arnaud.alies
-// Last update Mon May 29 20:16:58 2017 arnaud.alies
+// Last update Tue May 30 21:42:02 2017 arnaud.alies
 //
 
 #ifndef MAP_HPP_
@@ -41,9 +41,12 @@ public:
   Map(Core* core, int width, int height);
   virtual ~Map();
   static irr::core::vector3df getAbs(int x, int y);
+  static int getX(irr::core::vector3df pos);
+  static int getY(irr::core::vector3df pos);
   int getWidth() const;
   int getHeight() const;
   EMap get(int x, int y) const;
+  irr::core::vector3df getValidPos(irr::core::vector3df pos, irr::core::vector3df dir) const;
   void print() const;
   void update();
 };

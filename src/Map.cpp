@@ -5,7 +5,7 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Tue May 23 13:46:12 2017 arnaud.alies
-// Last update Mon May 29 20:24:38 2017 arnaud.alies
+// Last update Tue May 30 21:43:08 2017 arnaud.alies
 //
 
 #include <iostream>
@@ -14,6 +14,16 @@
 irr::core::vector3df Map::getAbs(int x, int y)
 {
   return (irr::core::vector3df(x * UNIT, 0, y * UNIT));
+}
+
+int Map::getX(irr::core::vector3df pos)
+{
+  return ((pos.X + UNIT / 2) / UNIT);
+}
+
+int Map::getY(irr::core::vector3df pos)
+{
+  return ((pos.Z + UNIT / 2) / UNIT);
 }
 
 void Map::initMap()
@@ -120,4 +130,13 @@ void Map::print() const
       }
       std::cout << std::endl;
     }
+}
+
+irr::core::vector3df Map::getValidPos(irr::core::vector3df pos, irr::core::vector3df dir) const
+{
+  irr::core::vector3df res = pos + dir;
+  
+  if (this->get(pos.X / UNIT, res.Z / UNIT) == M_EMPTY)
+    return (res);
+  return (pos);
 }

@@ -5,7 +5,7 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Tue May 30 15:13:35 2017 arnaud.alies
-// Last update Tue May 30 17:53:19 2017 arnaud.alies
+// Last update Tue May 30 21:44:41 2017 arnaud.alies
 //
 
 #include "Player.hpp"
@@ -46,7 +46,7 @@ void Player::update()
     }
   else if (_core->receiver->keyState(K_LEFT))
     {
-      this->setPos(this->getPos() + irr::core::vector3df(0, 0, _speed));
+      this->setPos(_map->getValidPos(this->getPos(), irr::core::vector3df(0, 0, _speed)));
     }
   else if (_core->receiver->keyState(K_RIGHT))
     {
