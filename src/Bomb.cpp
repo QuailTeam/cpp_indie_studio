@@ -5,10 +5,11 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Sun May 28 17:29:25 2017 arnaud.alies
-// Last update Tue May 30 11:50:02 2017 arnaud.alies
+// Last update Tue May 30 14:42:59 2017 arnaud.alies
 //
 
 #include "Bomb.hpp"
+#include "EntityManager.hpp"
 
 Bomb::Bomb()
 {
@@ -29,7 +30,7 @@ Bomb::~Bomb()
   delete _mesh;
 }
 
-bool Bomb::update()
+void Bomb::update()
 {
   int ctime = Core::getTimeMs();
   irr::core::vector3df rot;
@@ -38,8 +39,7 @@ bool Bomb::update()
   rot = _mesh->node->getRotation();
   _mesh->node->setRotation(rot + irr::core::vector3df(0, rot_speed, 0));
   if (_time + TIMER < ctime)
-    return (true);
-  return (false);
+    _entity_manager->queueDeleteEntity(this);
 }
 
 void Bomb::setPos(irr::core::vector3df target)
