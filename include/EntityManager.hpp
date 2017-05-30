@@ -5,7 +5,7 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Mon May 29 10:56:34 2017 arnaud.alies
-// Last update Tue May 30 11:50:58 2017 arnaud.alies
+// Last update Tue May 30 11:54:11 2017 arnaud.alies
 //
 
 #ifndef ENTITYMANAGER_HPP_
@@ -21,6 +21,7 @@ class EntityManager
 protected:
   Map* _map;
   Core* _core;
+public:
   std::vector<AEntity*> _entities;
 public:
   EntityManager(Core* core, Map* map);
