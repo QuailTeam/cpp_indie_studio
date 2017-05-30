@@ -5,7 +5,7 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Mon May 29 10:56:34 2017 arnaud.alies
-// Last update Tue May 30 11:30:08 2017 arnaud.alies
+// Last update Tue May 30 11:50:58 2017 arnaud.alies
 //
 
 #ifndef ENTITYMANAGER_HPP_
@@ -36,7 +36,7 @@ void EntityManager::addEntity(irr::core::vector3df pos)
   AEntity *ent;
 
   ent = new T();
-  ent->init(_core, _map);
+  ent->init(_core, _map, this);
   ent->setPos(pos);
   _entities.push_back(ent);
 }

@@ -5,7 +5,7 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Sun May 28 16:09:08 2017 arnaud.alies
-// Last update Mon May 29 21:54:33 2017 arnaud.alies
+// Last update Tue May 30 11:51:47 2017 arnaud.alies
 //
 
 #ifndef BOMB_HPP_
@@ -24,7 +24,7 @@ protected:
 public:
   Bomb();
   virtual ~Bomb();
-  void init(Core*, Map*);
+  void init(Core*, Map*, EntityManager*);
   bool update();
   void setPos(irr::core::vector3df target);
   irr::core::vector3df getPos() const;

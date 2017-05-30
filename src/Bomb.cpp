@@ -5,7 +5,7 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Sun May 28 17:29:25 2017 arnaud.alies
-// Last update Mon May 29 22:04:30 2017 arnaud.alies
+// Last update Tue May 30 11:50:02 2017 arnaud.alies
 //
 
 #include "Bomb.hpp"
@@ -15,9 +15,9 @@ Bomb::Bomb()
   _time = Core::getTimeMs();
 }
 
-void Bomb::init(Core* core, Map *map)
+void Bomb::init(Core* core, Map *map, EntityManager* entity_manager)
 {
-  AEntity::init(core, map);
+  AEntity::init(core, map, entity_manager);
   _mesh = new Mesh(_core,
                    "./res/bomb/Bomb.obj",
                    irr::core::vector3df(320, 320, 320),
