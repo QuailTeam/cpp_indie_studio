@@ -5,7 +5,7 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Tue May 30 15:13:35 2017 arnaud.alies
-// Last update Tue May 30 21:44:41 2017 arnaud.alies
+// Last update Wed May 31 10:36:30 2017 arnaud.alies
 //
 
 #include "Player.hpp"
@@ -32,25 +32,30 @@ Player::~Player()
   delete _mesh;
 }
 
+void Player::validMove(irr::core::vector3df dir)
+{
+  this->setPos(_map->getValidPos(this->getPos(), dir));
+}
+
 void Player::update()
 {
   //E_INPUT in;
   //in = _core->receiver->lastKey();
   if (_core->receiver->keyState(K_UP))
     {
-      this->setPos(this->getPos() + irr::core::vector3df(_speed, 0, 0));
+      this->validMove(irr::core::vector3df(_speed, 0, 0));
     }
   else if (_core->receiver->keyState(K_DOWN))
     {
-      this->setPos(this->getPos() + irr::core::vector3df(-_speed, 0, 0));
+      this->validMove(irr::core::vector3df(-_speed, 0, 0));
     }
   else if (_core->receiver->keyState(K_LEFT))
     {
-      this->setPos(_map->getValidPos(this->getPos(), irr::core::vector3df(0, 0, _speed)));
+      this->validMove(irr::core::vector3df(0, 0, _speed));
     }
   else if (_core->receiver->keyState(K_RIGHT))
     {
-      this->setPos(this->getPos() + irr::core::vector3df(0, 0, -_speed));
+      this->validMove(irr::core::vector3df(0, 0, -_speed));
     }
   //_mesh->node->setRotation(rot + irr::core::vector3df(0, rot_speed, 0));
 }

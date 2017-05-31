@@ -5,7 +5,7 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Tue May 23 13:46:12 2017 arnaud.alies
-// Last update Tue May 30 21:43:08 2017 arnaud.alies
+// Last update Wed May 31 10:54:43 2017 arnaud.alies
 //
 
 #include <iostream>
@@ -134,9 +134,29 @@ void Map::print() const
 
 irr::core::vector3df Map::getValidPos(irr::core::vector3df pos, irr::core::vector3df dir) const
 {
-  irr::core::vector3df res = pos + dir;
+  irr::core::vector3df res;
+  int int_dir;
   
+  res.Y = pos.Y;
+  if (dir.X != 0)
+    {
+      int_dir = (dir.X > 0 ? 1 : -1);
+      res.Z = Map::getAbs(0, Map::getY(pos)).Z;
+      if (this->get(Map::getX(pos) + int_dir, Map::getY(pos)) != M_EMPTY)
+	return (pos);
+      res.X = pos.X + dir.X;
+    }
+  else if (dir.Z != 0)
+    {
+      int_dir = (dir.Z > 0 ? 1 : -1);
+      res.X = Map::getAbs(Map::getX(pos), 0).X;
+      if (this->get(Map::getX(pos), Map::getY(pos) + int_dir) != M_EMPTY)
+	return (pos);
+      res.Z = pos.Z + dir.Z;
+    }
+  /*
   if (this->get(pos.X / UNIT, res.Z / UNIT) == M_EMPTY)
     return (res);
-  return (pos);
+  */
+  return (res);
 }
