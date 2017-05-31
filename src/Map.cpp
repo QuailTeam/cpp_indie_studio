@@ -5,7 +5,7 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Tue May 23 13:46:12 2017 arnaud.alies
-// Last update Wed May 31 13:23:35 2017 arnaud.alies
+// Last update Wed May 31 14:18:07 2017 arnaud.alies
 //
 
 #include <iostream>
@@ -24,6 +24,11 @@ int Map::getX(irr::core::vector3df pos)
 int Map::getY(irr::core::vector3df pos)
 {
   return ((pos.Z + UNIT / 2) / UNIT);
+}
+
+void Map::set(int x, int y, EMap block)
+{
+  _map.assign(x + (y * _width), block);
 }
 
 void Map::initMap()
