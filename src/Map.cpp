@@ -5,7 +5,7 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Tue May 23 13:46:12 2017 arnaud.alies
-// Last update Wed May 31 10:54:43 2017 arnaud.alies
+// Last update Wed May 31 11:09:55 2017 arnaud.alies
 //
 
 #include <iostream>
@@ -154,9 +154,5 @@ irr::core::vector3df Map::getValidPos(irr::core::vector3df pos, irr::core::vecto
 	return (pos);
       res.Z = pos.Z + dir.Z;
     }
-  /*
-  if (this->get(pos.X / UNIT, res.Z / UNIT) == M_EMPTY)
-    return (res);
-  */
   return (res);
 }

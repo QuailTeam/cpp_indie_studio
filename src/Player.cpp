@@ -5,11 +5,12 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Tue May 30 15:13:35 2017 arnaud.alies
-// Last update Wed May 31 10:36:30 2017 arnaud.alies
+// Last update Wed May 31 11:33:36 2017 arnaud.alies
 //
 
 #include "Player.hpp"
 #include "EntityManager.hpp"
+#include "Bomb.hpp"
 
 Player::Player() :
   _offset(irr::core::vector3df(0, 50, 0)),
@@ -39,8 +40,13 @@ void Player::validMove(irr::core::vector3df dir)
 
 void Player::update()
 {
-  //E_INPUT in;
-  //in = _core->receiver->lastKey();
+  E_INPUT in;
+
+  in = _core->receiver->lastKey();
+  if (in == K_SPACE)
+    {
+      _entity_manager->addEntityMap<Bomb>(Map::getX(this->getPos()), Map::getY(this->getPos()));
+    }
   if (_core->receiver->keyState(K_UP))
     {
       this->validMove(irr::core::vector3df(_speed, 0, 0));
