@@ -5,7 +5,7 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Tue May 30 15:13:35 2017 arnaud.alies
-// Last update Thu Jun  1 17:18:16 2017 arnaud.alies
+// Last update Thu Jun  1 17:39:37 2017 arnaud.alies
 //
 
 #include "Player.hpp"
@@ -45,7 +45,7 @@ void Player::update()
   in = _core->receiver->lastKey();
   if (in == K_SPACE)
     {
-      //_mesh->node->setMD2Animation(irr::scene::EMAT_SALUTE);
+      //_mesh->node->setMD2Animation(irr::scene::EMAT_CROUCH_DEATH);
       int x = Map::getX(this->getPos());
       int y = Map::getY(this->getPos());
       if (_map->get(x, y) == M_EMPTY)
