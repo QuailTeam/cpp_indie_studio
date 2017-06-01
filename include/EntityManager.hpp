@@ -5,7 +5,7 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Mon May 29 10:56:34 2017 arnaud.alies
-// Last update Tue May 30 15:09:25 2017 arnaud.alies
+// Last update Thu Jun  1 14:24:15 2017 arnaud.alies
 //
 
 #ifndef ENTITYMANAGER_HPP_
@@ -34,6 +34,7 @@ public:
   T* addEntityMap(int x, int y);
   void deleteEntity(AEntity*); /* Warning not safe to use inside entities */
   void queueDeleteEntity(AEntity*); /* safe to use inside entities */
+  std::vector<AEntity*> getInRange(irr::core::vector3df pos, float range);
 };
 
 template<class T>

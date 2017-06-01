@@ -5,7 +5,7 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Tue May 30 15:13:35 2017 arnaud.alies
-// Last update Thu Jun  1 14:19:06 2017 arnaud.alies
+// Last update Thu Jun  1 14:35:20 2017 arnaud.alies
 //
 
 #include "Player.hpp"
@@ -71,6 +71,7 @@ void Player::update()
       this->setRotation(irr::core::vector3df(0, 90, 0));
     }
   //_mesh->node->setRotation(rot + irr::core::vector3df(0, rot_speed, 0));
+  //pf("IN RANGE: %d\n", _entity_manager->getInRange(this->getPos(), UNIT).size());
 }
 
 void Player::setPos(irr::core::vector3df target)
