@@ -5,7 +5,7 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Sun May 28 17:29:25 2017 arnaud.alies
-// Last update Thu Jun  1 10:08:14 2017 arnaud.alies
+// Last update Thu Jun  1 10:43:35 2017 arnaud.alies
 //
 
 #include "Bomb.hpp"
@@ -23,22 +23,31 @@ void Bomb::init(Core* core, Map *map, EntityManager* entity_manager)
                    "./res/bomb/Bomb.obj",
                    irr::core::vector3df(320, 320, 320),
                    "./res/bomb/Albedo.png");
-  _map->set(3, 3, M_OBS);
 }
 
 
 Bomb::~Bomb()
 {
+  int x, y;
+
+  this->getPosMap(&x, &y);
+  if (_map->get(x, y) == M_OBS)
+    _map->set(x, y, M_EMPTY);
   delete _mesh;
 }
 
 void Bomb::update()
 {
-  int ctime = Core::getTimeMs();
-  irr::core::vector3df rot;
-  float rot_speed = (ctime - _time) / 50;
+  /* set map collision */
+  int x, y;
+  this->getPosMap(&x, &y);
+  if (_map->get(x, y) == M_EMPTY)
+    _map->set(x, y, M_OBS);
   
-  rot = _mesh->node->getRotation();
+  int ctime = Core::getTimeMs();
+  irr::core::vector3df rot = _mesh->node->getRotation();;
+  float rot_speed = (ctime - _time) / 50;
+
   _mesh->node->setRotation(rot + irr::core::vector3df(0, rot_speed, 0));
   if (_time + TIMER < ctime)
     _entity_manager->queueDeleteEntity(this);
