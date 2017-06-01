@@ -5,7 +5,7 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Sun May 28 18:20:34 2017 arnaud.alies
-// Last update Thu Jun  1 10:43:27 2017 arnaud.alies
+// Last update Thu Jun  1 14:43:41 2017 arnaud.alies
 //
 
 #include "AEntity.hpp"
@@ -29,4 +29,9 @@ void AEntity::getPosMap(int *x, int *y) const
 {
   *x = Map::getX(this->getPos());
   *y = Map::getY(this->getPos());
+}
+
+std::string AEntity::getType() const
+{
+  return ("entity");
 }

@@ -5,7 +5,7 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Tue May 30 14:56:43 2017 arnaud.alies
-// Last update Thu Jun  1 13:56:59 2017 arnaud.alies
+// Last update Thu Jun  1 14:50:48 2017 arnaud.alies
 //
 
 #ifndef PLAYER_HPP_
@@ -38,7 +38,8 @@ public:
   irr::core::vector3df getPos() const;
   void setPos(irr::core::vector3df target);
   irr::core::vector3df getRotation() const;
-  void setRotation(irr::core::vector3df rot); 
+  void setRotation(irr::core::vector3df rot);
+  std::string getType() const;
 };
 
 #endif

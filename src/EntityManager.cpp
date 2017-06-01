@@ -5,7 +5,7 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Tue May 30 09:56:46 2017 arnaud.alies
-// Last update Thu Jun  1 14:27:40 2017 arnaud.alies
+// Last update Thu Jun  1 14:52:31 2017 arnaud.alies
 //
 
 #include "EntityManager.hpp"
@@ -56,13 +56,16 @@ void EntityManager::queueDeleteEntity(AEntity* entity)
   _to_delete.push_back(entity);
 }
 
-std::vector<AEntity*> EntityManager::getInRange(irr::core::vector3df pos, float range)
+std::vector<AEntity*> EntityManager::getInRange(irr::core::vector3df pos,
+						float range,
+						std::string type)
 {
   std::vector<AEntity*> res;
 
   for (auto entity : _entities)
     {
-      if (entity->getPos().getDistanceFrom(pos) <= range)
+      if (entity->getPos().getDistanceFrom(pos) <= range
+	  && entity->getType() == type)
 	res.push_back(entity);
     }
   return (res);

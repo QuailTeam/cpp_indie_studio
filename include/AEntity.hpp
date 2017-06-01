@@ -5,7 +5,7 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Fri May 26 10:41:20 2017 arnaud.alies
-// Last update Thu Jun  1 10:19:01 2017 arnaud.alies
+// Last update Thu Jun  1 14:41:19 2017 arnaud.alies
 //
 
 #ifndef AENTITY_HPP_
@@ -32,6 +32,7 @@ public:
   virtual void getPosMap(int *x, int *y) const;
   virtual irr::core::vector3df getPos() const = 0;
   virtual void update() = 0;
+  virtual std::string getType() const;
 };
 
 #endif

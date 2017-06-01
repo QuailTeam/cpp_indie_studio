@@ -5,7 +5,7 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Tue May 30 15:13:35 2017 arnaud.alies
-// Last update Thu Jun  1 14:35:20 2017 arnaud.alies
+// Last update Thu Jun  1 14:43:56 2017 arnaud.alies
 //
 
 #include "Player.hpp"
@@ -92,4 +92,9 @@ irr::core::vector3df Player::getRotation() const
 void Player::setRotation(irr::core::vector3df rot)
 {
   _mesh->node->setRotation(rot);
+}
+
+std::string Player::getType() const
+{
+  return ("player");
 }
