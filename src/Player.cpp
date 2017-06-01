@@ -5,7 +5,7 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Tue May 30 15:13:35 2017 arnaud.alies
-// Last update Thu Jun  1 15:12:29 2017 arnaud.alies
+// Last update Thu Jun  1 17:18:16 2017 arnaud.alies
 //
 
 #include "Player.hpp"
@@ -45,16 +45,17 @@ void Player::update()
   in = _core->receiver->lastKey();
   if (in == K_SPACE)
     {
+      //_mesh->node->setMD2Animation(irr::scene::EMAT_SALUTE);
       int x = Map::getX(this->getPos());
       int y = Map::getY(this->getPos());
       if (_map->get(x, y) == M_EMPTY)
 	_entity_manager->addEntityMap<Bomb>(x, y);
-      _mesh->node->setMD2Animation(irr::scene::EMAT_STAND);
     }
   if (_core->receiver->keyState(K_UP))
     {
       this->validMove(irr::core::vector3df(_speed, 0, 0));
       this->setRotation(irr::core::vector3df(0, 0, 0));
+      _mesh->node->setMD2Animation(irr::scene::EMAT_RUN);
     }
   else if (_core->receiver->keyState(K_DOWN))
     {
@@ -70,6 +71,10 @@ void Player::update()
     {
       this->validMove(irr::core::vector3df(0, 0, -_speed));
       this->setRotation(irr::core::vector3df(0, 90, 0));
+    }
+  else
+    {
+      _mesh->node->setMD2Animation(irr::scene::EMAT_STAND);
     }
   //_mesh->node->setRotation(rot + irr::core::vector3df(0, rot_speed, 0));
   //pf("IN RANGE: %d\n", _entity_manager->getInRange(this->getPos(), UNIT).size());
