@@ -5,7 +5,7 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Tue May 30 15:13:35 2017 arnaud.alies
-// Last update Thu Jun  1 13:59:19 2017 arnaud.alies
+// Last update Thu Jun  1 14:19:06 2017 arnaud.alies
 //
 
 #include "Player.hpp"
@@ -45,7 +45,10 @@ void Player::update()
   in = _core->receiver->lastKey();
   if (in == K_SPACE)
     {
-      _entity_manager->addEntityMap<Bomb>(Map::getX(this->getPos()), Map::getY(this->getPos()));
+      int x = Map::getX(this->getPos());
+      int y = Map::getY(this->getPos());
+      if (_map->get(x, y) == M_EMPTY)
+	_entity_manager->addEntityMap<Bomb>(x, y);
     }
   if (_core->receiver->keyState(K_UP))
     {
