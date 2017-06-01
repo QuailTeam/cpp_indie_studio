@@ -5,7 +5,7 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Sun May 28 17:29:25 2017 arnaud.alies
-// Last update Wed May 31 14:10:59 2017 arnaud.alies
+// Last update Thu Jun  1 10:08:14 2017 arnaud.alies
 //
 
 #include "Bomb.hpp"
@@ -25,6 +25,7 @@ void Bomb::init(Core* core, Map *map, EntityManager* entity_manager)
                    "./res/bomb/Albedo.png");
   _map->set(3, 3, M_OBS);
 }
+
 
 Bomb::~Bomb()
 {
