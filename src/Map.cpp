@@ -5,7 +5,7 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Tue May 23 13:46:12 2017 arnaud.alies
-// Last update Thu Jun  1 10:00:28 2017 arnaud.alies
+// Last update Thu Jun  1 14:07:59 2017 arnaud.alies
 //
 
 #include <iostream>
@@ -52,7 +52,7 @@ Mesh* Map::newWall(int x, int y)
 {
   Mesh *buff = new Mesh(_core,
 			"./res/crate/crate1.obj",
-			irr::core::vector3df(1,1,1),
+			irr::core::vector3df(1.1,1.1,1.1),
 			"./res/crate/T_crate1_D.png");
   buff->node->setPosition(Map::getAbs(x, y));
 }
