@@ -5,7 +5,7 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Mon May 29 10:56:34 2017 arnaud.alies
-// Last update Thu Jun  1 14:51:20 2017 arnaud.alies
+// Last update Thu Jun  1 15:57:11 2017 arnaud.alies
 //
 
 #ifndef ENTITYMANAGER_HPP_
@@ -24,6 +24,7 @@ protected:
 public:
   std::vector<AEntity*> _entities;
   std::vector<AEntity*> _to_delete;
+  std::vector<AEntity*> _to_add;
 public:
   EntityManager(Core* core, Map* map);
   virtual ~EntityManager();
@@ -47,7 +48,7 @@ T* EntityManager::addEntity(irr::core::vector3df pos)
   ent = new T();
   ent->init(_core, _map, this);
   ent->setPos(pos);
-  _entities.push_back(ent);
+  _to_add.push_back(ent);
   return (ent);
 }
 

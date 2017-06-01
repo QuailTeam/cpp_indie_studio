@@ -5,7 +5,7 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Tue May 30 09:56:46 2017 arnaud.alies
-// Last update Thu Jun  1 14:52:31 2017 arnaud.alies
+// Last update Thu Jun  1 16:20:27 2017 arnaud.alies
 //
 
 #include "EntityManager.hpp"
@@ -30,6 +30,8 @@ void EntityManager::update()
     {
       deleteEntity(entity);
     }
+  _entities.insert(_entities.end(), _to_add.begin(), _to_add.end());
+  _to_add.clear();
   _to_delete.clear();
 }
 
