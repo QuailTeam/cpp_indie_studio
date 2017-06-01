@@ -5,7 +5,7 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Thu May  4 12:36:35 2017 arnaud.alies
-// Last update Mon May 29 21:54:06 2017 arnaud.alies
+// Last update Thu Jun  1 14:04:39 2017 arnaud.alies
 //
 
 #include <chrono>
@@ -29,7 +29,7 @@ int Core::getTimeMs()
 Core::Core()
 {
   receiver = new MyEventReceiver();
-  device = irr::createDevice(irr::video::EDT_SOFTWARE,
+  device = irr::createDevice(irr::video::EDT_OPENGL,
 			     irr::core::dimension2d<irr::u32>(WIDTH, HEIGHT), 16,
 			     false, false, false, receiver);
   //!device
