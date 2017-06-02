@@ -5,7 +5,7 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Sun May 28 17:29:25 2017 arnaud.alies
-// Last update Thu Jun  1 14:54:54 2017 arnaud.alies
+// Last update Fri Jun  2 16:52:30 2017 arnaud.alies
 //
 
 #include "Bomb.hpp"
@@ -61,4 +61,9 @@ void Bomb::setPos(irr::core::vector3df target)
 irr::core::vector3df Bomb::getPos() const
 {
   return (_mesh->node->getPosition());
+}
+
+std::string Bomb::getType() const
+{
+  return ("bomb");
 }

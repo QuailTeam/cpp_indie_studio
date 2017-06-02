@@ -5,7 +5,7 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Tue May 30 15:13:35 2017 arnaud.alies
-// Last update Fri Jun  2 16:48:16 2017 arnaud.alies
+// Last update Fri Jun  2 17:20:13 2017 arnaud.alies
 //
 
 #include "Player.hpp"
@@ -87,10 +87,9 @@ void Player::update()
     }
   else if (_state == S_PLANT)
     {
-      int x = Map::getX(this->getPos());
-      int y = Map::getY(this->getPos());
-      if (_map->get(x, y) == M_EMPTY)
-        _entity_manager->addEntityMap<Bomb>(x, y);
+      std::vector<AEntity*> bombs = _entity_manager->getInRange(this->getPos(), UNIT, "bomb");
+      if (bombs.size() <= 0)
+        _entity_manager->addEntityMap<Bomb>(Map::getX(this->getPos()), Map::getY(this->getPos()));
     }
   
   if (old_state != _state)
