@@ -5,7 +5,7 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Tue May 30 14:56:43 2017 arnaud.alies
-// Last update Thu Jun  1 14:50:48 2017 arnaud.alies
+// Last update Fri Jun  2 16:22:07 2017 arnaud.alies
 //
 
 #ifndef PLAYER_HPP_
@@ -17,7 +17,10 @@
 enum EState
   {
     S_IDLE = 0,
-    S_WALKING,
+    S_RUN_UP,
+    S_RUN_DOWN,
+    S_RUN_LEFT,
+    S_RUN_RIGHT,
     S_PLANT
   };
 
@@ -40,6 +43,7 @@ public:
   irr::core::vector3df getRotation() const;
   void setRotation(irr::core::vector3df rot);
   std::string getType() const;
+  virtual EState getState();
 };
 
 #endif
