@@ -18,6 +18,7 @@ Sources =	$(SRC)main.cpp \
 		$(SRC)Bomb.cpp \
 		$(SRC)Explosion.cpp \
 		$(SRC)Player.cpp \
+		$(SRC)Box.cpp \
 
 IRRLITCHT = ./irrlicht-1.8.4/
 

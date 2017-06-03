@@ -5,7 +5,7 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Sun May 28 17:29:25 2017 arnaud.alies
-// Last update Sat Jun  3 16:14:45 2017 arnaud.alies
+// Last update Sat Jun  3 20:41:19 2017 arnaud.alies
 //
 
 #include "Explosion.hpp"
@@ -64,6 +64,7 @@ void Explosion::update()
   /* destroy nearby entities */
   this->bombEntity("player");
   this->bombEntity("bomb");
+  this->bombEntity("box");
   
   /* set map collision */
   int x, y;
