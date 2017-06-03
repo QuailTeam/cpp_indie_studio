@@ -5,7 +5,7 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Tue May 30 15:13:35 2017 arnaud.alies
-// Last update Fri Jun  2 17:20:13 2017 arnaud.alies
+// Last update Sat Jun  3 16:46:04 2017 arnaud.alies
 //
 
 #include "Player.hpp"
@@ -30,7 +30,9 @@ void Player::init(Core* core, Map *map, EntityManager* entity_manager)
 
 Player::~Player()
 {
-  delete _mesh;
+  _mesh->node->setMD2Animation(irr::scene::EMAT_BOOM);
+  //delete _mesh;
+  
 }
 
 void Player::validMove(irr::core::vector3df dir)
