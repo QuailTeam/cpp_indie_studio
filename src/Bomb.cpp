@@ -5,9 +5,10 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Sun May 28 17:29:25 2017 arnaud.alies
-// Last update Sat Jun  3 15:44:58 2017 arnaud.alies
+// Last update Sat Jun  3 16:06:56 2017 arnaud.alies
 //
 
+#include "Map.hpp"
 #include "Explosion.hpp"
 #include "Bomb.hpp"
 #include "EntityManager.hpp"
@@ -29,28 +30,54 @@ void Bomb::init(Core* core, Map *map, EntityManager* entity_manager)
 
 bool Bomb::addExplosion(int x, int y)
 {
+  EMap p;
+
+  p = _map->get(x, y);
+  if (p == M_WALL)
+    return (false);
+  _entity_manager->addEntityMap<Explosion>(x, y);
+  if (p == M_OBS)
+    return (false);
   return (true);
 }
 
 Bomb::~Bomb()
 {
   int x, y;
-  
+
   this->getPosMap(&x, &y);
-  int explosion_x = x - range;
-  int explosion_y = y - range;
+  if (_map->get(x, y) == M_OBS)
+    _map->set(x, y, M_EMPTY);
+  
+  int explosion_x = x;
+  int explosion_y = y;
+  
   while (explosion_x <= x + range)
     {
-      _entity_manager->addEntityMap<Explosion>(explosion_x, y);
+      if (this->addExplosion(explosion_x, y) == false)
+	break;
       explosion_x += 1;
     }
   while (explosion_y <= y + range)
     {
-      _entity_manager->addEntityMap<Explosion>(x, explosion_y);
+      if (this->addExplosion(x, explosion_y) == false)
+	break;
       explosion_y += 1;
     }
-  if (_map->get(x, y) == M_OBS)
-    _map->set(x, y, M_EMPTY);
+  explosion_x = x;
+  explosion_y = y;
+  while (explosion_x + range >= x)
+    {
+      if (this->addExplosion(explosion_x, y) == false)
+	break;
+      explosion_x -= 1;
+    }
+  while (explosion_y + range >= y)
+    {
+      if (this->addExplosion(x, explosion_y) == false)
+	break;
+      explosion_y -= 1;
+    }
   delete _mesh;
 }
 

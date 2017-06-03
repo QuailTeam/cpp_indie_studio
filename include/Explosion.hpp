@@ -5,7 +5,7 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Sun May 28 16:09:08 2017 arnaud.alies
-// Last update Sat Jun  3 15:20:56 2017 arnaud.alies
+// Last update Sat Jun  3 16:14:41 2017 arnaud.alies
 //
 
 #ifndef EXPLOSION_HPP_
@@ -22,6 +22,8 @@ protected:
   irr::scene::IParticleSystemSceneNode* _particle;
   //irr::scene::IParticleEmitter* _emitter;
   int _time;
+private:
+  void bombEntity(std::string type);
 public:
   Explosion();
   virtual ~Explosion();

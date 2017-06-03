@@ -5,7 +5,7 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Sun May 28 17:29:25 2017 arnaud.alies
-// Last update Sat Jun  3 15:43:19 2017 arnaud.alies
+// Last update Sat Jun  3 16:14:45 2017 arnaud.alies
 //
 
 #include "Explosion.hpp"
@@ -32,7 +32,7 @@ void Explosion::init(Core* core, Map *map, EntityManager* entity_manager)
   irr::scene::IParticleEmitter* emitter =
     _particle->createBoxEmitter(irr::core::aabbox3d<irr::f32>(-8,0,-8,8,8,8),
 				irr::core::vector3df(0.0f,0.05f,0.0f),
-				680,620,
+				80,20,
 				irr::video::SColor(0,255,255,255),
 				irr::video::SColor(0,255,255,255), 1100,2000);
   emitter->setMinStartSize(irr::core::dimension2df(10.0f, 10.0f));
@@ -50,15 +50,21 @@ Explosion::~Explosion()
   _particle->remove();
 }
 
+void Explosion::bombEntity(std::string type)
+{
+  std::vector<AEntity*> ents = _entity_manager->getInRange(this->getPos(), UNIT, type);
+  for (auto ent : ents)
+    {
+      _entity_manager->queueDeleteEntity(ent);
+    }
+}
+
 void Explosion::update()
 {
   /* destroy nearby entities */
+  this->bombEntity("player");
+  this->bombEntity("bomb");
   
-  std::vector<AEntity*> _players = _entity_manager->getInRange(this->getPos(), UNIT, "player");
-  for (auto player : _players)
-    {
-      _entity_manager->queueDeleteEntity(player);
-    }
   /* set map collision */
   int x, y;
   this->getPosMap(&x, &y);
