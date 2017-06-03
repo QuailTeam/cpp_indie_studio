@@ -16,6 +16,7 @@ Sources =	$(SRC)main.cpp \
 		$(SRC)AEntity.cpp \
 		$(SRC)EntityManager.cpp \
 		$(SRC)Bomb.cpp \
+		$(SRC)Explosion.cpp \
 		$(SRC)Player.cpp \
 
 IRRLITCHT = ./irrlicht-1.8.4/

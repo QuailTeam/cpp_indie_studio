@@ -5,7 +5,7 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Sun May 28 16:09:08 2017 arnaud.alies
-// Last update Fri Jun  2 16:52:56 2017 arnaud.alies
+// Last update Sat Jun  3 15:45:30 2017 arnaud.alies
 //
 
 #ifndef BOMB_HPP_
@@ -14,13 +14,17 @@
 #include "AEntity.hpp"
 #include "Mesh.hpp"
 
-#define TIMER (3000)
+#define BOMB_TIMER (3000)
 
 class Bomb : public AEntity
 {
+private:
+  bool addExplosion(int x, int y);  
 protected:
   Mesh* _mesh;
   int _time;
+public:
+  int range;
 public:
   Bomb();
   virtual ~Bomb();

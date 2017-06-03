@@ -5,7 +5,7 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Tue May 23 13:46:12 2017 arnaud.alies
-// Last update Fri Jun  2 18:50:01 2017 arnaud.alies
+// Last update Sat Jun  3 15:19:54 2017 arnaud.alies
 //
 
 #include <iostream>
@@ -73,7 +73,7 @@ Map::Map(Core* core, int width, int height) :
   _height(height)
 {
   this->initMap();
-  //this->update();
+  this->update();
 }
 
 void Map::clear()
