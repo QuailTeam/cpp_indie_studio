@@ -5,7 +5,7 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Sun May 28 17:29:25 2017 arnaud.alies
-// Last update Sat Jun  3 20:40:53 2017 arnaud.alies
+// Last update Sat Jun  3 21:25:04 2017 arnaud.alies
 //
 
 #include "Map.hpp"
@@ -22,7 +22,7 @@ void Box::init(Core* core, Map *map, EntityManager* entity_manager)
   AEntity::init(core, map, entity_manager);
   _mesh = new Mesh(_core,
 		   "./res/crate/crate1.obj",
-		   irr::core::vector3df(1.1,0.7,1.1),
+		   irr::core::vector3df(1.1, 0.7, 1.1),
 		   "./res/crate/T_crate1_D.png");
 }
 
@@ -47,7 +47,7 @@ void Box::update()
 
 void Box::setPos(irr::core::vector3df target)
 {
-  _mesh->node->setPosition(target + irr::core::vector3df(0,50,0));
+  _mesh->node->setPosition(target);
 }
 
 irr::core::vector3df Box::getPos() const
