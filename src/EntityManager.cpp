@@ -5,7 +5,7 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Tue May 30 09:56:46 2017 arnaud.alies
-// Last update Sun Jun  4 10:57:00 2017 arnaud.alies
+// Last update Sun Jun  4 12:36:35 2017 arnaud.alies
 //
 
 #include "EntityManager.hpp"
@@ -19,6 +19,12 @@ EntityManager::EntityManager(Core* core, Map* map) :
 
 EntityManager::~EntityManager()
 {
+  this->update();//clears _to_add and _to_delete
+  while (_entities.size() > 0)
+    {
+      delete _entities.at(_entities.size() - 1);
+      _entities.pop_back();
+    }
 }
 
 void EntityManager::update()
@@ -72,4 +78,14 @@ std::vector<AEntity*> EntityManager::getInRange(irr::core::vector3df pos,
 	res.push_back(entity);
     }
   return (res);
+}
+
+bool EntityManager::exists(AEntity* ent)
+{
+  for (auto entity : _entities)
+    {
+      if (entity == ent)
+	return (true);
+    }
+  return (false);
 }

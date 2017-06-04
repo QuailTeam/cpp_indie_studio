@@ -5,7 +5,7 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Tue May 23 13:46:12 2017 arnaud.alies
-// Last update Sat Jun  3 21:19:57 2017 arnaud.alies
+// Last update Sun Jun  4 12:33:44 2017 arnaud.alies
 //
 
 #include <iostream>
@@ -76,6 +76,11 @@ Map::Map(Core* core, int width, int height) :
   this->update();
 }
 
+Map::~Map()
+{
+  this->clear();
+}
+
 void Map::clear()
 {
   while (_static_meshes.size() > 0)
@@ -100,11 +105,6 @@ void Map::update()
 	    _static_meshes.push_back(this->newFloor(x, y));
           }
       }
-}
-
-Map::~Map()
-{
-  this->clear();
 }
 
 int Map::getWidth() const

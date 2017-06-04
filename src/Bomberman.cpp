@@ -5,7 +5,7 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Thu May  4 10:46:49 2017 arnaud.alies
-// Last update Sat Jun  3 20:42:24 2017 arnaud.alies
+// Last update Sun Jun  4 12:36:52 2017 arnaud.alies
 //
 
 #include <ctime>
@@ -22,6 +22,7 @@ Bomberman::Bomberman() :
 Bomberman::~Bomberman()
 {
   delete _entity_manager;
+  delete _map;
 }
 
 State *Bomberman::update()
@@ -29,6 +30,22 @@ State *Bomberman::update()
   //_map->update();
   _entity_manager->update();
   return (nullptr);
+}
+
+void Bomberman::spawnBoxes()
+{
+  std::vector<AEntity*> in_range;
+
+  for (int y = 0; y < _map->getHeight(); y += 1)
+    for (int x = 0; x < _map->getWidth(); x += 1)
+      {
+	if (_map->get(x, y) == M_EMPTY)
+	  {
+	    in_range = _entity_manager->getInRange(Map::getAbs(x, y), UNIT * 2, "player");
+	    if (in_range.size() <= 0)
+	      _entity_manager->addEntityMap<Box>(x, y);
+	  }
+      }
 }
 
 void Bomberman::begin(Core* core)
@@ -40,10 +57,11 @@ void Bomberman::begin(Core* core)
   int width = _map->getWidth() * UNIT;
   int height = _map->getHeight() * UNIT;
 
-
   _core->cam->setPosition(irr::core::vector3df(width / 4, width, height / 2));
   _core->cam->setTarget(irr::core::vector3df(width / 2, 0, height / 2));
   //_entity_manager->addEntity<Bomb>(irr::core::vector3df(3 * UNIT, 0, 3 * UNIT));
-  _entity_manager->addEntityMap<Player>(3, 3);
-  _entity_manager->addEntityMap<Box>(3, 2);
+  _entity_manager->addEntityMap<Player>(1, 1);
+  _entity_manager->update();
+  //_entity_manager->addEntityMap<Box>(3, 2);
+  this->spawnBoxes();
 }

@@ -5,7 +5,7 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Mon May 29 10:56:34 2017 arnaud.alies
-// Last update Sun Jun  4 10:56:36 2017 arnaud.alies
+// Last update Sun Jun  4 11:25:48 2017 arnaud.alies
 //
 
 #ifndef ENTITYMANAGER_HPP_
@@ -39,6 +39,7 @@ public:
   std::vector<AEntity*> getInRange(irr::core::vector3df pos,
 				   float range,
 				   std::string type = "entity");
+  bool exists(AEntity* ent);
 };
 
 template<class T>

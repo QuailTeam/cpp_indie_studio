@@ -5,7 +5,7 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Tue May 30 15:13:35 2017 arnaud.alies
-// Last update Sun Jun  4 10:58:13 2017 arnaud.alies
+// Last update Sun Jun  4 11:34:30 2017 arnaud.alies
 //
 
 #include "Player.hpp"
@@ -15,7 +15,9 @@
 Player::Player() :
   _offset(irr::core::vector3df(0, 50, 0)),
   _state(S_IDLE),
-  _speed(10)
+  _speed(10),
+  _alive(true)
+  //_max_bombs(1)
 {
 }
 
@@ -36,6 +38,7 @@ Player::~Player()
 void Player::kill()
 {
   _mesh->node->setMD2Animation(irr::scene::EMAT_BOOM);
+  _alive = false;
 }
 
 void Player::validMove(irr::core::vector3df dir)
@@ -49,7 +52,6 @@ EState Player::getState()
   E_INPUT in;
 
   in = _core->receiver->lastKey();
-  
   if (_core->receiver->keyState(K_UP))
     res = S_RUN_UP;
   else if (_core->receiver->keyState(K_DOWN))
@@ -67,6 +69,8 @@ EState Player::getState()
 
 void Player::update()
 {
+  if (_alive == false)
+    return ;
   EState old_state = _state;
 
   _state = this->getState();
@@ -94,7 +98,10 @@ void Player::update()
     {
       std::vector<AEntity*> bombs = _entity_manager->getInRange(this->getPos(), UNIT, "bomb");
       if (bombs.size() <= 0)
-        _entity_manager->addEntityMap<Bomb>(Map::getX(this->getPos()), Map::getY(this->getPos()));
+        {
+	  _entity_manager->addEntityMap<Bomb>(Map::getX(this->getPos()),
+					      Map::getY(this->getPos()));
+        }
     }
   
   if (old_state != _state)
