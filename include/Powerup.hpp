@@ -5,7 +5,7 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Sun May 28 16:09:08 2017 arnaud.alies
-// Last update Sun Jun  4 15:16:24 2017 arnaud.alies
+// Last update Sun Jun  4 17:28:58 2017 arnaud.alies
 //
 
 #ifndef POWERUP_HPP_
@@ -17,6 +17,7 @@
 enum EPowerup
   {
     P_UNK = 0,
+    P_RANGE,
     P_SPEED
   };
 

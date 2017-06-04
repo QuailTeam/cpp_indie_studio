@@ -5,9 +5,10 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Sun May 28 17:29:25 2017 arnaud.alies
-// Last update Sun Jun  4 16:57:53 2017 arnaud.alies
+// Last update Sun Jun  4 17:53:20 2017 arnaud.alies
 //
 
+#include "random.hpp"
 #include "Map.hpp"
 #include "Powerup.hpp"
 #include "EntityManager.hpp"
@@ -15,7 +16,11 @@
 
 Powerup::Powerup()
 {
-  _power = P_SPEED;
+  int rand = randint(1, 100);
+  if (rand < 50)
+    _power = P_SPEED;
+  else
+    _power = P_RANGE;
 }
 
 void Powerup::init(Core* core, Map *map, EntityManager* entity_manager)
@@ -23,10 +28,21 @@ void Powerup::init(Core* core, Map *map, EntityManager* entity_manager)
   AEntity::init(core, map, entity_manager);
 
   if (_power == P_SPEED)
-    _mesh = new Mesh(_core,
-		     "./res/coin/dogecoin.obj",
-		     irr::core::vector3df(0.5, 0.5, 0.5),
-		     "./res/coin/dogecoin.png");
+    {
+      _mesh = new Mesh(_core,
+		       "./res/coin/dogecoin.obj",
+		       irr::core::vector3df(0.4, 0.4, 0.4),
+		       "./res/coin/speed.jpg");
+      _mesh->node->setRotation(irr::core::vector3df(180,0,100));
+    }
+  else if (_power == P_RANGE)
+    {
+      _mesh = new Mesh(_core,
+		       "./res/coin/dogecoin.obj",
+		       irr::core::vector3df(0.4, 0.4, 0.4),
+		       "./res/coin/power.png");
+      _mesh->node->setRotation(irr::core::vector3df(180,0,100));
+    }
   else
     _mesh = new Mesh(_core,
 		     "./res/bomb/Bomb.obj",

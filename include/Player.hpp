@@ -5,7 +5,7 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Tue May 30 14:56:43 2017 arnaud.alies
-// Last update Sun Jun  4 15:28:21 2017 arnaud.alies
+// Last update Sun Jun  4 17:24:15 2017 arnaud.alies
 //
 
 #ifndef PLAYER_HPP_
@@ -31,6 +31,7 @@ class Player : public AEntity
 protected:
   bool _alive;
   int _speed;
+  int _bomb_range;
   EState _state;
   Mesh* _mesh;
   //int _max_bombs;
@@ -51,6 +52,7 @@ public:
   virtual EState getState();
   void kill();
   void applyPowerup(EPowerup power);
+  void plantBomb();
 };
 
 #endif

@@ -5,7 +5,7 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Tue May 30 15:13:35 2017 arnaud.alies
-// Last update Sun Jun  4 15:30:48 2017 arnaud.alies
+// Last update Sun Jun  4 17:41:59 2017 arnaud.alies
 //
 
 #include "Player.hpp"
@@ -16,6 +16,7 @@ Player::Player() :
   _offset(irr::core::vector3df(0, 50, 0)),
   _state(S_IDLE),
   _speed(10),
+  _bomb_range(1),
   _alive(true)
   //_max_bombs(1)
 {
@@ -50,6 +51,19 @@ void Player::applyPowerup(EPowerup power)
 {
   if (power == P_SPEED)
     _speed += 1;
+  if (power == P_RANGE)
+    _bomb_range += 1;
+}
+
+void Player::plantBomb()
+{
+  std::vector<AEntity*> bombs = _entity_manager->getInRange(this->getPos(), UNIT, "bomb");
+  if (bombs.size() <= 0)
+    {
+      Bomb* bomb = static_cast<Bomb*>(_entity_manager->addEntityMap<Bomb>(Map::getX(this->getPos()),
+									  Map::getY(this->getPos())));
+      bomb->range = _bomb_range;
+    }
 }
 
 EState Player::getState()
@@ -103,12 +117,7 @@ void Player::update()
     }
   else if (_state == S_PLANT)
     {
-      std::vector<AEntity*> bombs = _entity_manager->getInRange(this->getPos(), UNIT, "bomb");
-      if (bombs.size() <= 0)
-        {
-	  _entity_manager->addEntityMap<Bomb>(Map::getX(this->getPos()),
-					      Map::getY(this->getPos()));
-        }
+      this->plantBomb();
     }
   /* animations */
   if (old_state != _state)
