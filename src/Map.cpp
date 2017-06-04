@@ -5,7 +5,7 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Tue May 23 13:46:12 2017 arnaud.alies
-// Last update Sun Jun  4 12:33:44 2017 arnaud.alies
+// Last update Sun Jun  4 13:11:18 2017 arnaud.alies
 //
 
 #include <iostream>
@@ -83,11 +83,11 @@ Map::~Map()
 
 void Map::clear()
 {
-  while (_static_meshes.size() > 0)
+  for (auto mesh : _static_meshes)
     {
-      delete _static_meshes.at(_static_meshes.size() - 1);
-      _static_meshes.pop_back();
+      delete mesh;
     }
+  _static_meshes.clear();
 }
 
 void Map::update()
@@ -100,7 +100,7 @@ void Map::update()
 	  {
 	    _static_meshes.push_back(this->newWall(x, y));
 	 }
-	else if (this->get(x, y) == M_EMPTY)
+	else
           {
 	    _static_meshes.push_back(this->newFloor(x, y));
           }

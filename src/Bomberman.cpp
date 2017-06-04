@@ -5,7 +5,7 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Thu May  4 10:46:49 2017 arnaud.alies
-// Last update Sun Jun  4 12:36:52 2017 arnaud.alies
+// Last update Sun Jun  4 13:13:50 2017 arnaud.alies
 //
 
 #include <ctime>
@@ -25,9 +25,15 @@ Bomberman::~Bomberman()
   delete _map;
 }
 
+#include "MainMenu.hpp"
 State *Bomberman::update()
 {
   //_map->update();
+  /*
+  //testing
+  if (_core->receiver->keyState(K_RIGHT))
+    return (new MainMenu());
+  */
   _entity_manager->update();
   return (nullptr);
 }

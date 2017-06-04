@@ -5,7 +5,7 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Tue May 30 09:56:46 2017 arnaud.alies
-// Last update Sun Jun  4 12:36:35 2017 arnaud.alies
+// Last update Sun Jun  4 13:06:34 2017 arnaud.alies
 //
 
 #include "EntityManager.hpp"
@@ -19,11 +19,17 @@ EntityManager::EntityManager(Core* core, Map* map) :
 
 EntityManager::~EntityManager()
 {
-  this->update();//clears _to_add and _to_delete
-  while (_entities.size() > 0)
+  for (auto entity : _to_delete)
     {
-      delete _entities.at(_entities.size() - 1);
-      _entities.pop_back();
+      delete entity;
+    }
+  for (auto entity : _to_add)
+    {
+      delete entity;
+    }
+  for (auto entity : _entities)
+    {
+      delete entity;
     }
 }
 
