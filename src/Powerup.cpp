@@ -5,10 +5,9 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Sun May 28 17:29:25 2017 arnaud.alies
-// Last update Sun Jun  4 15:29:07 2017 arnaud.alies
+// Last update Sun Jun  4 16:57:53 2017 arnaud.alies
 //
 
-//#include <random>
 #include "Map.hpp"
 #include "Powerup.hpp"
 #include "EntityManager.hpp"
@@ -16,24 +15,23 @@
 
 Powerup::Powerup()
 {
-  /*
-  std::random_device rd;
-  std::mt19937 rng(std::rd());
-  std::uniform_int_distribution<int> std::uni(1, 10);
- 
-  auto random_integer = std::uni(rng);
-  */
-  
   _power = P_SPEED;
 }
 
 void Powerup::init(Core* core, Map *map, EntityManager* entity_manager)
 {
   AEntity::init(core, map, entity_manager);
-  _mesh = new Mesh(_core,
-                   "./res/bomb/Bomb.obj",
-                   irr::core::vector3df(220, 220, 220),
-                   "./res/bomb/Albedo.png");
+
+  if (_power == P_SPEED)
+    _mesh = new Mesh(_core,
+		     "./res/coin/dogecoin.obj",
+		     irr::core::vector3df(0.5, 0.5, 0.5),
+		     "./res/coin/dogecoin.png");
+  else
+    _mesh = new Mesh(_core,
+		     "./res/bomb/Bomb.obj",
+		     irr::core::vector3df(220, 220, 220),
+		     "./res/bomb/Albedo.png");
 }
 
 Powerup::~Powerup()
@@ -45,7 +43,7 @@ void Powerup::update()
 {
   irr::core::vector3df rot = _mesh->node->getRotation();;
 
-  _mesh->node->setRotation(rot + irr::core::vector3df(0, 10, 0));
+  _mesh->node->setRotation(rot + irr::core::vector3df(0, 5, 0));
 
   std::vector<AEntity*> players = _entity_manager->getInRange(this->getPos(), UNIT / 2, "player");
   for (auto ent : players)
