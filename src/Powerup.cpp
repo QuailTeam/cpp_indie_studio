@@ -5,16 +5,25 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Sun May 28 17:29:25 2017 arnaud.alies
-// Last update Sun Jun  4 12:30:06 2017 arnaud.alies
+// Last update Sun Jun  4 15:01:07 2017 arnaud.alies
 //
 
+//#include <random>
 #include "Map.hpp"
 #include "Powerup.hpp"
 #include "EntityManager.hpp"
 
 Powerup::Powerup()
 {
-  _type = P_SPEED;
+  /*
+  std::random_device rd;
+  std::mt19937 rng(std::rd());
+  std::uniform_int_distribution<int> std::uni(1, 10);
+ 
+  auto random_integer = std::uni(rng);
+  */
+  
+  _power = P_SPEED;
 }
 
 void Powerup::init(Core* core, Map *map, EntityManager* entity_manager)
@@ -50,5 +59,10 @@ irr::core::vector3df Powerup::getPos() const
 
 std::string Powerup::getType() const
 {
-  return ("bomb");
+  return ("powerup");
+}
+
+EPower Powerup::getPower() const
+{
+  return (_power);
 }

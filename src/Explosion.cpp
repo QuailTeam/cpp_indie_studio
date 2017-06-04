@@ -5,7 +5,7 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Sun May 28 17:29:25 2017 arnaud.alies
-// Last update Sun Jun  4 10:55:28 2017 arnaud.alies
+// Last update Sun Jun  4 14:36:05 2017 arnaud.alies
 //
 
 #include "Explosion.hpp"
@@ -52,7 +52,7 @@ Explosion::~Explosion()
 
 void Explosion::bombEntity(std::string type)
 {
-  std::vector<AEntity*> ents = _entity_manager->getInRange(this->getPos(), UNIT, type);
+  std::vector<AEntity*> ents = _entity_manager->getInRange(this->getPos(), UNIT / 2, type);
   for (auto ent : ents)
     {
       //_entity_manager->queueDeleteEntity(ent);
@@ -84,7 +84,7 @@ void Explosion::setPos(irr::core::vector3df target)
 
 irr::core::vector3df Explosion::getPos() const
 {
-  return (_particle->getPosition());
+  return (_particle->getPosition() - irr::core::vector3df(0,50,0));
 }
 
 std::string Explosion::getType() const

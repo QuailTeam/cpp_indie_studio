@@ -5,12 +5,13 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Tue May 30 15:13:35 2017 arnaud.alies
-// Last update Sun Jun  4 11:34:30 2017 arnaud.alies
+// Last update Sun Jun  4 14:35:22 2017 arnaud.alies
 //
 
 #include "Player.hpp"
 #include "EntityManager.hpp"
 #include "Bomb.hpp"
+#include "Powerup.hpp"
 
 Player::Player() :
   _offset(irr::core::vector3df(0, 50, 0)),
@@ -74,6 +75,7 @@ void Player::update()
   EState old_state = _state;
 
   _state = this->getState();
+  /* actions */
   if (_state == S_RUN_UP)
     {
       this->validMove(irr::core::vector3df(_speed, 0, 0));
@@ -103,7 +105,8 @@ void Player::update()
 					      Map::getY(this->getPos()));
         }
     }
-  
+
+  /* animations */
   if (old_state != _state)
     {
       if (_state == S_RUN_UP
@@ -115,6 +118,17 @@ void Player::update()
 	_mesh->node->setMD2Animation(irr::scene::EMAT_PAIN_A);
       if (_state == S_IDLE)
 	_mesh->node->setMD2Animation(irr::scene::EMAT_STAND);
+    }
+
+  /* power up */
+  std::vector<AEntity*> powerups = _entity_manager->getInRange(this->getPos(), UNIT / 2, "powerup");
+  for (auto ent : powerups)
+    {
+      Powerup* powerup = static_cast<Powerup*>(ent);
+      EPower power = powerup->getPower();
+      if (power == P_SPEED)
+	_speed += 1;
+      powerup->kill();
     }
   //_mesh->node->setRotation(rot + irr::core::vector3df(0, rot_speed, 0));
   //pf("IN RANGE: %d\n", _entity_manager->getInRange(this->getPos(), UNIT).size());

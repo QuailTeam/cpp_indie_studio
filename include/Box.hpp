@@ -5,7 +5,7 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Sun May 28 16:09:08 2017 arnaud.alies
-// Last update Sat Jun  3 18:16:06 2017 arnaud.alies
+// Last update Sun Jun  4 14:31:45 2017 arnaud.alies
 //
 
 #ifndef BOX_HPP_
@@ -26,6 +26,7 @@ public:
   void setPos(irr::core::vector3df target);
   irr::core::vector3df getPos() const;
   std::string getType() const;
+  virtual void kill();
 };
 
 #endif

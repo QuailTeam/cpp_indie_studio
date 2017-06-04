@@ -5,13 +5,14 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Sun May 28 17:29:25 2017 arnaud.alies
-// Last update Sat Jun  3 21:25:04 2017 arnaud.alies
+// Last update Sun Jun  4 14:31:00 2017 arnaud.alies
 //
 
 #include "Map.hpp"
 #include "Explosion.hpp"
 #include "Box.hpp"
 #include "EntityManager.hpp"
+#include "Powerup.hpp"
 
 Box::Box()
 {
@@ -34,6 +35,15 @@ Box::~Box()
   if (_map->get(x, y) == M_OBS)
     _map->set(x, y, M_EMPTY);
   delete _mesh;
+}
+
+void Box::kill()
+{
+  int x, y;
+
+  this->getPosMap(&x, &y);
+  _entity_manager->addEntityMap<Powerup>(x, y);
+  AEntity::kill();
 }
 
 void Box::update()
