@@ -5,7 +5,7 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Tue May  2 15:10:14 2017 arnaud.alies
-// Last update Mon May 29 21:53:03 2017 arnaud.alies
+// Last update Sun Jun  4 16:32:23 2017 arnaud.alies
 //
 
 #include <iostream>
@@ -71,7 +71,7 @@ int	main_tuto()
 int	main()
 {
   Core	core;
-
+  
   core.run();
   return (0);
 }
