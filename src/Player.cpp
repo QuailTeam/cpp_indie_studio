@@ -5,13 +5,12 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Tue May 30 15:13:35 2017 arnaud.alies
-// Last update Sun Jun  4 14:35:22 2017 arnaud.alies
+// Last update Sun Jun  4 15:28:54 2017 arnaud.alies
 //
 
 #include "Player.hpp"
 #include "EntityManager.hpp"
 #include "Bomb.hpp"
-#include "Powerup.hpp"
 
 Player::Player() :
   _offset(irr::core::vector3df(0, 50, 0)),
@@ -45,6 +44,12 @@ void Player::kill()
 void Player::validMove(irr::core::vector3df dir)
 {
   this->setPos(_map->getValidPos(this->getPos(), dir));
+}
+
+void Player::applyPowerup(EPowerup power)
+{
+  if (power == P_SPEED)
+    _speed += 1;
 }
 
 EState Player::getState()
@@ -118,17 +123,6 @@ void Player::update()
 	_mesh->node->setMD2Animation(irr::scene::EMAT_PAIN_A);
       if (_state == S_IDLE)
 	_mesh->node->setMD2Animation(irr::scene::EMAT_STAND);
-    }
-
-  /* power up */
-  std::vector<AEntity*> powerups = _entity_manager->getInRange(this->getPos(), UNIT / 2, "powerup");
-  for (auto ent : powerups)
-    {
-      Powerup* powerup = static_cast<Powerup*>(ent);
-      EPower power = powerup->getPower();
-      if (power == P_SPEED)
-	_speed += 1;
-      powerup->kill();
     }
   //_mesh->node->setRotation(rot + irr::core::vector3df(0, rot_speed, 0));
   //pf("IN RANGE: %d\n", _entity_manager->getInRange(this->getPos(), UNIT).size());

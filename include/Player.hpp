@@ -5,7 +5,7 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Tue May 30 14:56:43 2017 arnaud.alies
-// Last update Sun Jun  4 11:34:36 2017 arnaud.alies
+// Last update Sun Jun  4 15:28:21 2017 arnaud.alies
 //
 
 #ifndef PLAYER_HPP_
@@ -14,6 +14,7 @@
 #include <vector>
 #include "AEntity.hpp"
 #include "Mesh.hpp"
+#include "Powerup.hpp"
 
 enum EState
   {
@@ -49,6 +50,7 @@ public:
   std::string getType() const;
   virtual EState getState();
   void kill();
+  void applyPowerup(EPowerup power);
 };
 
 #endif
