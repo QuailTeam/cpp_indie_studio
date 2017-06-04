@@ -5,7 +5,7 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Sun May 28 18:20:34 2017 arnaud.alies
-// Last update Thu Jun  1 14:43:41 2017 arnaud.alies
+// Last update Sun Jun  4 10:55:15 2017 arnaud.alies
 //
 
 #include "AEntity.hpp"
@@ -34,4 +34,9 @@ void AEntity::getPosMap(int *x, int *y) const
 std::string AEntity::getType() const
 {
   return ("entity");
+}
+
+void AEntity::kill()
+{
+  _entity_manager->queueDeleteEntity(this);
 }

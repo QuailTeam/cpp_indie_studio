@@ -5,7 +5,7 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Tue May 30 14:56:43 2017 arnaud.alies
-// Last update Fri Jun  2 16:22:07 2017 arnaud.alies
+// Last update Sun Jun  4 10:58:43 2017 arnaud.alies
 //
 
 #ifndef PLAYER_HPP_
@@ -44,6 +44,7 @@ public:
   void setRotation(irr::core::vector3df rot);
   std::string getType() const;
   virtual EState getState();
+  void kill();
 };
 
 #endif

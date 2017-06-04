@@ -5,7 +5,7 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Mon May 29 10:56:34 2017 arnaud.alies
-// Last update Thu Jun  1 15:57:11 2017 arnaud.alies
+// Last update Sun Jun  4 10:56:36 2017 arnaud.alies
 //
 
 #ifndef ENTITYMANAGER_HPP_
@@ -14,7 +14,8 @@
 #include <vector>
 #include "Map.hpp"
 #include "Core.hpp"
-#include "AEntity.hpp"
+
+class AEntity;
 
 class EntityManager
 {

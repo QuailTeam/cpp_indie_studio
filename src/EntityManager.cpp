@@ -5,10 +5,11 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Tue May 30 09:56:46 2017 arnaud.alies
-// Last update Thu Jun  1 16:20:27 2017 arnaud.alies
+// Last update Sun Jun  4 10:57:00 2017 arnaud.alies
 //
 
 #include "EntityManager.hpp"
+#include "AEntity.hpp"
 
 EntityManager::EntityManager(Core* core, Map* map) :
   _core(core),
