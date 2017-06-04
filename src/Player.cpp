@@ -5,7 +5,7 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Tue May 30 15:13:35 2017 arnaud.alies
-// Last update Sun Jun  4 15:28:54 2017 arnaud.alies
+// Last update Sun Jun  4 15:30:48 2017 arnaud.alies
 //
 
 #include "Player.hpp"
@@ -110,7 +110,6 @@ void Player::update()
 					      Map::getY(this->getPos()));
         }
     }
-
   /* animations */
   if (old_state != _state)
     {
