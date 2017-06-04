@@ -19,6 +19,7 @@ Sources =	$(SRC)main.cpp \
 		$(SRC)Bomb.cpp \
 		$(SRC)Explosion.cpp \
 		$(SRC)Player.cpp \
+		$(SRC)Player2.cpp \
 		$(SRC)Powerup.cpp \
 		$(SRC)Box.cpp \
 

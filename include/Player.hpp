@@ -5,7 +5,7 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Tue May 30 14:56:43 2017 arnaud.alies
-// Last update Sun Jun  4 17:24:15 2017 arnaud.alies
+// Last update Sun Jun  4 18:10:18 2017 arnaud.alies
 //
 
 #ifndef PLAYER_HPP_
@@ -41,7 +41,7 @@ protected:
 public:
   Player();
   virtual ~Player();
-  void init(Core*, Map*, EntityManager*);
+  virtual void init(Core*, Map*, EntityManager*);
   void update();
   void validMove(irr::core::vector3df dir);
   irr::core::vector3df getPos() const;

@@ -5,7 +5,7 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Thu May  4 10:45:13 2017 arnaud.alies
-// Last update Sun Jun  4 10:59:53 2017 arnaud.alies
+// Last update Sun Jun  4 18:16:11 2017 arnaud.alies
 //
 
 #ifndef BOMBERMAN_HPP_
@@ -20,6 +20,7 @@
 #include "AEntity.hpp"
 #include "Bomb.hpp"
 #include "Player.hpp"
+#include "Player2.hpp"
 
 class Bomberman : public State
 {

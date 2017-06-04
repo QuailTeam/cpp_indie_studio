@@ -5,7 +5,7 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Tue May 30 15:13:35 2017 arnaud.alies
-// Last update Sun Jun  4 17:41:59 2017 arnaud.alies
+// Last update Sun Jun  4 18:20:37 2017 arnaud.alies
 //
 
 #include "Player.hpp"
@@ -69,9 +69,7 @@ void Player::plantBomb()
 EState Player::getState()
 {
   EState res = S_IDLE;
-  E_INPUT in;
 
-  in = _core->receiver->lastKey();
   if (_core->receiver->keyState(K_UP))
     res = S_RUN_UP;
   else if (_core->receiver->keyState(K_DOWN))
@@ -80,10 +78,10 @@ EState Player::getState()
     res = S_RUN_LEFT;
   else if (_core->receiver->keyState(K_RIGHT))
     res = S_RUN_RIGHT;
+  else if (_core->receiver->keyState(K_SPACE))
+    res = S_PLANT;
   else
     res = S_IDLE;
-  if (in == K_SPACE)
-    res = S_PLANT;
   return (res);
 }
 

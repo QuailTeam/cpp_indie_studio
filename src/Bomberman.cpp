@@ -5,7 +5,7 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Thu May  4 10:46:49 2017 arnaud.alies
-// Last update Sun Jun  4 13:13:50 2017 arnaud.alies
+// Last update Sun Jun  4 18:18:04 2017 arnaud.alies
 //
 
 #include <ctime>
@@ -67,6 +67,7 @@ void Bomberman::begin(Core* core)
   _core->cam->setTarget(irr::core::vector3df(width / 2, 0, height / 2));
   //_entity_manager->addEntity<Bomb>(irr::core::vector3df(3 * UNIT, 0, 3 * UNIT));
   _entity_manager->addEntityMap<Player>(1, 1);
+  _entity_manager->addEntityMap<Player2>(_map->getWidth() - 2, _map->getHeight() - 2);
   _entity_manager->update();
   //_entity_manager->addEntityMap<Box>(3, 2);
   this->spawnBoxes();
