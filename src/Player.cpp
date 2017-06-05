@@ -5,7 +5,7 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Tue May 30 15:13:35 2017 arnaud.alies
-// Last update Mon Jun  5 12:41:22 2017 arnaud.alies
+// Last update Mon Jun  5 17:10:08 2017 arnaud.alies
 //
 
 #include "Player.hpp"
@@ -29,6 +29,7 @@ void Player::init(Core* core, Map *map, EntityManager* entity_manager)
                    "./res/bomberman/tris.md2",
                    irr::core::vector3df(4, 4, 4),
                    "./res/bomberman/Bomber.PCX");
+  _mesh->node->setMD2Animation(irr::scene::EMAT_STAND);
 }
 
 Player::~Player()

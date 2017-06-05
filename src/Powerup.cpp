@@ -5,7 +5,7 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Sun May 28 17:29:25 2017 arnaud.alies
-// Last update Sun Jun  4 17:53:20 2017 arnaud.alies
+// Last update Mon Jun  5 17:08:34 2017 arnaud.alies
 //
 
 #include "random.hpp"
@@ -16,8 +16,8 @@
 
 Powerup::Powerup()
 {
-  int rand = randint(1, 100);
-  if (rand < 50)
+  int rand = randint(0, 100);
+  if (rand < 40)
     _power = P_SPEED;
   else
     _power = P_RANGE;
