@@ -5,7 +5,7 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Tue May 30 15:13:35 2017 arnaud.alies
-// Last update Sun Jun  4 18:22:48 2017 arnaud.alies
+// Last update Mon Jun  5 10:08:18 2017 arnaud.alies
 //
 
 #include "Player2.hpp"
@@ -33,7 +33,9 @@ EState Player2::getState()
 {
   EState res = S_IDLE;
 
-  if (_core->receiver->keyState(K_P2_UP))
+  if (_core->receiver->keyState(K_P2_SPACE))
+    res = S_PLANT;
+  else if (_core->receiver->keyState(K_P2_UP))
     res = S_RUN_UP;
   else if (_core->receiver->keyState(K_P2_DOWN))
     res = S_RUN_DOWN;
@@ -41,8 +43,6 @@ EState Player2::getState()
     res = S_RUN_LEFT;
   else if (_core->receiver->keyState(K_P2_RIGHT))
     res = S_RUN_RIGHT;
-  else if (_core->receiver->keyState(K_P2_SPACE))
-    res = S_PLANT;
   else
     res = S_IDLE;
   return (res);

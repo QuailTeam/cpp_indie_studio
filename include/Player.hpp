@@ -5,7 +5,7 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Tue May 30 14:56:43 2017 arnaud.alies
-// Last update Sun Jun  4 18:10:18 2017 arnaud.alies
+// Last update Mon Jun  5 12:53:02 2017 arnaud.alies
 //
 
 #ifndef PLAYER_HPP_
@@ -53,6 +53,7 @@ public:
   void kill();
   void applyPowerup(EPowerup power);
   void plantBomb();
+  bool isAlive() const;
 };
 
 #endif

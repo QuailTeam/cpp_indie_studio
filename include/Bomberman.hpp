@@ -5,7 +5,7 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Thu May  4 10:45:13 2017 arnaud.alies
-// Last update Sun Jun  4 18:16:11 2017 arnaud.alies
+// Last update Mon Jun  5 13:02:09 2017 arnaud.alies
 //
 
 #ifndef BOMBERMAN_HPP_
@@ -24,11 +24,13 @@
 
 class Bomberman : public State
 {
-private:
+protected:
   Map* _map;
   Core* _core;
   EntityManager* _entity_manager;
   std::vector<AEntity*> _entities;
+  Player* _p1;
+  Player* _p2;
 public:
   Bomberman();
   virtual ~Bomberman();

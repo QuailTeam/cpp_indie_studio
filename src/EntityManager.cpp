@@ -5,7 +5,7 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Tue May 30 09:56:46 2017 arnaud.alies
-// Last update Sun Jun  4 13:06:34 2017 arnaud.alies
+// Last update Mon Jun  5 12:53:53 2017 arnaud.alies
 //
 
 #include "EntityManager.hpp"
@@ -82,6 +82,18 @@ std::vector<AEntity*> EntityManager::getInRange(irr::core::vector3df pos,
       if (entity->getPos().getDistanceFrom(pos) <= range
 	  && entity->getType() == type)
 	res.push_back(entity);
+    }
+  return (res);
+}
+
+std::vector<AEntity*> EntityManager::getAll(std::string type)
+{
+  std::vector<AEntity*> res;
+
+  for (auto entity : _entities)
+    {
+      if (entity->getType() == type)
+        res.push_back(entity);
     }
   return (res);
 }
