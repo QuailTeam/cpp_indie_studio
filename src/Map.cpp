@@ -5,7 +5,7 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Tue May 23 13:46:12 2017 arnaud.alies
-// Last update Sun Jun  4 13:33:29 2017 arnaud.alies
+// Last update Mon Jun  5 14:53:46 2017 arnaud.alies
 //
 
 #include <iostream>
@@ -36,7 +36,8 @@ void Map::initMap()
   for (int y = 0; y < _height; y += 1)
     for (int x = 0; x < _width; x += 1)
       {
-        if (x % 2 == 0 && y % 2 == 0)
+        if (x % 2 == 0
+	    && y % 2 == 0)
           _map.push_back(M_WALL);
 	else if (x == 0
 		 || x == _width - 1
@@ -55,6 +56,7 @@ Mesh* Map::newWall(int x, int y)
 			irr::core::vector3df(1.1,0.7,1.1),
 			"./res/crate/solid_dark.png");
   buff->node->setPosition(Map::getAbs(x, y));
+  return (buff);
 }
 
 Mesh* Map::newFloor(int x, int y)
@@ -85,6 +87,7 @@ void Map::clear()
 {
   for (auto mesh : _static_meshes)
     {
+      //nullptr ?!
       delete mesh;
     }
   _static_meshes.clear();

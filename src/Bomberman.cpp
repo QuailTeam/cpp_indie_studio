@@ -5,12 +5,13 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Thu May  4 10:46:49 2017 arnaud.alies
-// Last update Mon Jun  5 13:03:33 2017 arnaud.alies
+// Last update Mon Jun  5 14:15:23 2017 arnaud.alies
 //
 
 #include <ctime>
 #include <iostream>
 #include "Bomberman.hpp"
+#include "MainMenu.hpp"
 #include "Box.hpp"
 
 Bomberman::Bomberman() :
@@ -25,15 +26,11 @@ Bomberman::~Bomberman()
   delete _map;
 }
 
-#include "MainMenu.hpp"
 State *Bomberman::update()
 {
   //_map->update();
-  /*
-  //testing
-  if (_core->receiver->keyState(K_RIGHT))
+  if (_core->receiver->keyState(K_ESCAPE))
     return (new MainMenu());
-  */
   if (_p1->isAlive() == false || _p2->isAlive() == false)
     return (new Bomberman());
   _entity_manager->update();

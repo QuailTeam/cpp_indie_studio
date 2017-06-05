@@ -5,7 +5,7 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Thu May  4 14:11:36 2017 arnaud.alies
-// Last update Sun Jun  4 18:03:56 2017 arnaud.alies
+// Last update Mon Jun  5 13:53:02 2017 arnaud.alies
 //
 
 #include <iostream>
@@ -42,7 +42,8 @@ bool MyEventReceiver::OnEvent(const irr::SEvent& event)
     {irr::EKEY_CODE::KEY_KEY_Q, K_P2_LEFT},
     {irr::EKEY_CODE::KEY_KEY_D, K_P2_RIGHT},
     //
-    {irr::EKEY_CODE::KEY_RETURN, K_ENTER}
+    {irr::EKEY_CODE::KEY_RETURN, K_ENTER},
+    {irr::EKEY_CODE::KEY_ESCAPE, K_ESCAPE}
   };
   E_INPUT input;
   if (event.EventType == irr::EET_KEY_INPUT_EVENT)
