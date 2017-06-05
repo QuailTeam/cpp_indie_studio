@@ -5,39 +5,39 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Thu May  4 10:46:49 2017 arnaud.alies
-// Last update Mon Jun  5 14:15:23 2017 arnaud.alies
+// Last update Mon Jun  5 16:42:08 2017 arnaud.alies
 //
 
 #include <ctime>
 #include <iostream>
-#include "Bomberman.hpp"
+#include "BombermanDuo.hpp"
 #include "MainMenu.hpp"
 #include "Box.hpp"
 
-Bomberman::Bomberman() :
+BombermanDuo::BombermanDuo() :
   _core(nullptr),
   _entity_manager(nullptr)
 {
 }
 
-Bomberman::~Bomberman()
+BombermanDuo::~BombermanDuo()
 {
   delete _entity_manager;
   delete _map;
 }
 
-State *Bomberman::update()
+State *BombermanDuo::update()
 {
   //_map->update();
   if (_core->receiver->keyState(K_ESCAPE))
     return (new MainMenu());
   if (_p1->isAlive() == false || _p2->isAlive() == false)
-    return (new Bomberman());
+    return (new BombermanDuo());
   _entity_manager->update();
   return (nullptr);
 }
 
-void Bomberman::spawnBoxes()
+void BombermanDuo::spawnBoxes()
 {
   std::vector<AEntity*> in_range;
 
@@ -53,7 +53,7 @@ void Bomberman::spawnBoxes()
       }
 }
 
-void Bomberman::begin(Core* core)
+void BombermanDuo::begin(Core* core)
 {
   _core = core;
   _map = new Map(_core, 11, 11);

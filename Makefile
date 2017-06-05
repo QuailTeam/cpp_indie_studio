@@ -12,7 +12,7 @@ Sources =	$(SRC)main.cpp \
 		$(SRC)Welcome.cpp \
 		$(SRC)MainMenu.cpp \
 		$(SRC)Map.cpp \
-		$(SRC)Bomberman.cpp \
+		$(SRC)BombermanDuo.cpp \
 		$(SRC)Mesh.cpp \
 		$(SRC)AEntity.cpp \
 		$(SRC)EntityManager.cpp \

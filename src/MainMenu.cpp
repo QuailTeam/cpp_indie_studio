@@ -5,11 +5,11 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Thu May  4 10:46:49 2017 arnaud.alies
-// Last update Wed May 24 14:20:22 2017 arnaud.alies
+// Last update Mon Jun  5 16:41:28 2017 arnaud.alies
 //
 
 #include <iostream>
-#include "Bomberman.hpp"
+#include "BombermanDuo.hpp"
 #include "MainMenu.hpp"
 
 MainMenu::MainMenu() :
@@ -39,7 +39,7 @@ State *MainMenu::update()
   if (_core->receiver->keyState(K_SPACE))
     {
       if (_list->selected() == 0)
-	return (new Bomberman());
+	return (new BombermanDuo());
     }
   return (nullptr);
 }

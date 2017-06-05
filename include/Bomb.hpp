@@ -5,7 +5,7 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Sun May 28 16:09:08 2017 arnaud.alies
-// Last update Sun Jun  4 17:24:26 2017 arnaud.alies
+// Last update Mon Jun  5 16:46:55 2017 arnaud.alies
 //
 
 #ifndef BOMB_HPP_
@@ -33,6 +33,7 @@ public:
   void setPos(irr::core::vector3df target);
   irr::core::vector3df getPos() const;
   std::string getType() const;
+  void kill();
 };
 
 #endif

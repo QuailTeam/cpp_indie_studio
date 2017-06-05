@@ -5,11 +5,11 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Thu May  4 10:45:13 2017 arnaud.alies
-// Last update Mon Jun  5 13:02:09 2017 arnaud.alies
+// Last update Mon Jun  5 16:39:53 2017 arnaud.alies
 //
 
-#ifndef BOMBERMAN_HPP_
-#define BOMBERMAN_HPP_
+#ifndef BOMBERMANDUO_HPP_
+#define BOMBERMANDUO_HPP_
 
 #include <vector>
 #include "Indie.h"
@@ -22,7 +22,7 @@
 #include "Player.hpp"
 #include "Player2.hpp"
 
-class Bomberman : public State
+class BombermanDuo : public State
 {
 protected:
   Map* _map;
@@ -32,8 +32,8 @@ protected:
   Player* _p1;
   Player* _p2;
 public:
-  Bomberman();
-  virtual ~Bomberman();
+  BombermanDuo();
+  virtual ~BombermanDuo();
   State* update();
   void begin(Core*);
   void spawnBoxes();

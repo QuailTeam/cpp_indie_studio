@@ -5,7 +5,7 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Sun May 28 17:29:25 2017 arnaud.alies
-// Last update Sat Jun  3 16:06:56 2017 arnaud.alies
+// Last update Mon Jun  5 16:48:44 2017 arnaud.alies
 //
 
 #include "Map.hpp"
@@ -43,6 +43,11 @@ bool Bomb::addExplosion(int x, int y)
 
 Bomb::~Bomb()
 {
+  delete _mesh;
+}
+
+void Bomb::kill()
+{
   int x, y;
 
   this->getPosMap(&x, &y);
@@ -78,7 +83,7 @@ Bomb::~Bomb()
 	break;
       explosion_y -= 1;
     }
-  delete _mesh;
+  AEntity::kill();
 }
 
 void Bomb::update()
@@ -96,7 +101,7 @@ void Bomb::update()
 
   _mesh->node->setRotation(rot + irr::core::vector3df(0, rot_speed, 0));
   if (_time + BOMB_TIMER < ctime)
-    _entity_manager->queueDeleteEntity(this);
+    this->kill();
 }
 
 void Bomb::setPos(irr::core::vector3df target)
