@@ -5,7 +5,7 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Tue May 30 15:13:35 2017 arnaud.alies
-// Last update Mon Jun  5 20:56:01 2017 arnaud.alies
+// Last update Mon Jun  5 20:59:03 2017 arnaud.alies
 //
 
 #include "Player.hpp"
@@ -56,6 +56,8 @@ void Player::applyPowerup(EPowerup power)
     _speed += 1;
   if (power == P_RANGE)
     _bomb_range += 1;
+  if (power == P_ADD_BOMB)
+    _max_bombs += 1;
 }
 
 int Player::countMyBombs() const

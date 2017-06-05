@@ -5,7 +5,7 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Sun May 28 17:29:25 2017 arnaud.alies
-// Last update Mon Jun  5 17:08:34 2017 arnaud.alies
+// Last update Mon Jun  5 21:03:24 2017 arnaud.alies
 //
 
 #include "random.hpp"
@@ -17,8 +17,10 @@
 Powerup::Powerup()
 {
   int rand = randint(0, 100);
-  if (rand < 40)
+  if (rand < 20)
     _power = P_SPEED;
+  else if (rand < 70)
+    _power = P_ADD_BOMB;
   else
     _power = P_RANGE;
 }
@@ -41,6 +43,14 @@ void Powerup::init(Core* core, Map *map, EntityManager* entity_manager)
 		       "./res/coin/dogecoin.obj",
 		       irr::core::vector3df(0.4, 0.4, 0.4),
 		       "./res/coin/power.png");
+      _mesh->node->setRotation(irr::core::vector3df(180,0,100));
+    }
+  else if (_power == P_ADD_BOMB)
+    {
+      _mesh = new Mesh(_core,
+		       "./res/coin/dogecoin.obj",
+		       irr::core::vector3df(0.4, 0.4, 0.4),
+		       "./res/coin/bomb.png");
       _mesh->node->setRotation(irr::core::vector3df(180,0,100));
     }
   else
