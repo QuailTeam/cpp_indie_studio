@@ -5,7 +5,7 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Tue May 30 15:13:35 2017 arnaud.alies
-// Last update Mon Jun  5 17:10:08 2017 arnaud.alies
+// Last update Mon Jun  5 20:56:01 2017 arnaud.alies
 //
 
 #include "Player.hpp"
@@ -17,8 +17,9 @@ Player::Player() :
   _state(S_IDLE),
   _speed(10),
   _bomb_range(1),
-  _alive(true)
-  //_max_bombs(1)
+  _alive(true),
+  _id(1),
+  _max_bombs(1)
 {
 }
 
@@ -57,14 +58,31 @@ void Player::applyPowerup(EPowerup power)
     _bomb_range += 1;
 }
 
+int Player::countMyBombs() const
+{
+  std::vector<AEntity*> bombs;
+  int c = 0;
+
+  bombs = _entity_manager->getAll("bomb");
+  for (auto bomb_ent : bombs)
+    {
+      Bomb* bomb = static_cast<Bomb*>(bomb_ent);
+      if (bomb->id == _id)
+	c += 1;
+    }
+  return (c);
+}
+
 void Player::plantBomb()
 {
   std::vector<AEntity*> bombs = _entity_manager->getInRange(this->getPos(), UNIT, "bomb");
-  if (bombs.size() <= 0)
+  if (bombs.size() <= 0
+      && this->countMyBombs() < _max_bombs)
     {
       Bomb* bomb = static_cast<Bomb*>(_entity_manager->addEntityMap<Bomb>(Map::getX(this->getPos()),
 									  Map::getY(this->getPos())));
       bomb->range = _bomb_range;
+      bomb->id = _id;
     }
 }
 

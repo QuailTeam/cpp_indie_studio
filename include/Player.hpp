@@ -5,7 +5,7 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Tue May 30 14:56:43 2017 arnaud.alies
-// Last update Mon Jun  5 12:53:02 2017 arnaud.alies
+// Last update Mon Jun  5 20:55:43 2017 arnaud.alies
 //
 
 #ifndef PLAYER_HPP_
@@ -30,11 +30,12 @@ class Player : public AEntity
 {
 protected:
   bool _alive;
+  int _id;
   int _speed;
   int _bomb_range;
   EState _state;
   Mesh* _mesh;
-  //int _max_bombs;
+  int _max_bombs;
   
   irr::core::vector3df _heading;
   irr::core::vector3df _offset;
@@ -54,6 +55,7 @@ public:
   void applyPowerup(EPowerup power);
   void plantBomb();
   bool isAlive() const;
+  int countMyBombs() const;
 };
 
 #endif

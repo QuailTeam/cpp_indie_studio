@@ -5,7 +5,7 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Tue May 30 15:13:35 2017 arnaud.alies
-// Last update Mon Jun  5 17:10:20 2017 arnaud.alies
+// Last update Mon Jun  5 20:56:21 2017 arnaud.alies
 //
 
 #include "Player2.hpp"
@@ -14,6 +14,7 @@
 
 Player2::Player2()
 {
+  _id = 2;
 }
 
 Player2::~Player2()
