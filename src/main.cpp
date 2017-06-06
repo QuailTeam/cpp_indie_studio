@@ -5,8 +5,10 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Tue May  2 15:10:14 2017 arnaud.alies
-// Last update Tue Jun  6 14:52:42 2017 arnaud.alies
+// Last update Tue Jun  6 17:23:47 2017 arnaud.alies
 //
+
+#include <SFML/Audio.hpp>
 
 #include <iostream>
 #include "Indie.h"
@@ -19,6 +21,13 @@
 
 int	main()
 {
+  sf::SoundBuffer buffer;
+  if (!buffer.loadFromFile("./res/terrorist_music.ogg"))
+    return (1);
+  sf::Sound sound;
+  sound.setBuffer(buffer);
+  sound.play();
+  
   Core	core;
   
   core.run();
