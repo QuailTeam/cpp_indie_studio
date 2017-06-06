@@ -5,7 +5,7 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Thu May  4 10:46:49 2017 arnaud.alies
-// Last update Tue Jun  6 16:14:43 2017 arnaud.alies
+// Last update Tue Jun  6 18:50:18 2017 arnaud.alies
 //
 
 #include <iostream>
@@ -39,6 +39,13 @@ State *MainMenu::update()
       if (_list->selected() == 0)
 	return (new BombermanDuo());
     }
+  /* rotation */
+  irr::core::vector3df rot;
+  
+  rot = _bomb_left->node->getRotation();
+  _bomb_left->node->setRotation(rot + irr::core::vector3df(1, 1.5, 0.2));
+  rot = _bomb_right->node->getRotation();
+  _bomb_right->node->setRotation(rot + irr::core::vector3df(1.5, 1, 0.2));
   return (nullptr);
 }
 
