@@ -5,7 +5,7 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Thu May  4 10:46:49 2017 arnaud.alies
-// Last update Tue Jun  6 14:27:51 2017 arnaud.alies
+// Last update Tue Jun  6 18:45:21 2017 arnaud.alies
 //
 
 #include <ctime>
@@ -17,7 +17,9 @@
 
 BombermanDuo::BombermanDuo() :
   _core(nullptr),
-  _entity_manager(nullptr)
+  _entity_manager(nullptr),
+  _time_end(0),
+  _running(true)
 {
 }
 
@@ -29,12 +31,25 @@ BombermanDuo::~BombermanDuo()
 
 State *BombermanDuo::update()
 {
-  //_map->update();
-  if (_core->receiver->keyState(K_ESCAPE))
-    return (new MainMenu());
-  if (_p1->isAlive() == false || _p2->isAlive() == false)
-    return (new BombermanDuo());
-  _entity_manager->update();
+  if (_running)
+    {
+      if (_core->receiver->keyState(K_ESCAPE))
+	return (new MainMenu());
+      if (_p1->isAlive() == false
+	  || _p2->isAlive() == false)
+	{
+	  _running = false;
+	  _time_end = _core->getTimeMs();
+        }
+      _entity_manager->update();
+    }
+  else
+    {
+      if (_time_end < _core->getTimeMs() - WAIT_AFTER_DEATH)
+	{
+	  return (new BombermanDuo());
+	}
+    }
   return (nullptr);
 }
 
