@@ -5,14 +5,14 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Sun May 28 17:29:25 2017 arnaud.alies
-// Last update Mon Jun  5 21:03:24 2017 arnaud.alies
+// Last update Tue Jun  6 14:29:15 2017 arnaud.alies
 //
 
 #include "random.hpp"
 #include "Map.hpp"
 #include "Powerup.hpp"
 #include "EntityManager.hpp"
-#include "Player.hpp"
+#include "APlayer.hpp"
 
 Powerup::Powerup()
 {
@@ -74,7 +74,7 @@ void Powerup::update()
   std::vector<AEntity*> players = _entity_manager->getInRange(this->getPos(), UNIT / 2, "player");
   for (auto ent : players)
     {
-      Player* player = static_cast<Player*>(ent);
+      APlayer* player = static_cast<APlayer*>(ent);
       player->applyPowerup(_power);
     }
   if (players.size() > 0)

@@ -18,7 +18,8 @@ Sources =	$(SRC)main.cpp \
 		$(SRC)EntityManager.cpp \
 		$(SRC)Bomb.cpp \
 		$(SRC)Explosion.cpp \
-		$(SRC)Player.cpp \
+		$(SRC)APlayer.cpp \
+		$(SRC)Player1.cpp \
 		$(SRC)Player2.cpp \
 		$(SRC)Powerup.cpp \
 		$(SRC)Box.cpp \

@@ -5,7 +5,7 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Thu May  4 10:45:13 2017 arnaud.alies
-// Last update Mon Jun  5 16:39:53 2017 arnaud.alies
+// Last update Tue Jun  6 14:28:20 2017 arnaud.alies
 //
 
 #ifndef BOMBERMANDUO_HPP_
@@ -19,7 +19,7 @@
 #include "EntityManager.hpp"
 #include "AEntity.hpp"
 #include "Bomb.hpp"
-#include "Player.hpp"
+#include "Player1.hpp"
 #include "Player2.hpp"
 
 class BombermanDuo : public State
@@ -29,8 +29,8 @@ protected:
   Core* _core;
   EntityManager* _entity_manager;
   std::vector<AEntity*> _entities;
-  Player* _p1;
-  Player* _p2;
+  APlayer* _p1;
+  APlayer* _p2;
 public:
   BombermanDuo();
   virtual ~BombermanDuo();

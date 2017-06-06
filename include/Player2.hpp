@@ -5,15 +5,15 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Tue May 30 14:56:43 2017 arnaud.alies
-// Last update Sun Jun  4 18:17:27 2017 arnaud.alies
+// Last update Tue Jun  6 14:26:59 2017 arnaud.alies
 //
 
 #ifndef PLAYERTWO_HPP_
 #define PLAYERTWO_HPP_
 
-#include "Player.hpp"
+#include "APlayer.hpp"
 
-class Player2 : public Player
+class Player2 : public APlayer
 {
 public:
   Player2();
