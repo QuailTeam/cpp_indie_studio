@@ -5,7 +5,7 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Thu May  4 10:45:13 2017 arnaud.alies
-// Last update Tue Jun  6 14:28:20 2017 arnaud.alies
+// Last update Tue Jun  6 15:30:38 2017 arnaud.alies
 //
 
 #ifndef BOMBERMANDUO_HPP_

@@ -5,7 +5,7 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Thu May  4 10:46:49 2017 arnaud.alies
-// Last update Tue May 30 11:06:24 2017 arnaud.alies
+// Last update Tue Jun  6 15:46:35 2017 arnaud.alies
 //
 
 #include <iostream>
@@ -34,14 +34,15 @@ State *Welcome::update()
   _bomb->node->setRotation(rot + irr::core::vector3df(1,1,0));
   if (ctime > _stime + DURATION)
     res = new MainMenu();
+  _core->cam->setPosition(_core->cam->getPosition() - irr::core::vector3df(0.6,0,0));
   return (res);
 }
 
 void Welcome::begin(Core* core)
 {
   _core = core;
-  _core->cam->setPosition(irr::core::vector3df(0,30,-40));
-  _core->cam->setTarget(irr::core::vector3df(5,0,0));
+  _core->cam->setPosition(irr::core::vector3df(100,0,0));
+  _core->cam->setTarget(irr::core::vector3df(0,0,0));
   _bomb = new Mesh(_core,
 		   "./res/bomb/Bomb.obj",
 		   irr::core::vector3df(50,50,50),
