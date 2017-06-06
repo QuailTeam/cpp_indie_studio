@@ -5,7 +5,7 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Sun May 28 17:29:25 2017 arnaud.alies
-// Last update Sun Jun  4 14:36:05 2017 arnaud.alies
+// Last update Tue Jun  6 17:33:03 2017 arnaud.alies
 //
 
 #include "Explosion.hpp"
@@ -14,6 +14,7 @@
 Explosion::Explosion()
 {
   _time = Core::getTimeMs();
+  _first = true;
 }
 
 void Explosion::init(Core* core, Map *map, EntityManager* entity_manager)
@@ -63,10 +64,13 @@ void Explosion::bombEntity(std::string type)
 void Explosion::update()
 {
   /* destroy nearby entities */
-  this->bombEntity("player");
-  this->bombEntity("bomb");
-  this->bombEntity("box");
-  
+  if (_first)
+    {
+      this->bombEntity("player");
+      this->bombEntity("bomb");
+      this->bombEntity("box");
+      _first = false;
+    }
   /* set map collision */
   int x, y;
   this->getPosMap(&x, &y);

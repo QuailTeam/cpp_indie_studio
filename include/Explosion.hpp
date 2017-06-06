@@ -5,7 +5,7 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Sun May 28 16:09:08 2017 arnaud.alies
-// Last update Sat Jun  3 16:14:41 2017 arnaud.alies
+// Last update Tue Jun  6 17:35:31 2017 arnaud.alies
 //
 
 #ifndef EXPLOSION_HPP_
@@ -14,7 +14,7 @@
 #include "AEntity.hpp"
 #include "Mesh.hpp"
 
-#define EXPLOSION_TIMER (1000)
+#define EXPLOSION_TIMER (500)
 
 class Explosion : public AEntity
 {
@@ -24,6 +24,7 @@ protected:
   int _time;
 private:
   void bombEntity(std::string type);
+  bool _first;
 public:
   Explosion();
   virtual ~Explosion();
