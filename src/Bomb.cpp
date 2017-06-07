@@ -5,7 +5,7 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Sun May 28 17:29:25 2017 arnaud.alies
-// Last update Mon Jun  5 19:22:13 2017 arnaud.alies
+// Last update Wed Jun  7 17:00:35 2017 arnaud.alies
 //
 
 #include "Map.hpp"
@@ -92,7 +92,7 @@ void Bomb::update()
   int x, y;
   this->getPosMap(&x, &y);
   if (_map->get(x, y) == M_EMPTY
-      && _entity_manager->getInRange(this->getPos(), UNIT, "player").size() < 1)
+      && _entity_manager->getInRange(this->getPos(), UNIT, "player:npc").size() < 1)
     _map->set(x, y, M_OBS);
   
   int ctime = Core::getTimeMs();

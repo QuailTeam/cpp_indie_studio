@@ -5,7 +5,7 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Tue May 30 15:13:35 2017 arnaud.alies
-// Last update Wed Jun  7 15:00:04 2017 arnaud.alies
+// Last update Wed Jun  7 17:01:24 2017 arnaud.alies
 //
 
 #include "Monster.hpp"
@@ -72,19 +72,10 @@ EState Monster::getState()
       else if (diff_x > 0 && this->checkMove(-1, 0))
 	res = S_RUN_DOWN;
     }
-  /*
-  if (_core->receiver->keyState(K_SPACE))
-    res = S_PLANT;
-  else if (_core->receiver->keyState(K_UP))
-    res = S_RUN_UP;
-  else if (_core->receiver->keyState(K_DOWN))
-    res = S_RUN_DOWN;
-  else if (_core->receiver->keyState(K_LEFT))
-    res = S_RUN_LEFT;
-  else if (_core->receiver->keyState(K_RIGHT))
-    res = S_RUN_RIGHT;
-  else
-    res = S_IDLE;
-  */
   return (res);
+}
+
+std::string Monster::getType() const
+{
+  return ("npc");
 }

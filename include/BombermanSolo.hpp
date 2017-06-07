@@ -5,7 +5,7 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Thu May  4 10:45:13 2017 arnaud.alies
-// Last update Wed Jun  7 10:57:53 2017 arnaud.alies
+// Last update Wed Jun  7 15:51:57 2017 arnaud.alies
 //
 
 #ifndef BOMBERMANSOLO_HPP_
@@ -34,12 +34,15 @@ protected:
   APlayer* _p1;
   bool _running;
   int _time_end;
+  int _level;
 public:
   BombermanSolo();
+  BombermanSolo(int level);
   virtual ~BombermanSolo();
   State* update();
   void begin(Core*);
   void spawnBoxes();
+  void spawnMonsters();
 };
 
 #endif

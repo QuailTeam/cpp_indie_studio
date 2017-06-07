@@ -5,9 +5,11 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Tue May 30 09:56:46 2017 arnaud.alies
-// Last update Wed Jun  7 14:37:01 2017 arnaud.alies
+// Last update Wed Jun  7 16:56:56 2017 arnaud.alies
 //
 
+#include <sstream>
+#include <string>
 #include "EntityManager.hpp"
 #include "AEntity.hpp"
 
@@ -71,29 +73,39 @@ void EntityManager::queueDeleteEntity(AEntity* entity)
   _to_delete.push_back(entity);
 }
 
+std::vector<AEntity*> EntityManager::getAll(std::string type)
+{
+  std::vector<AEntity*> res;
+  std::stringstream type_str(type);
+  std::string segment;
+  std::vector<std::string> seglist;
+  
+  while(std::getline(type_str, segment, ':'))
+    {
+      seglist.push_back(segment);
+    }
+  for (auto entity : _entities)
+    {
+      for (auto seg : seglist)
+	{
+	  if (entity->getType() == seg)
+	    res.push_back(entity);
+	}
+    }
+  return (res);
+}
+
 std::vector<AEntity*> EntityManager::getInRange(irr::core::vector3df pos,
 						float range,
 						std::string type)
 {
   std::vector<AEntity*> res;
+  std::vector<AEntity*> ents = this->getAll(type);
 
-  for (auto entity : _entities)
+  for (auto entity : ents)
     {
-      if (entity->getPos().getDistanceFrom(pos) <= range
-	  && entity->getType() == type)
+      if (entity->getPos().getDistanceFrom(pos) <= range)
 	res.push_back(entity);
-    }
-  return (res);
-}
-
-std::vector<AEntity*> EntityManager::getAll(std::string type)
-{
-  std::vector<AEntity*> res;
-
-  for (auto entity : _entities)
-    {
-      if (entity->getType() == type)
-        res.push_back(entity);
     }
   return (res);
 }
@@ -110,10 +122,9 @@ bool EntityManager::exists(AEntity* ent)
 
 AEntity* EntityManager::getClosestEntity(irr::core::vector3df pos, std::string type, AEntity *ignore)
 {
-  std::vector<AEntity*> ents;
+  std::vector<AEntity*> ents = this->getAll(type);;
   AEntity *closestEnt = nullptr;
 
-  ents = this->getAll(type);
   for (auto ent : ents)
     {
       if (closestEnt == nullptr)
