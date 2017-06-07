@@ -5,11 +5,11 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Thu May  4 10:46:49 2017 arnaud.alies
-// Last update Wed Jun  7 15:11:16 2017 arnaud.alies
+// Last update Wed Jun  7 15:23:14 2017 arnaud.alies
 //
 
 #include <iostream>
-
+#include <cstdlib>
 #include "BombermanSolo.hpp"
 #include "BombermanDuo.hpp"
 #include "MainMenu.hpp"
@@ -42,6 +42,8 @@ State *MainMenu::update()
     {
       if (_list->selected() == 0)
 	return (new GameSelectMenu());
+      if (_list->selected() == 2)
+	exit(0);
     }
   /* rotation */
   irr::core::vector3df rot;

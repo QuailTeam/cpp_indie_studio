@@ -5,11 +5,10 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Thu May  4 10:46:49 2017 arnaud.alies
-// Last update Wed Jun  7 15:11:51 2017 arnaud.alies
+// Last update Wed Jun  7 15:21:26 2017 arnaud.alies
 //
 
 #include <iostream>
-
 #include "BombermanSolo.hpp"
 #include "BombermanDuo.hpp"
 #include "GameSelectMenu.hpp"
