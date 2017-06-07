@@ -5,11 +5,11 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Mon May 22 11:36:24 2017 arnaud.alies
-// Last update Mon May 22 17:02:42 2017 arnaud.alies
+// Last update Wed Jun  7 11:53:20 2017 arnaud.alies
 //
 
 #ifndef LIST_HPP_
-#define LIST_HPP
+#define LIST_HPP_
 
 #include <vector>
 #include <string>

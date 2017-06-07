@@ -5,7 +5,7 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Thu May  4 10:46:49 2017 arnaud.alies
-// Last update Wed Jun  7 11:40:57 2017 arnaud.alies
+// Last update Wed Jun  7 11:57:26 2017 arnaud.alies
 //
 
 #include <iostream>
@@ -13,6 +13,7 @@
 #include "BombermanSolo.hpp"
 #include "BombermanDuo.hpp"
 #include "MainMenu.hpp"
+#include "GameSelectMenu.hpp"
 
 MainMenu::MainMenu() :
   _core(nullptr),
@@ -25,6 +26,8 @@ MainMenu::~MainMenu()
 {
   delete _list;
   delete _img;
+  delete _bomb_left;
+  delete _bomb_right;
 }
 
 State *MainMenu::update()
@@ -39,7 +42,7 @@ State *MainMenu::update()
   if (_core->receiver->keyState(K_SPACE))
     {
       if (_list->selected() == 0)
-	return (new BombermanDuo());
+	return (new GameSelectMenu());
     }
   /* rotation */
   irr::core::vector3df rot;
