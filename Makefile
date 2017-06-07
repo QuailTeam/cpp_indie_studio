@@ -23,6 +23,7 @@ Sources =	$(SRC)main.cpp \
 		$(SRC)APlayer.cpp \
 		$(SRC)Player1.cpp \
 		$(SRC)Player2.cpp \
+		$(SRC)Monster.cpp \
 		$(SRC)Powerup.cpp \
 		$(SRC)Box.cpp \
 
