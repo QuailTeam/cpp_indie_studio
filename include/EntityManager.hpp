@@ -5,7 +5,7 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Mon May 29 10:56:34 2017 arnaud.alies
-// Last update Mon Jun  5 10:21:29 2017 arnaud.alies
+// Last update Wed Jun  7 14:36:32 2017 arnaud.alies
 //
 
 #ifndef ENTITYMANAGER_HPP_
@@ -41,6 +41,7 @@ public:
 				   std::string type = "entity");
   std::vector<AEntity*> getAll(std::string type);
   bool exists(AEntity* ent);
+  AEntity* getClosestEntity(irr::core::vector3df pos, std::string type, AEntity *ignore = nullptr);
 };
 
 template<class T>

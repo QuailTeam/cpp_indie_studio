@@ -5,7 +5,7 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Thu May  4 10:46:49 2017 arnaud.alies
-// Last update Wed Jun  7 11:21:20 2017 arnaud.alies
+// Last update Wed Jun  7 15:03:12 2017 arnaud.alies
 //
 
 #include <ctime>
@@ -64,7 +64,7 @@ void BombermanSolo::spawnBoxes()
 	  {
 	    in_range = _entity_manager->getInRange(Map::getAbs(x, y), UNIT * 2, "player");
 	    if (in_range.size() <= 0
-		&& RAND_PERCENT(WALL_CHANCE))
+		&& RAND_PERCENT(20))
 	      _entity_manager->addEntityMap<Box>(x, y);
 	  }
       }
@@ -86,5 +86,5 @@ void BombermanSolo::begin(Core* core)
   _entity_manager->addEntityMap<Monster>(_map->getWidth() - 2, _map->getHeight() - 2);
   
   _entity_manager->update();
-  //this->spawnBoxes();
+  this->spawnBoxes();
 }

@@ -5,7 +5,7 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Tue May 30 09:56:46 2017 arnaud.alies
-// Last update Mon Jun  5 12:53:53 2017 arnaud.alies
+// Last update Wed Jun  7 14:37:01 2017 arnaud.alies
 //
 
 #include "EntityManager.hpp"
@@ -106,4 +106,23 @@ bool EntityManager::exists(AEntity* ent)
 	return (true);
     }
   return (false);
+}
+
+AEntity* EntityManager::getClosestEntity(irr::core::vector3df pos, std::string type, AEntity *ignore)
+{
+  std::vector<AEntity*> ents;
+  AEntity *closestEnt = nullptr;
+
+  ents = this->getAll(type);
+  for (auto ent : ents)
+    {
+      if (closestEnt == nullptr)
+	closestEnt = ent;
+      else if (ent != ignore)
+	{
+	  if (ent->getPos().getDistanceFrom(pos) < closestEnt->getPos().getDistanceFrom(pos))
+	    closestEnt = ent;
+	}
+    }
+  return (closestEnt);
 }

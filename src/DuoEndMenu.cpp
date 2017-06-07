@@ -5,12 +5,13 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Tue Jun  6 16:14:22 2017 arnaud.alies
-// Last update Tue Jun  6 16:16:30 2017 arnaud.alies
+// Last update Wed Jun  7 13:36:18 2017 arnaud.alies
 //
 
 #include <iostream>
 #include "BombermanDuo.hpp"
 #include "DuoEndMenu.hpp"
+#include "MainMenu.hpp"
 
 DuoEndMenu::DuoEndMenu() :
   _core(nullptr),
@@ -32,13 +33,14 @@ State *DuoEndMenu::update()
   in = _core->receiver->lastKey();
   if (in == K_LEFT)
     _list->next();
-  if (in == K_RIGHT)
+  else if (in == K_RIGHT)
     _list->prev();
-
-  if (_core->receiver->keyState(K_SPACE))
+  else if (in == K_SPACE)
     {
       if (_list->selected() == 0)
         return (new BombermanDuo());
+      if (_list->selected() == 1)
+        return (new MainMenu());
     }
   return (nullptr);
 }
