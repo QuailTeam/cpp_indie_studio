@@ -5,7 +5,7 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Thu May  4 10:46:49 2017 arnaud.alies
-// Last update Wed Jun  7 11:57:01 2017 arnaud.alies
+// Last update Wed Jun  7 13:13:43 2017 arnaud.alies
 //
 
 #include <iostream>
@@ -34,10 +34,9 @@ State *GameSelectMenu::update()
   in = _core->receiver->lastKey();
   if (in == K_LEFT)
     _list->next();
-  if (in == K_RIGHT)
+  else if (in == K_RIGHT)
     _list->prev();
-
-  if (_core->receiver->keyState(K_SPACE))
+  else if (in == K_SPACE)
     {
       if (_list->selected() == 0)
 	return (new BombermanSolo());
