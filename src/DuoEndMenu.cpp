@@ -5,7 +5,7 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Tue Jun  6 16:14:22 2017 arnaud.alies
-// Last update Wed Jun  7 13:36:18 2017 arnaud.alies
+// Last update Wed Jun  7 15:11:38 2017 arnaud.alies
 //
 
 #include <iostream>
@@ -31,9 +31,9 @@ State *DuoEndMenu::update()
   E_INPUT in;
 
   in = _core->receiver->lastKey();
-  if (in == K_LEFT)
+  if (in == K_RIGHT)
     _list->next();
-  else if (in == K_RIGHT)
+  else if (in == K_LEFT)
     _list->prev();
   else if (in == K_SPACE)
     {

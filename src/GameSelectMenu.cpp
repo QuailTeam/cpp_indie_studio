@@ -5,7 +5,7 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Thu May  4 10:46:49 2017 arnaud.alies
-// Last update Wed Jun  7 13:13:43 2017 arnaud.alies
+// Last update Wed Jun  7 15:11:51 2017 arnaud.alies
 //
 
 #include <iostream>
@@ -32,9 +32,9 @@ State *GameSelectMenu::update()
   E_INPUT in;
 
   in = _core->receiver->lastKey();
-  if (in == K_LEFT)
+  if (in == K_RIGHT)
     _list->next();
-  else if (in == K_RIGHT)
+  else if (in == K_LEFT)
     _list->prev();
   else if (in == K_SPACE)
     {
@@ -55,8 +55,8 @@ void	GameSelectMenu::begin(Core* core)
   _list = new List(core,
 		   irr::core::position2d<irr::s32>(WIDTH / 2, HEIGHT / 1.2),
 		   irr::core::position2d<irr::s32>(60, 0));
-  _list->addButton("./res/play.png", "./res/iplay.png");
-  _list->addButton("./res/setting.png", "./res/isetting.png");
+  _list->addButton("./res/one.png", "./res/ione.png");
+  _list->addButton("./res/two.png", "./res/itwo.png");
   _list->update();
   _img = new Image(core,
 		   core->video->getTexture((char*)"./res/benladen.png"),
