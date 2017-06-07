@@ -5,7 +5,7 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Thu May  4 10:45:13 2017 arnaud.alies
-// Last update Wed Jun  7 15:51:57 2017 arnaud.alies
+// Last update Wed Jun  7 18:06:14 2017 arnaud.alies
 //
 
 #ifndef BOMBERMANSOLO_HPP_
@@ -21,6 +21,7 @@
 #include "Bomb.hpp"
 #include "Player1.hpp"
 #include "Player2.hpp"
+#include "Image.hpp"
 
 #define WAIT_AFTER_DEATH (1200)
 
@@ -35,6 +36,7 @@ protected:
   bool _running;
   int _time_end;
   int _level;
+  Image* _background;
 public:
   BombermanSolo();
   BombermanSolo(int level);

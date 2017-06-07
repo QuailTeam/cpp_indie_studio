@@ -5,7 +5,7 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Thu May  4 10:46:49 2017 arnaud.alies
-// Last update Wed Jun  7 17:00:02 2017 arnaud.alies
+// Last update Wed Jun  7 18:04:39 2017 arnaud.alies
 //
 
 #include <ctime>
@@ -27,6 +27,7 @@ BombermanDuo::~BombermanDuo()
 {
   delete _entity_manager;
   delete _map;
+  delete _background;
 }
 
 State *BombermanDuo::update()
@@ -76,6 +77,12 @@ void BombermanDuo::begin(Core* core)
   _map = new Map(_core, 11, 11);
   _entity_manager = new	EntityManager(_core, _map);
 
+
+  _background = new Image(core,
+			  core->video->getTexture((char*)"./res/background.png"),
+			  irr::core::position2d<irr::s32>(WIDTH / 2, HEIGHT * 0.86));
+  
+  
   int width = _map->getWidth() * UNIT;
   int height = _map->getHeight() * UNIT;
 
