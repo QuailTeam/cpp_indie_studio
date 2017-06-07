@@ -5,12 +5,13 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Thu May  4 10:46:49 2017 arnaud.alies
-// Last update Wed Jun  7 18:04:39 2017 arnaud.alies
+// Last update Wed Jun  7 18:20:34 2017 arnaud.alies
 //
 
 #include <ctime>
 #include <iostream>
 #include "BombermanDuo.hpp"
+#include "DuoEndMenu.hpp"
 #include "MainMenu.hpp"
 #include "Box.hpp"
 #include "random.hpp"
@@ -48,7 +49,10 @@ State *BombermanDuo::update()
     {
       if (_time_end < _core->getTimeMs() - WAIT_AFTER_DEATH)
 	{
-	  return (new BombermanDuo());
+	  if (_p1->isAlive())
+	    return (new DuoEndMenu(1));
+	  else
+	    return (new DuoEndMenu(2));
 	}
     }
   return (nullptr);

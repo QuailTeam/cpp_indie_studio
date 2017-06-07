@@ -5,7 +5,7 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Tue Jun  6 16:07:18 2017 arnaud.alies
-// Last update Tue Jun  6 16:07:47 2017 arnaud.alies
+// Last update Wed Jun  7 18:24:29 2017 arnaud.alies
 //
 
 #ifndef DUOENDMENU_HPP_
@@ -23,8 +23,9 @@ private:
   List* _list;
   Image* _img;
   Core* _core;
+  int _sel;
 public:
-  DuoEndMenu();
+  DuoEndMenu(int);
   virtual ~DuoEndMenu();
   State *update();
   void begin(Core*);
