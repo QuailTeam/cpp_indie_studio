@@ -21,6 +21,7 @@ Sources =	$(SRC)main.cpp \
 		$(SRC)EntityManager.cpp \
 		$(SRC)Bomb.cpp \
 		$(SRC)Explosion.cpp \
+		$(SRC)Gate.cpp \
 		$(SRC)APlayer.cpp \
 		$(SRC)Player1.cpp \
 		$(SRC)Player2.cpp \

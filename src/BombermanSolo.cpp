@@ -5,7 +5,7 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Thu May  4 10:46:49 2017 arnaud.alies
-// Last update Wed Jun  7 16:59:21 2017 arnaud.alies
+// Last update Wed Jun  7 17:35:50 2017 arnaud.alies
 //
 
 #include <ctime>
@@ -13,6 +13,7 @@
 #include "BombermanSolo.hpp"
 #include "MainMenu.hpp"
 #include "Box.hpp"
+#include "Gate.hpp"
 #include "Monster.hpp"
 #include "random.hpp"
 
@@ -113,6 +114,7 @@ void BombermanSolo::begin(Core* core)
   _core->cam->setTarget(irr::core::vector3df(width / 2, 0, height / 2));
 
   _p1 = _entity_manager->addEntityMap<Player1>(1, 1);
+  _entity_manager->addEntityMap<Gate>(1, 2);
   //_entity_manager->addEntityMap<Monster>(_map->getWidth() - 2, _map->getHeight() - 2);
   this->spawnMonsters();
   
