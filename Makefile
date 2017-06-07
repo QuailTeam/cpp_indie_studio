@@ -11,6 +11,7 @@ Sources =	$(SRC)main.cpp \
 		$(SRC)MyEventReceiver.cpp \
 		$(SRC)Welcome.cpp \
 		$(SRC)MainMenu.cpp \
+		$(SRC)BombermanSolo.cpp \
 		$(SRC)BombermanDuo.cpp \
 		$(SRC)DuoEndMenu.cpp \
 		$(SRC)Mesh.cpp \

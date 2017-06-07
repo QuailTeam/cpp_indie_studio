@@ -5,7 +5,7 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Thu May  4 10:46:49 2017 arnaud.alies
-// Last update Tue Jun  6 18:45:21 2017 arnaud.alies
+// Last update Wed Jun  7 11:02:41 2017 arnaud.alies
 //
 
 #include <ctime>
@@ -64,7 +64,7 @@ void BombermanDuo::spawnBoxes()
 	  {
 	    in_range = _entity_manager->getInRange(Map::getAbs(x, y), UNIT * 2, "player");
 	    if (in_range.size() <= 0
-		&& RAND_PERCENT(80))
+		&& RAND_PERCENT(WALL_CHANCE))
 	      _entity_manager->addEntityMap<Box>(x, y);
 	  }
       }
