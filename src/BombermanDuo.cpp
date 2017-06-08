@@ -5,7 +5,7 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Thu May  4 10:46:49 2017 arnaud.alies
-// Last update Thu Jun  8 10:55:06 2017 arnaud.alies
+// Last update Thu Jun  8 18:01:10 2017 arnaud.alies
 //
 
 #include <ctime>
@@ -33,9 +33,10 @@ BombermanDuo::~BombermanDuo()
 
 State *BombermanDuo::update()
 {
+  E_INPUT in = _core->receiver->lastKey();
   if (_running)
     {
-      if (_core->receiver->keyState(K_ESCAPE))
+      if (in == K_ESCAPE)
 	return (new MainMenu());
       if (_p1->isAlive() == false
 	  || _p2->isAlive() == false)
