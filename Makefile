@@ -14,6 +14,7 @@ Sources =	$(SRC)main.cpp \
 		$(SRC)GameSelectMenu.cpp \
 		$(SRC)BombermanSolo.cpp \
 		$(SRC)BombermanDuo.cpp \
+		$(SRC)SoloEndMenu.cpp \
 		$(SRC)DuoEndMenu.cpp \
 		$(SRC)Mesh.cpp \
 		$(SRC)Map.cpp \

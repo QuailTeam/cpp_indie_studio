@@ -5,7 +5,7 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Thu May  4 10:46:49 2017 arnaud.alies
-// Last update Thu Jun  8 13:44:05 2017 arnaud.alies
+// Last update Thu Jun  8 16:41:59 2017 arnaud.alies
 //
 
 #include <ctime>
@@ -15,6 +15,7 @@
 #include "Box.hpp"
 #include "Gate.hpp"
 #include "Monster.hpp"
+#include "SoloEndMenu.hpp"
 #include "random.hpp"
 
 BombermanSolo::BombermanSolo() :
@@ -70,9 +71,9 @@ State *BombermanSolo::update()
       if (_time_end < _core->getTimeMs() - WAIT_AFTER_DEATH)
 	{
 	  if (_state == G_LOST)
-	    return (new BombermanSolo());
+	    return (new SoloEndMenu(0));
 	  if (_state == G_WON)
-	    return (new BombermanSolo(_level + 1));
+	    return (new SoloEndMenu(_level));
 	}
     }
   return (nullptr);
