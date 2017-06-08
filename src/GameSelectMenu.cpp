@@ -5,10 +5,11 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Thu May  4 10:46:49 2017 arnaud.alies
-// Last update Wed Jun  7 15:21:26 2017 arnaud.alies
+// Last update Thu Jun  8 10:51:59 2017 arnaud.alies
 //
 
 #include <iostream>
+#include "MainMenu.hpp"
 #include "BombermanSolo.hpp"
 #include "BombermanDuo.hpp"
 #include "GameSelectMenu.hpp"
@@ -42,6 +43,8 @@ State *GameSelectMenu::update()
       if (_list->selected() == 1)
 	return (new BombermanDuo());
     }
+  else if (in == K_ESCAPE)
+    return (new MainMenu());
   return (nullptr);
 }
 

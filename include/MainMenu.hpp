@@ -5,7 +5,7 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Thu May  4 10:45:13 2017 arnaud.alies
-// Last update Tue Jun  6 15:35:20 2017 arnaud.alies
+// Last update Thu Jun  8 10:52:36 2017 arnaud.alies
 //
 
 #ifndef MAINMENU_HPP_
@@ -16,6 +16,7 @@
 #include "State.hpp"
 #include "Image.hpp"
 #include "List.hpp"
+#include "Mesh.hpp"
 
 class MainMenu : public State
 {
