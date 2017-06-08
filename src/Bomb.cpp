@@ -5,7 +5,7 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Sun May 28 17:29:25 2017 arnaud.alies
-// Last update Thu Jun  8 13:50:50 2017 arnaud.alies
+// Last update Thu Jun  8 17:54:41 2017 arnaud.alies
 //
 
 #include "Map.hpp"
@@ -112,7 +112,7 @@ void Bomb::setPos(irr::core::vector3df target)
 
 irr::core::vector3df Bomb::getPos() const
 {
-  return (_mesh->node->getPosition());
+  return (_mesh->node->getPosition() - irr::core::vector3df(0,50,0));
 }
 
 std::string Bomb::getType() const

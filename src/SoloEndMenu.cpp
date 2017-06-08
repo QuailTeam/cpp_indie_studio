@@ -5,17 +5,19 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Thu Jun  8 15:32:43 2017 arnaud.alies
-// Last update Thu Jun  8 17:33:01 2017 arnaud.alies
+// Last update Thu Jun  8 17:45:34 2017 arnaud.alies
 //
 
 #include <string>
+#include "MainMenu.hpp"
+#include "BombermanSolo.hpp"
 #include "SoloEndMenu.hpp"
 
 SoloEndMenu::SoloEndMenu(int sel) :
   _core(nullptr),
   _sel(sel)
 {
-  
+  _time_end = _core->getTimeMs();
 }
 
 SoloEndMenu::~SoloEndMenu()
@@ -26,6 +28,13 @@ SoloEndMenu::~SoloEndMenu()
 
 State* SoloEndMenu::update()
 {
+  if (_time_end < _core->getTimeMs() - 2500)
+    {
+      if (_sel == 0)
+	return (new MainMenu());
+      else
+	return (new BombermanSolo(_sel + 1));
+    }
   return (nullptr);
 }
 
