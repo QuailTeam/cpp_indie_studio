@@ -5,7 +5,7 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Sun May 28 17:29:25 2017 arnaud.alies
-// Last update Wed Jun  7 17:50:55 2017 arnaud.alies
+// Last update Thu Jun  8 11:45:25 2017 arnaud.alies
 //
 
 #include "Gate.hpp"
@@ -22,7 +22,7 @@ void Gate::init(Core* core, Map *map, EntityManager* entity_manager)
   _mesh = new Mesh(_core,
                    "./res/gate/Manhole.obj",
                    irr::core::vector3df(0.1, 0.1, 0.1),
-                   "./res/gate/Manhole_02.jpg");
+                   "./res/gate/hole.jpg");
 }
 
 Gate::~Gate()

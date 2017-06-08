@@ -5,7 +5,7 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Thu May  4 10:46:49 2017 arnaud.alies
-// Last update Wed Jun  7 18:07:00 2017 arnaud.alies
+// Last update Thu Jun  8 12:01:32 2017 arnaud.alies
 //
 
 #include <ctime>
@@ -21,7 +21,7 @@ BombermanSolo::BombermanSolo() :
   _core(nullptr),
   _entity_manager(nullptr),
   _time_end(0),
-  _running(true)
+  _state(G_RUNNING)
 {
   _level = 1;
 }
@@ -30,7 +30,7 @@ BombermanSolo::BombermanSolo(int level) :
   _core(nullptr),
   _entity_manager(nullptr),
   _time_end(0),
-  _running(true)
+  _state(G_RUNNING)
 {
   _level = level;
   if (_level < 1)
@@ -47,22 +47,32 @@ BombermanSolo::~BombermanSolo()
 
 State *BombermanSolo::update()
 {
-  if (_running)
+  if (_state == G_RUNNING)
     {
       if (_core->receiver->keyState(K_ESCAPE))
 	return (new MainMenu());
       if (_p1->isAlive() == false)
 	{
-	  _running = false;
+	  _state = G_LOST;
 	  _time_end = _core->getTimeMs();
         }
+      std::vector<AEntity*> ents;
+      ents = _entity_manager->getInRange(_p1->getPos(), UNIT / 2, "gate");
+      if (ents.size() > 0 && _state == G_RUNNING)
+	{
+	  _time_end = _core->getTimeMs();
+          _state = G_WON;
+	}
       _entity_manager->update();
     }
   else
     {
       if (_time_end < _core->getTimeMs() - WAIT_AFTER_DEATH)
 	{
-	  return (new BombermanSolo());
+	  if (_state == G_LOST)
+	    return (new BombermanSolo());
+	  if (_state == G_WON)
+	    return (new BombermanSolo(_level + 1));
 	}
     }
   return (nullptr);
