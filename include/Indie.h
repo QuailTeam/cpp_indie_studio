@@ -5,7 +5,7 @@
 ** Login   <arnaud.alies@epitech.eu>
 ** 
 ** Started on  Thu May  4 10:33:36 2017 arnaud.alies
-** Last update Wed Jun  7 18:04:06 2017 arnaud.alies
+** Last update Thu Jun  8 13:17:24 2017 arnaud.alies
 */
 
 #ifndef INDIE_H_
@@ -14,7 +14,7 @@
 #define WIDTH 1200
 #define HEIGHT 700
 
-#define POWERUP_CHANCE 30
+#define POWERUP_CHANCE 40
 #define WALL_CHANCE 80
 
 #include <irrlicht.h>

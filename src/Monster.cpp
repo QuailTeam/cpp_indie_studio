@@ -5,7 +5,7 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Tue May 30 15:13:35 2017 arnaud.alies
-// Last update Wed Jun  7 17:05:27 2017 arnaud.alies
+// Last update Thu Jun  8 13:33:16 2017 arnaud.alies
 //
 
 #include "Monster.hpp"
@@ -16,7 +16,7 @@
 Monster::Monster()
 {
   _id = 1;
-  _speed = randint(3, 6);
+  _speed = ((float)randint(20, 50)) / 10.0;
 }
 
 Monster::~Monster()

@@ -5,7 +5,7 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Thu May  4 10:46:49 2017 arnaud.alies
-// Last update Thu Jun  8 12:01:32 2017 arnaud.alies
+// Last update Thu Jun  8 13:44:05 2017 arnaud.alies
 //
 
 #include <ctime>
@@ -89,7 +89,7 @@ void BombermanSolo::spawnBoxes()
 	  {
 	    in_range = _entity_manager->getInRange(Map::getAbs(x, y), UNIT * 2, "player:npc");
 	    if (in_range.size() <= 0
-		&& RAND_PERCENT(20))
+		&& RAND_PERCENT(40))
 	      _entity_manager->addEntityMap<Box>(x, y);
 	  }
       }
@@ -104,9 +104,9 @@ void BombermanSolo::spawnMonsters()
       {
 	if (_map->get(x, y) == M_EMPTY)
 	  {
-	    in_range = _entity_manager->getInRange(Map::getAbs(x, y), UNIT * 3, "player:npc");
+	    in_range = _entity_manager->getInRange(Map::getAbs(x, y), UNIT * 4, "player");
 	    if (in_range.size() <= 0
-		&& RAND_PERCENT(5 * _level))
+		&& RAND_PERCENT(5 + (_level)))
 	      _entity_manager->addEntityMap<Monster>(x, y);
 	  }
       }
@@ -129,10 +129,11 @@ void BombermanSolo::begin(Core* core)
   _core->cam->setTarget(irr::core::vector3df(width / 2, 0, height / 2));
 
   _p1 = _entity_manager->addEntityMap<Player1>(1, 1);
-  _entity_manager->addEntityMap<Gate>(1, 2);
+  _entity_manager->addEntityMap<Gate>(_map->getWidth() - 2, _map->getHeight() - 2);
   //_entity_manager->addEntityMap<Monster>(_map->getWidth() - 2, _map->getHeight() - 2);
-  this->spawnMonsters();
   
+  _entity_manager->update();
+  this->spawnMonsters();
   _entity_manager->update();
   this->spawnBoxes();
 }
