@@ -5,7 +5,7 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Thu May  4 10:45:13 2017 arnaud.alies
-// Last update Tue May 23 17:49:11 2017 arnaud.alies
+// Last update Thu Jun  8 18:04:17 2017 arnaud.alies
 //
 
 #ifndef WELCOME_HPP_
@@ -23,7 +23,6 @@ class Welcome : public State
 private:
   Core* _core;
   Mesh* _bomb;
-  irr::gui::IGUIStaticText *_staticText;
   irr::scene::IAnimatedMesh* _bombermesh;
   irr::scene::IAnimatedMeshSceneNode* _bombernode;
   int _stime;
