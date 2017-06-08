@@ -5,13 +5,14 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Tue May 30 14:56:43 2017 arnaud.alies
-// Last update Tue Jun  6 14:20:57 2017 arnaud.alies
+// Last update Thu Jun  8 14:00:36 2017 arnaud.alies
 //
 
 #ifndef APLAYER_HPP_
 #define APLAYER_HPP_
 
 #include <vector>
+#include "Bomb.hpp"
 #include "AEntity.hpp"
 #include "Mesh.hpp"
 #include "Powerup.hpp"
@@ -52,7 +53,7 @@ public:
   std::string getType() const;
   void kill();
   void applyPowerup(EPowerup power);
-  void plantBomb();
+  Bomb* plantBomb();
   bool isAlive() const;
   int countMyBombs() const;
   /* pure virtual */

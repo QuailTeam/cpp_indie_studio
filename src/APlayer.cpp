@@ -5,12 +5,11 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Tue May 30 15:13:35 2017 arnaud.alies
-// Last update Tue Jun  6 14:23:44 2017 arnaud.alies
+// Last update Thu Jun  8 14:00:42 2017 arnaud.alies
 //
 
 #include "APlayer.hpp"
 #include "EntityManager.hpp"
-#include "Bomb.hpp"
 
 APlayer::APlayer() :
   _offset(irr::core::vector3df(0, 50, 0)),
@@ -70,7 +69,7 @@ int APlayer::countMyBombs() const
   return (c);
 }
 
-void APlayer::plantBomb()
+Bomb* APlayer::plantBomb()
 {
   std::vector<AEntity*> bombs = _entity_manager->getInRange(this->getPos(), UNIT, "bomb");
   if (bombs.size() <= 0
@@ -80,7 +79,9 @@ void APlayer::plantBomb()
 									  Map::getY(this->getPos())));
       bomb->range = _bomb_range;
       bomb->id = _id;
+      return (bomb);
     }
+  return (nullptr);
 }
 
 void APlayer::update()

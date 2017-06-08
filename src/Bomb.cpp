@@ -5,7 +5,7 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Sun May 28 17:29:25 2017 arnaud.alies
-// Last update Wed Jun  7 17:00:35 2017 arnaud.alies
+// Last update Thu Jun  8 13:50:50 2017 arnaud.alies
 //
 
 #include "Map.hpp"
@@ -14,7 +14,8 @@
 #include "EntityManager.hpp"
 
 Bomb::Bomb() :
-  range(2)
+  range(2),
+  timer(BOMB_TIMER)
 {
   _time = Core::getTimeMs();
 }
@@ -100,7 +101,7 @@ void Bomb::update()
   float rot_speed = (ctime - _time) / 50;
 
   _mesh->node->setRotation(rot + irr::core::vector3df(0, rot_speed, 0));
-  if (_time + BOMB_TIMER < ctime)
+  if (_time + this->timer < ctime)
     this->kill();
 }
 

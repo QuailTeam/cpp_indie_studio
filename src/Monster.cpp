@@ -5,7 +5,7 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Tue May 30 15:13:35 2017 arnaud.alies
-// Last update Thu Jun  8 13:33:16 2017 arnaud.alies
+// Last update Thu Jun  8 14:05:14 2017 arnaud.alies
 //
 
 #include "Monster.hpp"
@@ -56,7 +56,6 @@ EState Monster::getState()
   closestPlayer = static_cast<APlayer*>(_entity_manager->getClosestEntity(this->getPos(),
 									  "player",
 									  this));
-
   if (closestPlayer != nullptr)
     {
       this->getPosMap(&monster_x, &monster_y);
@@ -74,6 +73,22 @@ EState Monster::getState()
 	res = S_RUN_DOWN;
     }
   return (res);
+}
+
+void Monster::update()
+{
+  APlayer::update();
+
+  if (this->isAlive())
+    {
+      std::vector<AEntity*> players = _entity_manager->getInRange(this->getPos(), UNIT * 1.5, "player");
+      if (players.size() > 0)
+	{
+	  Bomb* bomb = this->plantBomb();
+	  if (bomb != nullptr)
+	    bomb->timer = 0;
+	}
+    }
 }
 
 std::string Monster::getType() const

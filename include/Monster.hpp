@@ -5,7 +5,7 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Tue May 30 14:56:43 2017 arnaud.alies
-// Last update Wed Jun  7 17:01:00 2017 arnaud.alies
+// Last update Thu Jun  8 13:56:37 2017 arnaud.alies
 //
 
 #ifndef MONSTER_HPP_
@@ -22,6 +22,7 @@ public:
   virtual EState getState();
   bool checkMove(int, int);
   std::string getType() const;
+  void update();
 };
 
 #endif

@@ -5,7 +5,7 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Sun May 28 16:09:08 2017 arnaud.alies
-// Last update Mon Jun  5 19:23:00 2017 arnaud.alies
+// Last update Thu Jun  8 13:53:19 2017 arnaud.alies
 //
 
 #ifndef BOMB_HPP_
@@ -26,6 +26,7 @@ protected:
 public:
   int range;
   int id;
+  int timer;
 public:
   Bomb();
   virtual ~Bomb();
