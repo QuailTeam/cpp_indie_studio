@@ -5,7 +5,7 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Thu May  4 10:46:49 2017 arnaud.alies
-// Last update Tue Jun  6 15:46:35 2017 arnaud.alies
+// Last update Thu Jun  8 15:07:54 2017 arnaud.alies
 //
 
 #include <iostream>
@@ -48,8 +48,8 @@ void Welcome::begin(Core* core)
 		   irr::core::vector3df(50,50,50),
 		   "./res/bomb/Albedo.png");
   _staticText = _core->gui->addStaticText(L"Hello World!",
-					  irr::core::rect<irr::s32>(10,10,260,22),
-					  true);
+					  irr::core::rect<irr::s32>(10,10,260,50),
+					  false);
   /*
   Mesh *test = new Mesh(_core,
 			"./res/crate/crate1.obj",

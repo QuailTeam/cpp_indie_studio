@@ -5,11 +5,12 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Thu May  4 12:36:35 2017 arnaud.alies
-// Last update Thu Jun  1 14:04:39 2017 arnaud.alies
+// Last update Thu Jun  8 15:08:41 2017 arnaud.alies
 //
 
 #include <chrono>
 #include <ctime>
+#include <iostream>
 #include "Core.hpp"
 #include "Welcome.hpp"
 
@@ -37,6 +38,14 @@ Core::Core()
   video = device->getVideoDriver();
   scene = device->getSceneManager();
   gui = device->getGUIEnvironment();
+  //gui font
+  irr::gui::IGUISkin* skin = gui->getSkin();
+  irr::gui::IGUIFont* font = gui->getFont("./res/font.bmp");
+  if (font)
+    skin->setFont(font);
+  else
+    std::cerr << "error while loading font" << std::endl;
+  //
   cam = scene->addCameraSceneNode();
   state = new Welcome();
   state->begin(this);
