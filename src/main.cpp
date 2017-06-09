@@ -5,10 +5,8 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Tue May  2 15:10:14 2017 arnaud.alies
-// Last update Tue Jun  6 17:23:47 2017 arnaud.alies
+// Last update Fri Jun  9 11:13:46 2017 arnaud.alies
 //
-
-#include <SFML/Audio.hpp>
 
 #include <iostream>
 #include "Indie.h"
@@ -19,15 +17,26 @@
 #pragma comment(linker, "/subsystem:windows /ENTRY:mainCRTStartup")
 #endif
 
-int	main()
+void test()
 {
-  sf::SoundBuffer buffer;
-  if (!buffer.loadFromFile("./res/terrorist_music.ogg"))
-    return (1);
+ sf::SoundBuffer buffer;
+  if (!buffer.loadFromFile("./res/sounds/explosion.ogg"))
+    return ;
   sf::Sound sound;
   sound.setBuffer(buffer);
   sound.play();
-  
+}
+
+int	main()
+{
+  sf::SoundBuffer buffer;
+  if (!buffer.loadFromFile("./res/sounds/terrorist_music.ogg"))
+    return (1);
+  sf::Sound sound;
+  sound.setBuffer(buffer);
+  sound.setLoop(true);
+  sound.play();
+
   Core	core;
   
   core.run();

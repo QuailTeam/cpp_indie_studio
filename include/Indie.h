@@ -5,7 +5,7 @@
 ** Login   <arnaud.alies@epitech.eu>
 ** 
 ** Started on  Thu May  4 10:33:36 2017 arnaud.alies
-** Last update Thu Jun  8 13:17:24 2017 arnaud.alies
+** Last update Fri Jun  9 11:13:54 2017 arnaud.alies
 */
 
 #ifndef INDIE_H_
@@ -18,5 +18,6 @@
 #define WALL_CHANCE 80
 
 #include <irrlicht.h>
+#include <SFML/Audio.hpp>
 
 #endif

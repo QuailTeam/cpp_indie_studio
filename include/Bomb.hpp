@@ -5,7 +5,7 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Sun May 28 16:09:08 2017 arnaud.alies
-// Last update Thu Jun  8 13:53:19 2017 arnaud.alies
+// Last update Fri Jun  9 11:21:25 2017 arnaud.alies
 //
 
 #ifndef BOMB_HPP_
@@ -19,7 +19,7 @@
 class Bomb : public AEntity
 {
 private:
-  bool addExplosion(int x, int y);  
+  bool addExplosion(int x, int y, bool play = false);
 protected:
   Mesh* _mesh;
   int _time;

@@ -5,7 +5,7 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Sun May 28 17:29:25 2017 arnaud.alies
-// Last update Wed Jun  7 17:03:19 2017 arnaud.alies
+// Last update Fri Jun  9 11:17:22 2017 arnaud.alies
 //
 
 #include "Explosion.hpp"
@@ -21,6 +21,7 @@ void Explosion::init(Core* core, Map *map, EntityManager* entity_manager)
 {
   AEntity::init(core, map, entity_manager);
 
+  
   /* particle init */
   _particle = _core->scene->addParticleSystemSceneNode();
 
@@ -58,6 +59,16 @@ void Explosion::bombEntity(std::string type)
     {
       //_entity_manager->queueDeleteEntity(ent);
       ent->kill();
+    }
+}
+
+
+void Explosion::play()
+{
+  if (_sound_buffer.loadFromFile("./res/sounds/explosion.ogg"))
+    {
+      _sound.setBuffer(_sound_buffer);
+      _sound.play();
     }
 }
 

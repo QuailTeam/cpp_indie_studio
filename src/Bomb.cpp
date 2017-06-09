@@ -5,7 +5,7 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Sun May 28 17:29:25 2017 arnaud.alies
-// Last update Thu Jun  8 17:54:41 2017 arnaud.alies
+// Last update Fri Jun  9 11:23:38 2017 arnaud.alies
 //
 
 #include "Map.hpp"
@@ -29,14 +29,17 @@ void Bomb::init(Core* core, Map *map, EntityManager* entity_manager)
                    "./res/bomb/Albedo.png");
 }
 
-bool Bomb::addExplosion(int x, int y)
+bool Bomb::addExplosion(int x, int y, bool play)
 {
+  Explosion* explosion;
   EMap p;
 
   p = _map->get(x, y);
   if (p == M_WALL)
     return (false);
-  _entity_manager->addEntityMap<Explosion>(x, y);
+  explosion = static_cast<Explosion*>(_entity_manager->addEntityMap<Explosion>(x, y));
+  if (play)
+    explosion->play();
   if (p == M_OBS)
     return (false);
   return (true);
@@ -57,7 +60,8 @@ void Bomb::kill()
   
   int explosion_x = x;
   int explosion_y = y;
-  
+
+  this->addExplosion(x, y, true);
   while (explosion_x <= x + range)
     {
       if (this->addExplosion(explosion_x, y) == false)
