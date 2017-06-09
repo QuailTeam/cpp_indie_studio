@@ -5,16 +5,28 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Sun May 28 17:29:25 2017 arnaud.alies
-// Last update Fri Jun  9 14:16:04 2017 arnaud.alies
+// Last update Fri Jun  9 14:59:32 2017 arnaud.alies
 //
 
 #include "Plane.hpp"
 #include "Map.hpp"
 #include "EntityManager.hpp"
 #include "Bomb.hpp"
+#include "random.hpp"
+
+irr::core::vector3df Plane::getRandomStart(int map_width, int map_height)
+{
+  irr::core::vector3df res;
+
+  res.X = randint(0, map_width);
+  res.Y = UNIT;
+  res.Z = -map_height;
+  return (res);
+}
 
 Plane::Plane()
 {
+  vel = irr::core::vector3df(0, 0, 10);
 }
 
 void Plane::init(Core* core, Map *map, EntityManager* entity_manager)
@@ -36,6 +48,10 @@ void Plane::update()
 {
   int x, y;
   this->getPosMap(&x, &y);
+
+  if (this->getPos().Z > _map->getHeight() * UNIT * 2)
+    this->setPos(Plane::getRandomStart(_map->getWidth() * UNIT, _map->getHeight() * UNIT));
+  this->setPos(this->getPos() + vel);
 }
 
 void Plane::setPos(irr::core::vector3df target)
