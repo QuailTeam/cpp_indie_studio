@@ -5,7 +5,7 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Thu May  4 12:36:35 2017 arnaud.alies
-// Last update Thu Jun  8 15:08:41 2017 arnaud.alies
+// Last update Fri Jun  9 13:13:38 2017 arnaud.alies
 //
 
 #include <chrono>
@@ -60,6 +60,11 @@ Core::~Core()
 void Core::run()
 {
   State *buff;
+  sf::SoundBuffer buffer;
+  if (!buffer.loadFromFile("./res/sounds/click.ogg"))
+    return ;
+  sf::Sound sound;
+  sound.setBuffer(buffer);
 
   while (device->run())
     {
@@ -73,6 +78,7 @@ void Core::run()
 	  delete state;
 	  buff->begin(this);
 	  state = buff;
+	  sound.play();
 	}
     }
 }
