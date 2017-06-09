@@ -5,7 +5,7 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Thu May  4 10:46:49 2017 arnaud.alies
-// Last update Thu Jun  8 16:41:59 2017 arnaud.alies
+// Last update Fri Jun  9 14:11:17 2017 arnaud.alies
 //
 
 #include <ctime>
@@ -15,6 +15,7 @@
 #include "Box.hpp"
 #include "Gate.hpp"
 #include "Monster.hpp"
+#include "Plane.hpp"
 #include "SoloEndMenu.hpp"
 #include "random.hpp"
 
@@ -134,7 +135,10 @@ void BombermanSolo::begin(Core* core)
   //_entity_manager->addEntityMap<Monster>(_map->getWidth() - 2, _map->getHeight() - 2);
   
   _entity_manager->update();
-  this->spawnMonsters();
+  //this->spawnMonsters();
+  
+  _entity_manager->addEntity<Plane>(irr::core::vector3df(width / 2, UNIT, height / 2));
+  
   _entity_manager->update();
   this->spawnBoxes();
 }

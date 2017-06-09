@@ -5,7 +5,7 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Tue May  2 15:10:14 2017 arnaud.alies
-// Last update Fri Jun  9 11:13:46 2017 arnaud.alies
+// Last update Fri Jun  9 13:34:27 2017 arnaud.alies
 //
 
 #include <iostream>
@@ -30,7 +30,7 @@ void test()
 int	main()
 {
   sf::SoundBuffer buffer;
-  if (!buffer.loadFromFile("./res/sounds/terrorist_music.ogg"))
+  if (!buffer.loadFromFile("./res/sounds/yallah.ogg"))
     return (1);
   sf::Sound sound;
   sound.setBuffer(buffer);
