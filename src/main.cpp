@@ -5,7 +5,7 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Tue May  2 15:10:14 2017 arnaud.alies
-// Last update Fri Jun  9 13:34:27 2017 arnaud.alies
+// Last update Sat Jun 10 16:51:17 2017 arnaud.alies
 //
 
 #include <iostream>
@@ -29,6 +29,7 @@ void test()
 
 int	main()
 {
+  /*
   sf::SoundBuffer buffer;
   if (!buffer.loadFromFile("./res/sounds/yallah.ogg"))
     return (1);
@@ -36,7 +37,7 @@ int	main()
   sound.setBuffer(buffer);
   sound.setLoop(true);
   sound.play();
-
+  */
   Core	core;
   
   core.run();
