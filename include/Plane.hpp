@@ -5,7 +5,7 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Sun May 28 16:09:08 2017 arnaud.alies
-// Last update Sat Jun 10 16:56:24 2017 arnaud.alies
+// Last update Sun Jun 11 10:48:51 2017 arnaud.alies
 //
 
 #ifndef PLANE_HPP_
@@ -19,12 +19,14 @@ class Plane : public AEntity
 protected:
   Mesh* _mesh;
   bool _first;
+  bool _plant;
   int _target_x;
   int _target_y;
 protected:
   irr::core::vector3df getStart(int x, int y);
 public:
   irr::core::vector3df vel;
+  int bomb_range;
 public:
   Plane();
   virtual ~Plane();

@@ -5,7 +5,7 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Sun May 28 17:29:25 2017 arnaud.alies
-// Last update Sat Jun 10 17:00:48 2017 arnaud.alies
+// Last update Sun Jun 11 10:49:19 2017 arnaud.alies
 //
 
 #include "Plane.hpp"
@@ -29,6 +29,8 @@ Plane::Plane()
   _first = true;
   _target_x = 0;
   _target_y = 0;
+  _plant = false;
+  bomb_range = 1;
 }
 
 void Plane::init(Core* core, Map* map, EntityManager* entity_manager)
@@ -61,11 +63,12 @@ void Plane::update()
   else
     {
       //if (this->getPos().Z > _map->getHeight() * UNIT * 2)
-      if (x == _target_x && y == _target_y)
+      if (x == _target_x && y == _target_y && _plant == false)
 	{
 	  Bomb* bomb = static_cast<Bomb*>(_entity_manager->addEntityMap<Bomb>(x, y));
-	  bomb->range = 1;
-	  bomb->id = randint(100, 10000);
+	  bomb->range = bomb_range;
+	  bomb->id = 0;
+	  _plant = true;
 	}
       this->setPos(this->getPos() + vel);
     }

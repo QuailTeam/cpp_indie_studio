@@ -5,7 +5,7 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Thu May  4 10:46:49 2017 arnaud.alies
-// Last update Sat Jun 10 17:01:10 2017 arnaud.alies
+// Last update Sun Jun 11 10:47:41 2017 arnaud.alies
 //
 
 #include <ctime>
@@ -136,7 +136,7 @@ void BombermanSolo::begin(Core* core)
   
   _entity_manager->update();
   //this->spawnMonsters();
-  _entity_manager->addEntityMap<Plane>(1, 2);
+  _entity_manager->addEntityMap<Plane>(3, 3);
 
   _entity_manager->update();
   this->spawnBoxes();
