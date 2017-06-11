@@ -5,7 +5,7 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Sun May 28 17:29:25 2017 arnaud.alies
-// Last update Sun Jun 11 10:49:19 2017 arnaud.alies
+// Last update Sun Jun 11 10:51:26 2017 arnaud.alies
 //
 
 #include "Plane.hpp"
@@ -65,7 +65,7 @@ void Plane::update()
       //if (this->getPos().Z > _map->getHeight() * UNIT * 2)
       if (x == _target_x && y == _target_y && _plant == false)
 	{
-	  Bomb* bomb = static_cast<Bomb*>(_entity_manager->addEntityMap<Bomb>(x, y));
+	  Bomb* bomb = _entity_manager->addEntityMap<Bomb>(x, y);
 	  bomb->range = bomb_range;
 	  bomb->id = 0;
 	  _plant = true;

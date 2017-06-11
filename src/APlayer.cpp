@@ -5,7 +5,7 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Tue May 30 15:13:35 2017 arnaud.alies
-// Last update Thu Jun  8 14:00:42 2017 arnaud.alies
+// Last update Sun Jun 11 10:51:06 2017 arnaud.alies
 //
 
 #include "APlayer.hpp"
@@ -75,8 +75,8 @@ Bomb* APlayer::plantBomb()
   if (bombs.size() <= 0
       && this->countMyBombs() < _max_bombs)
     {
-      Bomb* bomb = static_cast<Bomb*>(_entity_manager->addEntityMap<Bomb>(Map::getX(this->getPos()),
-									  Map::getY(this->getPos())));
+      Bomb* bomb = _entity_manager->addEntityMap<Bomb>(Map::getX(this->getPos()),
+						       Map::getY(this->getPos()));
       bomb->range = _bomb_range;
       bomb->id = _id;
       return (bomb);

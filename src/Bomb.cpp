@@ -5,7 +5,7 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Sun May 28 17:29:25 2017 arnaud.alies
-// Last update Fri Jun  9 11:23:38 2017 arnaud.alies
+// Last update Sun Jun 11 10:51:43 2017 arnaud.alies
 //
 
 #include "Map.hpp"
@@ -37,7 +37,7 @@ bool Bomb::addExplosion(int x, int y, bool play)
   p = _map->get(x, y);
   if (p == M_WALL)
     return (false);
-  explosion = static_cast<Explosion*>(_entity_manager->addEntityMap<Explosion>(x, y));
+  explosion = _entity_manager->addEntityMap<Explosion>(x, y);
   if (play)
     explosion->play();
   if (p == M_OBS)
