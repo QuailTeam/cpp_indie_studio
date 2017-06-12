@@ -5,7 +5,7 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Sun May 28 17:29:25 2017 arnaud.alies
-// Last update Mon Jun 12 14:16:05 2017 arnaud.alies
+// Last update Mon Jun 12 15:35:22 2017 arnaud.alies
 //
 
 #include "Plane.hpp"
@@ -18,7 +18,7 @@ irr::core::vector3df Plane::getStart(int x, int y)
 {
   irr::core::vector3df res = Map::getAbs(x, y);
 
-  res.Y = UNIT * (((float)randint(15, 25)) / 10.0);
+  res.Y = UNIT * (((float)randint(20, 25)) / 10.0);
   res.Z = -(_map->getHeight() * UNIT);
   return (res);
 }
