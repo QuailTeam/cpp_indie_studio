@@ -5,7 +5,7 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Thu Jun  8 15:32:43 2017 arnaud.alies
-// Last update Thu Jun  8 17:45:34 2017 arnaud.alies
+// Last update Mon Jun 12 19:20:32 2017 arnaud.alies
 //
 
 #include <string>
@@ -55,7 +55,7 @@ void SoloEndMenu::begin(Core* core)
 			      core->video->getTexture((char*)"./res/game_over.png"),
 			      irr::core::position2d<irr::s32>(WIDTH / 2, HEIGHT * 0.86));
     }
-  _staticText = _core->gui->addStaticText((const wchar_t*)text.c_str(),
+  _staticText = _core->gui->addStaticText(text.c_str(),
 					  irr::core::rect<irr::s32>(10,10,260,50),
 					  false);
 }
