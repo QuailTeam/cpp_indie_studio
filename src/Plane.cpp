@@ -5,7 +5,7 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Sun May 28 17:29:25 2017 arnaud.alies
-// Last update Sun Jun 11 10:51:26 2017 arnaud.alies
+// Last update Mon Jun 12 14:16:05 2017 arnaud.alies
 //
 
 #include "Plane.hpp"
@@ -18,14 +18,14 @@ irr::core::vector3df Plane::getStart(int x, int y)
 {
   irr::core::vector3df res = Map::getAbs(x, y);
 
-  res.Y = UNIT * 2;
+  res.Y = UNIT * (((float)randint(15, 25)) / 10.0);
   res.Z = -(_map->getHeight() * UNIT);
   return (res);
 }
 
 Plane::Plane()
 {
-  vel = irr::core::vector3df(0, 0, 10);
+  vel = irr::core::vector3df(0, 0, 9) * (((float)randint(1, 30)) / 10.0);
   _first = true;
   _target_x = 0;
   _target_y = 0;
@@ -69,8 +69,13 @@ void Plane::update()
 	  bomb->range = bomb_range;
 	  bomb->id = 0;
 	  _plant = true;
+	  vel += irr::core::vector3df(0,1,0);
 	}
       this->setPos(this->getPos() + vel);
+      if (y > _map->getWidth() * 2)
+	{
+	  _entity_manager->queueDeleteEntity(this);
+	}
     }
 }
 

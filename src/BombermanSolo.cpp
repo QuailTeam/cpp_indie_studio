@@ -5,7 +5,7 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Thu May  4 10:46:49 2017 arnaud.alies
-// Last update Sun Jun 11 10:47:41 2017 arnaud.alies
+// Last update Mon Jun 12 14:09:48 2017 arnaud.alies
 //
 
 #include <ctime>
@@ -47,6 +47,28 @@ BombermanSolo::~BombermanSolo()
   delete _background;
 }
 
+void BombermanSolo::respawnPlanes()
+{
+  std::vector<AEntity*> ents;
+  int diff;
+  int x;
+  int y;
+
+  ents = _entity_manager->getAll("plane");
+  diff = _level - ents.size();
+  while (diff > 0)
+    {
+      do {
+	x = randint(1, _map->getWidth() - 2);
+	y = randint(1, _map->getHeight() - 2);
+      } while (_map->get(x, y) != M_EMPTY);
+      _entity_manager->addEntityMap<Plane>(x, y);
+      x = 0;
+      y = 0;
+      diff -= 1;
+    }
+}
+
 State *BombermanSolo::update()
 {
   if (_state == G_RUNNING)
@@ -65,6 +87,7 @@ State *BombermanSolo::update()
 	  _time_end = _core->getTimeMs();
           _state = G_WON;
 	}
+      this->respawnPlanes();
       _entity_manager->update();
     }
   else
@@ -91,7 +114,8 @@ void BombermanSolo::spawnBoxes()
 	  {
 	    in_range = _entity_manager->getInRange(Map::getAbs(x, y), UNIT * 2, "player:npc");
 	    if (in_range.size() <= 0
-		&& RAND_PERCENT(40))
+		&& RAND_PERCENT(40)
+		&& x != _map->getWidth() - 2 && _map->getHeight() - 2)
 	      _entity_manager->addEntityMap<Box>(x, y);
 	  }
       }

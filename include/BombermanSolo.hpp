@@ -5,7 +5,7 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Thu May  4 10:45:13 2017 arnaud.alies
-// Last update Thu Jun  8 12:00:51 2017 arnaud.alies
+// Last update Mon Jun 12 10:55:54 2017 arnaud.alies
 //
 
 #ifndef BOMBERMANSOLO_HPP_
@@ -52,6 +52,7 @@ public:
   void begin(Core*);
   void spawnBoxes();
   void spawnMonsters();
+  void respawnPlanes();
 };
 
 #endif
