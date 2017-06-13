@@ -5,7 +5,7 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Thu May  4 10:46:49 2017 arnaud.alies
-// Last update Tue Jun 13 18:06:41 2017 arnaud.alies
+// Last update Tue Jun 13 18:07:50 2017 arnaud.alies
 //
 
 #include <string>
@@ -157,7 +157,7 @@ void BombermanSolo::begin(Core* core)
                           irr::core::position2d<irr::s32>(WIDTH / 2, HEIGHT * 0.86));
 
   _staticText =
-    _core->gui->addStaticText((irr::core::stringw("High level: ")
+    _core->gui->addStaticText((irr::core::stringw("Top level: ")
 			       + irr::core::stringw(SETTINGS.max_level)).c_str(),
 			      irr::core::rect<irr::s32>(10,10,260,50),
 			      false);
