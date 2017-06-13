@@ -5,7 +5,7 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Thu May  4 10:46:49 2017 arnaud.alies
-// Last update Tue Jun 13 14:52:43 2017 arnaud.alies
+// Last update Tue Jun 13 17:25:08 2017 arnaud.alies
 //
 
 #include <ctime>
@@ -124,18 +124,21 @@ void BombermanSolo::spawnBoxes()
 void BombermanSolo::spawnMonsters()
 {
   std::vector<AEntity*> in_range;
+  int x, y;
+  int n = _level;
 
-  for (int y = 0; y < _map->getHeight(); y += 1)
-    for (int x = 0; x < _map->getWidth(); x += 1)
-      {
-	if (_map->get(x, y) == M_EMPTY)
-	  {
-	    in_range = _entity_manager->getInRange(Map::getAbs(x, y), UNIT * 4, "player");
-	    if (in_range.size() <= 0
-		&& RAND_PERCENT(5 + (_level)))
-	      _entity_manager->addEntityMap<Monster>(x, y);
-	  }
-      }
+  while (n > 0)
+    {
+      do {
+        x = randint(1, _map->getWidth() - 2);
+        y = randint(1, _map->getHeight() - 2);
+      } while (_map->get(x, y) != M_EMPTY
+	       || _entity_manager->getInRange(Map::getAbs(x, y), UNIT * 4, "player").size() > 0);
+      _entity_manager->addEntityMap<Monster>(x, y);
+      x = 0;
+      y = 0;
+      n -= 1;
+    }
 }
 
 void BombermanSolo::begin(Core* core)
