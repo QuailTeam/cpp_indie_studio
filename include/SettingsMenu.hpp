@@ -5,7 +5,7 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Thu May  4 10:45:13 2017 arnaud.alies
-// Last update Tue Jun 13 13:51:46 2017 arnaud.alies
+// Last update Tue Jun 13 15:35:27 2017 arnaud.alies
 //
 
 #ifndef SETTINGSMENU_HPP_
@@ -22,8 +22,10 @@ class SettingsMenu : public State
 {
 private:
   Core* _core;
+  irr::gui::IGUIStaticText* _map_size_text;
   irr::gui::IGUIScrollBar* _scrollbar;
-  irr::gui::IGUIStaticText* _staticText;
+  irr::gui::IGUIStaticText* _music_text;
+  irr::gui::IGUICheckBox* _music_checkbox;
 public:
   SettingsMenu();
   virtual ~SettingsMenu();

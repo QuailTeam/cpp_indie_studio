@@ -5,7 +5,7 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Tue Jun 13 14:10:47 2017 arnaud.alies
-// Last update Tue Jun 13 14:45:32 2017 arnaud.alies
+// Last update Tue Jun 13 15:45:33 2017 arnaud.alies
 //
 
 #include <iostream>
@@ -30,6 +30,7 @@ void Settings::load()
   if (ifstream.is_open() == false)
     {
       _data.map_size = 11;
+      _data.music = true;
     }
   else
     {
@@ -43,7 +44,7 @@ void Settings::save()
 {
   std::ofstream ofstream;
 
-  ofstream.open("settings.bin");
+  ofstream.open("settings.bin", std::ios::out | std::ios::trunc);
   if (ofstream.is_open() == true)
     {
       ofstream.write((char*)&_data, sizeof(Data));

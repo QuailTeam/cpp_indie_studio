@@ -5,7 +5,7 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Thu May  4 12:29:18 2017 arnaud.alies
-// Last update Tue Jun 13 14:50:33 2017 arnaud.alies
+// Last update Tue Jun 13 16:09:35 2017 arnaud.alies
 //
 
 #ifndef CORE_HPP_
@@ -24,6 +24,9 @@ class Core
 protected:
   State* state;
   bool _running;
+public:
+  sf::SoundBuffer sound_buffer;
+  sf::Sound sound;
 public:
   MyEventReceiver* receiver;
   irr::IrrlichtDevice* device;

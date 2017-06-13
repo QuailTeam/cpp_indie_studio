@@ -5,7 +5,7 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Thu May  4 12:36:35 2017 arnaud.alies
-// Last update Tue Jun 13 14:50:26 2017 arnaud.alies
+// Last update Tue Jun 13 16:15:29 2017 arnaud.alies
 //
 
 #include <chrono>
@@ -66,11 +66,20 @@ Core::~Core()
 void Core::run()
 {
   State *buff;
-  sf::SoundBuffer buffer;
-  if (!buffer.loadFromFile("./res/sounds/click.ogg"))
+  sf::SoundBuffer click_buffer;
+  if (!click_buffer.loadFromFile("./res/sounds/click.ogg"))
     return ;
-  sf::Sound sound;
-  sound.setBuffer(buffer);
+  sf::Sound click;
+  click.setBuffer(click_buffer);
+
+  if (sound_buffer.loadFromFile("./res/sounds/yallah.ogg"))
+    {
+      sound.setBuffer(sound_buffer);
+      sound.setLoop(true);
+      if (settings.get().music)
+	sound.play();
+    }
+
 
   while (device->run() && _running)
     {
@@ -84,7 +93,7 @@ void Core::run()
 	  delete state;
 	  buff->begin(this);
 	  state = buff;
-	  sound.play();
+	  click.play();
 	}
     }
 }
