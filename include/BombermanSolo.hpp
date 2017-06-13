@@ -5,7 +5,7 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Thu May  4 10:45:13 2017 arnaud.alies
-// Last update Mon Jun 12 10:55:54 2017 arnaud.alies
+// Last update Tue Jun 13 17:43:44 2017 arnaud.alies
 //
 
 #ifndef BOMBERMANSOLO_HPP_
@@ -44,6 +44,7 @@ protected:
   int _level;
   Image* _background;
   EGame _state;
+  irr::gui::IGUIStaticText* _staticText;
 public:
   BombermanSolo();
   BombermanSolo(int level);

@@ -5,7 +5,7 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Thu May  4 10:46:49 2017 arnaud.alies
-// Last update Tue Jun 13 16:17:46 2017 arnaud.alies
+// Last update Tue Jun 13 18:02:17 2017 arnaud.alies
 //
 
 #include "SettingsMenu.hpp"
@@ -40,7 +40,7 @@ State *SettingsMenu::update()
       _core->sound.play();
       SETTINGS.music = true;
     }
-  else if (SETTINGS.music == true)
+  else if (_music_checkbox->isChecked() == false && SETTINGS.music == true)
     {
       _core->sound.stop();
       SETTINGS.music = false;

@@ -5,10 +5,9 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Thu May  4 10:46:49 2017 arnaud.alies
-// Last update Tue Jun 13 14:53:09 2017 arnaud.alies
+// Last update Tue Jun 13 17:51:12 2017 arnaud.alies
 //
 
-#include <ctime>
 #include <iostream>
 #include "BombermanDuo.hpp"
 #include "DuoEndMenu.hpp"

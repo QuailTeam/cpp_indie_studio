@@ -5,10 +5,10 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Thu May  4 10:46:49 2017 arnaud.alies
-// Last update Tue Jun 13 17:25:08 2017 arnaud.alies
+// Last update Tue Jun 13 18:06:41 2017 arnaud.alies
 //
 
-#include <ctime>
+#include <string>
 #include <iostream>
 #include "BombermanSolo.hpp"
 #include "MainMenu.hpp"
@@ -42,9 +42,12 @@ BombermanSolo::BombermanSolo(int level) :
 
 BombermanSolo::~BombermanSolo()
 {
+  if (SETTINGS.max_level < _level)
+    SETTINGS.max_level = _level;
   delete _entity_manager;
   delete _map;
   delete _background;
+  _staticText->remove();
 }
 
 void BombermanSolo::respawnPlanes()
@@ -95,7 +98,9 @@ State *BombermanSolo::update()
       if (_time_end < _core->getTimeMs() - WAIT_AFTER_DEATH)
 	{
 	  if (_state == G_LOST)
-	    return (new SoloEndMenu(0));
+	    {
+	      return (new SoloEndMenu(0));
+	    }
 	  if (_state == G_WON)
 	    return (new SoloEndMenu(_level));
 	}
@@ -151,6 +156,12 @@ void BombermanSolo::begin(Core* core)
                           core->video->getTexture((char*)"./res/background.png"),
                           irr::core::position2d<irr::s32>(WIDTH / 2, HEIGHT * 0.86));
 
+  _staticText =
+    _core->gui->addStaticText((irr::core::stringw("High level: ")
+			       + irr::core::stringw(SETTINGS.max_level)).c_str(),
+			      irr::core::rect<irr::s32>(10,10,260,50),
+			      false);
+  
   int width = _map->getWidth() * UNIT;
   int height = _map->getHeight() * UNIT;
 
