@@ -5,7 +5,7 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Thu May  4 10:45:13 2017 arnaud.alies
-// Last update Tue Jun 13 09:52:29 2017 arnaud.alies
+// Last update Tue Jun 13 10:45:53 2017 arnaud.alies
 //
 
 #ifndef SETTINGS_HPP_
@@ -22,12 +22,14 @@ class Settings : public State
 {
 private:
   Core* _core;
-  irr::gui::IGUIScrollBar *_scrollbar;
+  irr::gui::IGUIScrollBar* _scrollbar;
+  irr::gui::IGUIStaticText* _staticText;
 public:
   Settings();
   virtual ~Settings();
   State *update();
   void begin(Core*);
+  static irr::core::rect<irr::s32> getDim(float margin, int pos, int height = 25);
 };
 
 #endif

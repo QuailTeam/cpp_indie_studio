@@ -5,7 +5,7 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Thu May  4 10:46:49 2017 arnaud.alies
-// Last update Tue Jun 13 09:57:41 2017 arnaud.alies
+// Last update Tue Jun 13 13:45:19 2017 arnaud.alies
 //
 
 #include "Settings.hpp"
@@ -18,6 +18,9 @@ Settings::Settings() :
 
 Settings::~Settings()
 {
+  _scrollbar->setEnabled(false);
+  _scrollbar->remove();
+  _staticText->remove();
 }
 
 State *Settings::update()
@@ -26,8 +29,17 @@ State *Settings::update()
   in = _core->receiver->lastKey();
   if (in == K_ESCAPE)
     return (new MainMenu());
-  printf("%d\n", _scrollbar->getPos());
+  //printf("%d\n", _scrollbar->getPos());
   return (nullptr);
+}
+
+irr::core::rect<irr::s32> Settings::getDim(float margin, int pos, int height)
+{
+  irr::core::rect<irr::s32> res;
+
+  res = irr::core::rect<irr::s32>(WIDTH * margin, pos,
+				  WIDTH * (1.0 - margin), pos + height);
+  return (res);
 }
 
 void	Settings::begin(Core* core)
@@ -40,7 +52,12 @@ void	Settings::begin(Core* core)
   _core->gui->addEditBox(irr::core::stringw("").c_str(),
 			 irr::core::rect<irr::s32>(10, 10, 500, 500));
   */
-  _scrollbar = _core->gui->addScrollBar(true, irr::core::rect<irr::s32>(100, 100, 500, 120));
+  _staticText = _core->gui->addStaticText(irr::core::stringw("Map size").c_str(),
+                                          Settings::getDim(0.2, 30),
+                                          false);
+  
+  _scrollbar = _core->gui->addScrollBar(true, Settings::getDim(0.2, 80));
   _scrollbar->setMin(9);
-  _scrollbar->setMax(40);
+  _scrollbar->setMax(31);
+  _scrollbar->setSmallStep(1);
 }
