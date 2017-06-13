@@ -5,7 +5,7 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Thu May  4 12:36:35 2017 arnaud.alies
-// Last update Fri Jun  9 13:13:38 2017 arnaud.alies
+// Last update Tue Jun 13 14:50:26 2017 arnaud.alies
 //
 
 #include <chrono>
@@ -27,8 +27,14 @@ int Core::getTimeMs()
   return (ms.count());
 }
 
+void Core::stop()
+{
+  _running = false;
+}
+
 Core::Core()
 {
+  _running = true;
   receiver = new MyEventReceiver();
   device = irr::createDevice(irr::video::EDT_OPENGL,
 			     irr::core::dimension2d<irr::u32>(WIDTH, HEIGHT), 16,
@@ -66,7 +72,7 @@ void Core::run()
   sf::Sound sound;
   sound.setBuffer(buffer);
 
-  while (device->run())
+  while (device->run() && _running)
     {
       video->beginScene(true, true, irr::video::SColor(255, 100, 101, 255));
       gui->drawAll();

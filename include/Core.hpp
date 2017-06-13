@@ -5,7 +5,7 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Thu May  4 12:29:18 2017 arnaud.alies
-// Last update Mon May 29 21:50:48 2017 arnaud.alies
+// Last update Tue Jun 13 14:50:33 2017 arnaud.alies
 //
 
 #ifndef CORE_HPP_
@@ -15,11 +15,15 @@
 #include "Indie.h"
 #include "State.hpp"
 #include "MyEventReceiver.hpp"
+#include "Settings.hpp"
+
+#define SETTINGS (_core->settings.get())
 
 class Core
 {
 protected:
   State* state;
+  bool _running;
 public:
   MyEventReceiver* receiver;
   irr::IrrlichtDevice* device;
@@ -27,10 +31,12 @@ public:
   irr::scene::ISceneManager* scene;
   irr::gui::IGUIEnvironment* gui;
   irr::scene::ICameraSceneNode* cam;
+  Settings settings;
 public:
   Core();
   virtual ~Core();
   void run();
+  void stop();
   static int getTime();
   static int getTimeMs();
 };

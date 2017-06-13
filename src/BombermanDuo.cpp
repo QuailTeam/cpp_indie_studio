@@ -5,7 +5,7 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Thu May  4 10:46:49 2017 arnaud.alies
-// Last update Thu Jun  8 18:01:10 2017 arnaud.alies
+// Last update Tue Jun 13 14:53:09 2017 arnaud.alies
 //
 
 #include <ctime>
@@ -79,7 +79,7 @@ void BombermanDuo::spawnBoxes()
 void BombermanDuo::begin(Core* core)
 {
   _core = core;
-  _map = new Map(_core, 11, 11);
+  _map = new Map(_core, SETTINGS.map_size, SETTINGS.map_size);
   _entity_manager = new	EntityManager(_core, _map);
 
 

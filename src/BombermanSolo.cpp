@@ -5,7 +5,7 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Thu May  4 10:46:49 2017 arnaud.alies
-// Last update Mon Jun 12 15:33:40 2017 arnaud.alies
+// Last update Tue Jun 13 14:52:43 2017 arnaud.alies
 //
 
 #include <ctime>
@@ -141,7 +141,7 @@ void BombermanSolo::spawnMonsters()
 void BombermanSolo::begin(Core* core)
 {
   _core = core;
-  _map = new Map(_core, 11, 11);
+  _map = new Map(_core, SETTINGS.map_size, SETTINGS.map_size);
   _entity_manager = new	EntityManager(_core, _map);
 
   _background = new Image(core,

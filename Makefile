@@ -5,6 +5,7 @@ SRC = ./src/
 
 Sources =	$(SRC)main.cpp \
 		$(SRC)random.cpp \
+		$(SRC)Settings.cpp \
 		$(SRC)Core.cpp \
 		$(SRC)Image.cpp \
 		$(SRC)List.cpp \

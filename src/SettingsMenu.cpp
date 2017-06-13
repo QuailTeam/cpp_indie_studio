@@ -5,7 +5,7 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Thu May  4 10:46:49 2017 arnaud.alies
-// Last update Tue Jun 13 13:51:04 2017 arnaud.alies
+// Last update Tue Jun 13 14:57:23 2017 arnaud.alies
 //
 
 #include "SettingsMenu.hpp"
@@ -29,7 +29,9 @@ State *SettingsMenu::update()
   in = _core->receiver->lastKey();
   if (in == K_ESCAPE)
     return (new MainMenu());
-  //printf("%d\n", _scrollbar->getPos());
+  SETTINGS.map_size = _scrollbar->getPos();
+  if (SETTINGS.map_size % 2 == 0)
+    SETTINGS.map_size += 1;
   return (nullptr);
 }
 
@@ -58,6 +60,7 @@ void	SettingsMenu::begin(Core* core)
   
   _scrollbar = _core->gui->addScrollBar(true, SettingsMenu::getDim(0.2, 80));
   _scrollbar->setMin(9);
-  _scrollbar->setMax(31);
+  _scrollbar->setMax(19);
   _scrollbar->setSmallStep(1);
+  _scrollbar->setPos(SETTINGS.map_size);
 }
