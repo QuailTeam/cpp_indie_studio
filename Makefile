@@ -36,7 +36,7 @@ IRRLITCHT = ./irrlicht-1.8.4/
 
 # general compiler settings
 CPPFLAGS = -I$(IRRLITCHT)include -I/usr/X11R6/include -I./include/
-CXXFLAGS = -O3 -ffast-math -g
+CXXFLAGS = -O3 -ffast-math -g -std=c++11
 #CXXFLAGS = -g -Wall
 
 #default target is Linux
