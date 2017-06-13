@@ -5,25 +5,25 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Thu May  4 10:46:49 2017 arnaud.alies
-// Last update Tue Jun 13 13:45:19 2017 arnaud.alies
+// Last update Tue Jun 13 13:51:04 2017 arnaud.alies
 //
 
-#include "Settings.hpp"
+#include "SettingsMenu.hpp"
 #include "MainMenu.hpp"
 
-Settings::Settings() :
+SettingsMenu::SettingsMenu() :
   _core(nullptr)
 {
 }
 
-Settings::~Settings()
+SettingsMenu::~SettingsMenu()
 {
   _scrollbar->setEnabled(false);
   _scrollbar->remove();
   _staticText->remove();
 }
 
-State *Settings::update()
+State *SettingsMenu::update()
 {
   E_INPUT in;
   in = _core->receiver->lastKey();
@@ -33,7 +33,7 @@ State *Settings::update()
   return (nullptr);
 }
 
-irr::core::rect<irr::s32> Settings::getDim(float margin, int pos, int height)
+irr::core::rect<irr::s32> SettingsMenu::getDim(float margin, int pos, int height)
 {
   irr::core::rect<irr::s32> res;
 
@@ -42,7 +42,7 @@ irr::core::rect<irr::s32> Settings::getDim(float margin, int pos, int height)
   return (res);
 }
 
-void	Settings::begin(Core* core)
+void	SettingsMenu::begin(Core* core)
 {
   _core = core;
   _core->cam->setPosition(irr::core::vector3df(100, 0, 0));
@@ -53,10 +53,10 @@ void	Settings::begin(Core* core)
 			 irr::core::rect<irr::s32>(10, 10, 500, 500));
   */
   _staticText = _core->gui->addStaticText(irr::core::stringw("Map size").c_str(),
-                                          Settings::getDim(0.2, 30),
+                                          SettingsMenu::getDim(0.2, 30),
                                           false);
   
-  _scrollbar = _core->gui->addScrollBar(true, Settings::getDim(0.2, 80));
+  _scrollbar = _core->gui->addScrollBar(true, SettingsMenu::getDim(0.2, 80));
   _scrollbar->setMin(9);
   _scrollbar->setMax(31);
   _scrollbar->setSmallStep(1);

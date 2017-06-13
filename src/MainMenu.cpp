@@ -5,7 +5,7 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Thu May  4 10:46:49 2017 arnaud.alies
-// Last update Mon Jun 12 19:17:34 2017 arnaud.alies
+// Last update Tue Jun 13 13:51:57 2017 arnaud.alies
 //
 
 #include <iostream>
@@ -13,7 +13,7 @@
 #include "BombermanDuo.hpp"
 #include "MainMenu.hpp"
 #include "GameSelectMenu.hpp"
-#include "Settings.hpp"
+#include "SettingsMenu.hpp"
 
 MainMenu::MainMenu() :
   _core(nullptr),
@@ -43,7 +43,7 @@ State *MainMenu::update()
       if (_list->selected() == 0)
 	return (new GameSelectMenu());
       if (_list->selected() == 1)
-	return (new Settings());
+	return (new SettingsMenu());
       if (_list->selected() == 2)
 	exit(0);
     }

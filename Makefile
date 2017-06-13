@@ -11,7 +11,7 @@ Sources =	$(SRC)main.cpp \
 		$(SRC)MyEventReceiver.cpp \
 		$(SRC)Welcome.cpp \
 		$(SRC)MainMenu.cpp \
-		$(SRC)Settings.cpp \
+		$(SRC)SettingsMenu.cpp \
 		$(SRC)GameSelectMenu.cpp \
 		$(SRC)BombermanSolo.cpp \
 		$(SRC)BombermanDuo.cpp \
