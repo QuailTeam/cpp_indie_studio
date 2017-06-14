@@ -5,7 +5,7 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Sun May 28 17:29:25 2017 arnaud.alies
-// Last update Fri Jun  9 11:17:22 2017 arnaud.alies
+// Last update Wed Jun 14 15:37:47 2017 arnaud.alies
 //
 
 #include "Explosion.hpp"
@@ -34,7 +34,7 @@ void Explosion::init(Core* core, Map *map, EntityManager* entity_manager)
   irr::scene::IParticleEmitter* emitter =
     _particle->createBoxEmitter(irr::core::aabbox3d<irr::f32>(-8,0,-8,8,8,8),
 				irr::core::vector3df(0.0f,0.05f,0.0f),
-				80,20,
+				40,10,
 				irr::video::SColor(0,255,255,255),
 				irr::video::SColor(0,255,255,255), 1100,2000);
   emitter->setMinStartSize(irr::core::dimension2df(10.0f, 10.0f));
