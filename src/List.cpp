@@ -5,7 +5,7 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Mon May 22 11:36:15 2017 arnaud.alies
-// Last update Wed Jun  7 15:11:01 2017 arnaud.alies
+// Last update Wed Jun 14 11:04:12 2017 arnaud.alies
 //
 
 #include "List.hpp"
@@ -23,6 +23,7 @@ List::List(Core *core,
 List::~List()
 {
   this->clear();
+  /*
   for (auto texture : _itextures)
     {
       _core->video->removeTexture(texture);
@@ -31,6 +32,7 @@ List::~List()
     {
       _core->video->removeTexture(texture);
     }
+  */
 }
 
 void List::clear()
