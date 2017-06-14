@@ -5,7 +5,7 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Thu May  4 12:36:35 2017 arnaud.alies
-// Last update Tue Jun 13 16:15:29 2017 arnaud.alies
+// Last update Wed Jun 14 15:35:52 2017 arnaud.alies
 //
 
 #include <chrono>
@@ -38,7 +38,7 @@ Core::Core()
   receiver = new MyEventReceiver();
   device = irr::createDevice(irr::video::EDT_OPENGL,
 			     irr::core::dimension2d<irr::u32>(WIDTH, HEIGHT), 16,
-			     false, false, false, receiver);
+			     false, false, true, receiver);
   //!device
   device->setWindowCaption(L"ISIS rp");
   video = device->getVideoDriver();
@@ -79,7 +79,6 @@ void Core::run()
       if (settings.get().music)
 	sound.play();
     }
-
 
   while (device->run() && _running)
     {
