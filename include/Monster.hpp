@@ -5,7 +5,7 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Tue May 30 14:56:43 2017 arnaud.alies
-// Last update Thu Jun  8 13:56:37 2017 arnaud.alies
+// Last update Thu Jun 15 16:12:39 2017 arnaud.alies
 //
 
 #ifndef MONSTER_HPP_
@@ -15,6 +15,9 @@
 
 class Monster : public APlayer
 {
+private:
+  sf::SoundBuffer _sound_buffer;
+  sf::Sound _sound;
 public:
   Monster();
   virtual ~Monster();

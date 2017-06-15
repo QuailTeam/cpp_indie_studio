@@ -5,7 +5,7 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Tue May 30 15:13:35 2017 arnaud.alies
-// Last update Thu Jun  8 17:56:39 2017 arnaud.alies
+// Last update Thu Jun 15 16:12:15 2017 arnaud.alies
 //
 
 #include "Monster.hpp"
@@ -84,6 +84,11 @@ void Monster::update()
       std::vector<AEntity*> players = _entity_manager->getInRange(this->getPos(), UNIT * 1.5, "player");
       if (players.size() > 0)
 	{
+	  if (_sound_buffer.loadFromFile("./res/sounds/allahuakbar.ogg"))
+	    {
+	      _sound.setBuffer(_sound_buffer);
+	      _sound.play();
+	    }
 	  Bomb* bomb = this->plantBomb();
 	  if (bomb != nullptr)
 	    bomb->timer = 0;
