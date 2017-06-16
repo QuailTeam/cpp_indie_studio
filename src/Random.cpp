@@ -5,7 +5,7 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Sun Jun  4 16:03:13 2017 arnaud.alies
-// Last update Fri Jun 16 10:55:52 2017 arnaud.alies
+// Last update Fri Jun 16 14:17:01 2017 arnaud.alies
 //
 
 #include <cstdlib>
@@ -25,6 +25,6 @@ int Random::randint(int min, int max)
 
   std::srand(seed);
   seed += 1;
-  res = (std::rand() % max) + 1;
+  res = ((std::rand() % (max - min + 1)) + min);
   return (res);
 }
