@@ -5,7 +5,7 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Thu May  4 10:46:49 2017 arnaud.alies
-// Last update Tue Jun 13 17:51:12 2017 arnaud.alies
+// Last update Fri Jun 16 10:41:47 2017 arnaud.alies
 //
 
 #include <iostream>
@@ -13,7 +13,7 @@
 #include "DuoEndMenu.hpp"
 #include "MainMenu.hpp"
 #include "Box.hpp"
-#include "random.hpp"
+#include "Random.hpp"
 
 BombermanDuo::BombermanDuo() :
   _core(nullptr),

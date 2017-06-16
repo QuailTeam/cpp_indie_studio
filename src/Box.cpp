@@ -5,10 +5,10 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Sun May 28 17:29:25 2017 arnaud.alies
-// Last update Mon Jun  5 14:57:48 2017 arnaud.alies
+// Last update Fri Jun 16 10:40:35 2017 arnaud.alies
 //
 
-#include "random.hpp"
+#include "Random.hpp"
 #include "Map.hpp"
 #include "Explosion.hpp"
 #include "Box.hpp"
@@ -43,7 +43,7 @@ void Box::kill()
   int x, y;
 
   this->getPosMap(&x, &y);
-  if (randint(0, 100) <= POWERUP_CHANCE)
+  if (Random::randint(0, 100) <= POWERUP_CHANCE)
     _entity_manager->addEntityMap<Powerup>(x, y);
   AEntity::kill();
 }

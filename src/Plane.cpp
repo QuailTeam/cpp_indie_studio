@@ -5,27 +5,27 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Sun May 28 17:29:25 2017 arnaud.alies
-// Last update Mon Jun 12 15:35:22 2017 arnaud.alies
+// Last update Fri Jun 16 10:40:19 2017 arnaud.alies
 //
 
 #include "Plane.hpp"
 #include "Map.hpp"
 #include "EntityManager.hpp"
 #include "Bomb.hpp"
-#include "random.hpp"
+#include "Random.hpp"
 
 irr::core::vector3df Plane::getStart(int x, int y)
 {
   irr::core::vector3df res = Map::getAbs(x, y);
 
-  res.Y = UNIT * (((float)randint(20, 25)) / 10.0);
+  res.Y = UNIT * (((float)Random::randint(20, 25)) / 10.0);
   res.Z = -(_map->getHeight() * UNIT);
   return (res);
 }
 
 Plane::Plane()
 {
-  vel = irr::core::vector3df(0, 0, 9) * (((float)randint(1, 30)) / 10.0);
+  vel = irr::core::vector3df(0, 0, 9) * (((float)Random::randint(1, 30)) / 10.0);
   _first = true;
   _target_x = 0;
   _target_y = 0;

@@ -5,7 +5,7 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Thu May  4 10:46:49 2017 arnaud.alies
-// Last update Wed Jun 14 13:44:15 2017 arnaud.alies
+// Last update Fri Jun 16 10:39:25 2017 arnaud.alies
 //
 
 #include <string>
@@ -17,7 +17,7 @@
 #include "Monster.hpp"
 #include "Plane.hpp"
 #include "SoloEndMenu.hpp"
-#include "random.hpp"
+#include "Random.hpp"
 
 BombermanSolo::BombermanSolo() :
   _core(nullptr),
@@ -62,8 +62,8 @@ void BombermanSolo::respawnPlanes()
   while (diff > 0)
     {
       do {
-	x = randint(1, _map->getWidth() - 2);
-	y = randint(1, _map->getHeight() - 2);
+	x = Random::randint(1, _map->getWidth() - 2);
+	y = Random::randint(1, _map->getHeight() - 2);
       } while (_map->get(x, y) != M_EMPTY);
       _entity_manager->addEntityMap<Plane>(x, y);
       x = 0;
@@ -135,8 +135,8 @@ void BombermanSolo::spawnMonsters()
   while (n > 0)
     {
       do {
-        x = randint(1, _map->getWidth() - 2);
-        y = randint(1, _map->getHeight() - 2);
+        x = Random::randint(1, _map->getWidth() - 2);
+        y = Random::randint(1, _map->getHeight() - 2);
       } while (_map->get(x, y) != M_EMPTY
 	       || _entity_manager->getInRange(Map::getAbs(x, y), UNIT * 4, "player").size() > 0);
       _entity_manager->addEntityMap<Monster>(x, y);

@@ -5,18 +5,18 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Tue May 30 15:13:35 2017 arnaud.alies
-// Last update Thu Jun 15 16:12:15 2017 arnaud.alies
+// Last update Fri Jun 16 10:39:46 2017 arnaud.alies
 //
 
 #include "Monster.hpp"
 #include "EntityManager.hpp"
 #include "Bomb.hpp"
-#include "random.hpp"
+#include "Random.hpp"
 
 Monster::Monster()
 {
-  _id = randint(5, 1000);
-  _speed = ((float)randint(20, 50)) / 10.0;
+  _id = Random::randint(5, 1000);
+  _speed = ((float)Random::randint(20, 50)) / 10.0;
 }
 
 Monster::~Monster()

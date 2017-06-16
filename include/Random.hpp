@@ -4,15 +4,17 @@
 // Made by arnaud.alies
 // Login   <arnaud.alies@epitech.eu>
 // 
-// Started on  Sun Jun  4 16:02:12 2017 arnaud.alies
-// Last update Mon Jun  5 17:06:57 2017 arnaud.alies
+// Started on  Fri Jun 16 10:35:59 2017 arnaud.alies
+// Last update Fri Jun 16 10:36:30 2017 arnaud.alies
 //
 
 #ifndef RANDOM_HPP_
 #define RANDOM_HPP_
 
-#define RAND_PERCENT(x) (randint(0, 100) < (x))
-
-int randint(int min, int max);
+class Random
+{
+public:
+  static int randint(int min, int max);
+};
 
 #endif

@@ -5,10 +5,10 @@
 // Login   <arnaud.alies@epitech.eu>
 // 
 // Started on  Sun May 28 17:29:25 2017 arnaud.alies
-// Last update Tue Jun  6 14:29:15 2017 arnaud.alies
+// Last update Fri Jun 16 10:40:52 2017 arnaud.alies
 //
 
-#include "random.hpp"
+#include "Random.hpp"
 #include "Map.hpp"
 #include "Powerup.hpp"
 #include "EntityManager.hpp"
@@ -16,7 +16,7 @@
 
 Powerup::Powerup()
 {
-  int rand = randint(0, 100);
+  int rand = Random::randint(0, 100);
   if (rand < 20)
     _power = P_SPEED;
   else if (rand < 70)
