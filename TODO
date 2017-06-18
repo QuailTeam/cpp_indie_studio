@@ -1,3 +1,0 @@
-map.get unsecure
-change map wall texture (causes irrlicht problems to delete nodes)
-printf
