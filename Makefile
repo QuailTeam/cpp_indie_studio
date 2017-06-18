@@ -71,10 +71,12 @@ clean_linux clean_win32:
 re:	clean all
 
 install:
+	-sudo dnf install SFML-devel
+	-sudo apt-get install libsfml-dev
 	wget "http://downloads.sourceforge.net/irrlicht/irrlicht-1.8.4.zip"
 	unzip "irrlicht-1.8.4.zip"
 	make -C "irrlicht-1.8.4/source/Irrlicht/"
-	rm -f "irrlicht-1.8.4.zip"
+	-rm -f "irrlicht-1.8.4.zip"
 	echo "DONE: If successful run 'make'"
 
 .PHONY: all all_win32 clean clean_linux clean_win32 static_win32 re install
