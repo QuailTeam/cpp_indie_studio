@@ -16,7 +16,7 @@ iquail.run(
         launch_with_quail=True
     ),
     builder=iquail.builder.Builder(
-        iquail.builder.CmdIcon('icon.ico'),
+        iquail.builder.CmdIcon('icon.png'),
         iquail.builder.CmdNoconsole()
     ),
     controller=iquail.ControllerTkinter()
