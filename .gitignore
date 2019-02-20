@@ -4,5 +4,11 @@
 *.o
 *.out
 *.so
+*.spec
 irrlicht-1.8.4
 vgcore*
+release
+indie.zip
+dist/*
+build/*
+__pycache__/*
